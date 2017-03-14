@@ -1,0 +1,232 @@
+.wrapper {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  overflow-y: auto;
+}
+.wrapper .header .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  display: block;
+}
+.wrapper .header .swiper-pagination .swiper-pagination-bullet {
+  background: none !important;
+  border: 1px solid #fff;
+}
+.wrapper .header .swiper-pagination .swiper-pagination-bullet-active {
+  background: #ff0000 !important;
+  border: none !important;
+}
+.wrapper .content {
+  height: 300px;
+  overflow: hidden;
+  background-color: white;
+  border-bottom: 1px solid #E4E4E4;
+}
+.wrapper .content .conTop {
+  height: 150px;
+  border-bottom: 2px solid #eee;
+}
+.wrapper .content .conTop .contentLeft {
+  float: left;
+  width: 40%;
+  height: 100%;
+  border-right: 1px solid #E4E4E4;
+  box-sizing: border-box;
+}
+.wrapper .content .conTop .contentLeft a {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+.wrapper .content .conTop .contentLeft a .imgBox {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+}
+.wrapper .content .conTop .contentLeft a .imgBox img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrapper .content .conTop .contentLeft a h3 {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #4392F1;
+}
+.wrapper .content .conTop .contentRight {
+  height: 100%;
+  width: 60%;
+  float: right;
+}
+.wrapper .content .conTop .contentRight ul {
+  height: 100%;
+}
+.wrapper .content .conTop .contentRight ul li {
+  height: 50%;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.wrapper .content .conTop .contentRight ul li a {
+  display: block;
+  height: 100%;
+  padding: 0 90px 0 30px;
+  position: relative;
+}
+.wrapper .content .conTop .contentRight ul li a .imgBox {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+}
+.wrapper .content .conTop .contentRight ul li a .imgBox img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrapper .content .conTop .contentRight ul li a span {
+  display: block;
+  line-height: 74px;
+  text-align: center;
+}
+.wrapper .content .conTop .contentRight ul li:last-child {
+  border-bottom: none;
+}
+.wrapper .content .conBottom {
+  height: 150px;
+}
+.wrapper .content .conBottom .contentLeft {
+  height: 100%;
+  width: 60%;
+  float: left;
+}
+.wrapper .content .conBottom .contentLeft ul {
+  height: 100%;
+}
+.wrapper .content .conBottom .contentLeft ul li {
+  height: 50%;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.wrapper .content .conBottom .contentLeft ul li a {
+  display: block;
+  height: 100%;
+  padding: 0 30px 0 100px;
+  position: relative;
+}
+.wrapper .content .conBottom .contentLeft ul li a .imgBox {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+}
+.wrapper .content .conBottom .contentLeft ul li a .imgBox img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrapper .content .conBottom .contentLeft ul li a span {
+  display: block;
+  text-align: center;
+  line-height: 74px;
+}
+.wrapper .content .conBottom .contentLeft ul li:last-child {
+  border-bottom: none;
+}
+.wrapper .content .conBottom .contentRight {
+  float: left;
+  width: 40% ;
+  height: 100%;
+  border-left: 1px solid  #E4E4E4;
+  box-sizing: border-box;
+}
+.wrapper .content .conBottom .contentRight a {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+.wrapper .content .conBottom .contentRight a .imgBox {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+}
+.wrapper .content .conBottom .contentRight a .imgBox img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrapper .content .conBottom .contentRight a h3 {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.wrapper .detail ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  min-height: 80px;
+}
+.wrapper .detail ul li a {
+  display: block;
+  padding-left: 90px;
+  position: relative;
+}
+.wrapper .detail ul li a .detailsImg {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .detail ul li a .detailsImg img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrapper .detail ul li a h3 {
+  font-size: 14px;
+  font-weight: normal;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.wrapper .detail ul li a p {
+  font-size: 12px;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wrapper .detail ul li a .num {
+  font-size: 12px;
+  color: #999;
+  text-align: right;
+}
+.wrapper .detail #tip {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #999;
+}
+.wrapper #tip {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #999;
+}
+.wrapper #loading {
+  height: 30px;
+  display: none;
+}
+.wrapper #loading img {
+  display: block;
+  height: 30px;
+  margin: 0 auto;
+}

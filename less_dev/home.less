@@ -1,0 +1,131 @@
+@import "reset";
+
+.header {
+    height: 40px;
+    background-color: rgb(228, 58, 82);
+    padding: 0 10px;
+    overflow: hidden;
+    position: relative;
+
+    #search {
+        height: 30px;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        border-radius: 15px;
+        margin-top: 5px;
+        padding: 0 30px 0 135px;
+    }
+
+    .logo {
+        position: absolute;
+        height: 20px;
+        left: 18px;
+        top: 10px;
+    }
+
+    .fa-search {
+        font-size: 16px;
+        position: absolute;
+        top: 11px;
+        right: 20px;
+        color: #999;
+    }
+}
+
+.swiper-slide img {
+    width: 100%;
+    display: block;
+}
+
+.nav {
+    padding: 20px 0;
+    .clearFix();
+
+    li {
+        width: 25%;
+        float: left;
+        text-align: center;
+        line-height: 30px;
+
+        img {
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+}
+
+.line {
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.activityList {
+    .clearFix();
+
+    li {
+        width: 50%;
+        float: left;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        box-sizing: border-box;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    li:nth-child(2n) {
+        border-right-color: #fff;
+    }
+}
+
+.goodsList {
+    .clearFix();
+
+    li {
+        width: 50%;
+        float: left;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        box-sizing: border-box;
+        padding: 10px;
+
+        .imgCon {
+            position: relative;
+            overflow: hidden;
+            .imgBg {
+                width: 100%;
+                display: block;
+            }
+            .goodsImg {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+    li:nth-child(2n) {
+        border-right-color: #fff;
+    }
+
+    .goodsName {
+        text-align: center;
+    }
+
+    .price {
+        text-align: center;
+        color: #f00;
+
+        .priceOld {
+            text-decoration: line-through;
+            font-size: 12px;
+            color: #333;
+        }
+    }
+}

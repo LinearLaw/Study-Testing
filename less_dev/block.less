@@ -1,0 +1,123 @@
+@import "reset";
+
+ .contentBar {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #dedede;
+     li{
+         float: left;
+         width: 33.3%;
+         text-align: center;
+         a{
+             width:100%;
+             height:100%;
+             display: block;
+             &.active{
+                 color: #ff0000;
+             }
+         }
+     }
+}
+.contentBar .active {
+}
+ .contentDesc {
+    position: absolute;
+    width: 100%;
+    top: 171px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+/*内容开始*/
+.conten_main ul{
+    margin: 0 10px;
+}
+.conten_main .Ithaca{
+    height: 100px;
+    margin-top: 10px;
+    .conten{
+        height: 100%;
+        background-color: #FFD27D;
+    }
+}
+
+/*黄色模块*/
+.conten_main .conten1{
+    height: 100%;
+    background-color: #D1D1D1;
+}
+
+.conten_main .conten .conten_left{
+    width: 60%;
+    height: 100%;
+    float: left;
+    display: block;
+    border-right: 2px solid white;
+    .prices{
+        font-size: 24px;
+        color: white;
+        padding:15px  10px;
+    }
+    .xianqing{
+        font-size: 14px;
+        font-weight: normal;
+        color: #D2AB68;
+        margin-left: 10px;
+    }
+}
+.conten_main .conten .conten_right{
+    width: 39.3%;
+    float: right;
+    p{
+        font-size: 14px;
+        color: #D2AB68;
+        margin: 10px ;
+    }
+    .ext{
+        margin-top: 10px;
+    }
+}
+
+/*灰色模块*/
+.conten_main .clearFix .Ithaca1{
+    height: 100px;
+    margin-top: 10px;
+    .conten{
+        height: 100%;
+        background-color: #D1D1D1;
+    }
+    p{
+        color: #999999;
+    }
+}
+.conten_main .Ithaca1  .conten .conten_left p{
+    color: #999999;
+}
+
+.conten_main .Ithaca1  .conten .conten_right {
+     position: relative;
+    .wrapper {
+        margin: 10px auto;
+        width: 150px;
+    }
+}
+.conten_main .Ithaca1  .conten .conten_right .wrapper div{
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background: #999999;
+    color: #fff;
+    -webkit-transform: rotate(50deg);
+    -moz-transform: rotate(50deg);
+    transform:rotate(50deg);
+    right: -3px;
+    top: 20px;;
+    position: absolute;
+}
+.conten_main .Ithaca1  .conten .conten_right .wrapper span {
+    display:block;
+    -webkit-transform:rotate(2deg);
+    -moz-transform:rotate(2deg);
+    transform:rotate(2deg);
+}

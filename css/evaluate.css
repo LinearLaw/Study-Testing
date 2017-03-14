@@ -1,0 +1,264 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav1:before,
+.nav1:after {
+  content: " ";
+  display: table;
+}
+.nav1:after {
+  clear: both;
+}
+.nav1 {
+  padding: 15px 0;
+  border-bottom: 1px solid #dedede;
+}
+.nav1 li {
+  padding: 10px 0;
+  width: 20%;
+  float: left;
+  color: #999;
+}
+.nav1 li a {
+  display: block;
+}
+.nav1 li a span {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 28px;
+  position: relative;
+}
+.nav1 li a span .num {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  font-size: 12px;
+  background-color: #f00;
+  border-radius: 50%;
+  left: 55%;
+  top: -2px;
+  color: #ffffff;
+}
+.nav1 li a p {
+  text-align: center;
+  font-size: 14px;
+}
+.nav1 .active {
+  color: #ffa500;
+}
+.details .log {
+  height: 25px;
+  margin-left: 8px;
+}
+/*详情*/
+.details li {
+  border-bottom: 1px solid #dedede;
+  padding: 15px 15px 5px;
+}
+.details li h4 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details li .goods {
+  padding: 10px 10px 10px 90px;
+  position: relative;
+  min-height: 80px;
+  display: block;
+}
+.details li .goods .goodsImg {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  overflow: hidden;
+  display: block;
+}
+.details li .goods .goodsImg img {
+  width: 100%;
+  height: 100%;
+}
+.details li .goods h3 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details li .goods p {
+  line-height: 20px;
+}
+.details li .goods .address {
+  font-size: 12px;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details li .goods .num {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #999;
+}
+.details li .goods .num1 {
+  font-size: 12px;
+  color: #ff4500;
+}
+.result {
+  border-bottom: 1px solid #dddddd;
+  line-height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.result:before,
+.result:after {
+  content: " ";
+  display: table;
+}
+.result:after {
+  clear: both;
+}
+.result .audience {
+  color: #ff4500;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.result .amount {
+  color: #ff4500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.result span {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 12px;
+}
+.button {
+  margin-top: 10px;
+  padding-right: 15px;
+  text-align: right;
+  height: 40px;
+  line-height: 40px;
+}
+.button input[type="button"] {
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+}
+.button input[type="button"]:not(:first-of-type) {
+  margin-left: 10px;
+}
+.button #pay {
+  color: #ffa500;
+  border: 1px solid #ffa500;
+}

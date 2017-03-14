@@ -1,0 +1,225 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url("../images/vote/2_5.jpg") top center no-repeat;
+  background-size: 100% 100%;
+}
+.header {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #e63a54;
+  color: #fff;
+}
+.header .back {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-left: 3px solid #fff;
+  border-top: 3px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 13px;
+  left: 15px;
+}
+.con {
+  position: absolute;
+  width: 300px;
+  top: 120px;
+  left: 50%;
+  margin-left: -150px;
+  bottom: 30px;
+  border-radius: 10px;
+  background-color: #ffd96c;
+}
+.con .rankHeader {
+  position: absolute;
+  width: 100%;
+  top: -59px;
+  left: 0;
+}
+.con .row1 {
+  width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.con .row2 {
+  width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.con .row3 {
+  width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.con .row4 {
+  width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.con .thead {
+  font-weight: bold;
+  color: #964d14;
+}
+.con .thead:before,
+.con .thead:after {
+  content: " ";
+  display: table;
+}
+.con .thead:after {
+  clear: both;
+}
+.con .thead li {
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  float: left;
+  text-align: center;
+}
+#wrapper {
+  position: absolute;
+  width: 300px;
+  left: 0;
+  top: 40px;
+  bottom: 30px;
+  overflow: hidden;
+}
+#wrapper li {
+  padding: 5px 0;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+#wrapper li:before,
+#wrapper li:after {
+  content: " ";
+  display: table;
+}
+#wrapper li:after {
+  clear: both;
+}
+#wrapper li div {
+  float: left;
+}
+#wrapper li .userImg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+#wrapper li .row1 {
+  color: #1d9aa4;
+}

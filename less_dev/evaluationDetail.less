@@ -1,0 +1,96 @@
+@import "reset";
+
+#container{
+	width:100%;
+	position: absolute;
+	top:0;
+	bottom:0;
+	#wrapper{
+		width:100%;
+		position: absolute;
+		top:40px;
+		bottom:0;
+		overflow-y: auto;
+		background-color: #F4F4F4;
+		.evaluationArea{
+			padding-left: 10px;
+			background-color: #FFF;
+			.title{
+				height:40px ;
+				line-height: 40px;
+				padding-right: 10px;
+				color: #FC942F;
+				border-bottom: 1px solid #F5F5F5;
+				.evaNum{
+					color: #A6A6A6;
+					float: right;
+				}
+			}
+			.evaluationList{
+				border-bottom: 1px solid #ECECEC;
+				.evaluation{
+					padding-right: 10px;
+					.userInfo{
+						padding: 10px 0 10px 45px;
+						position: relative;
+						.portrait{
+							width:40px;
+							height:40px;
+							overflow: hidden;
+							position: absolute;
+							left:0;
+							img{
+								width:100%;
+								display: block;
+							}
+						}
+						.username{
+							color: #FC942F;
+						}
+						.vip{
+							width:15px;
+							height:15px;
+							display: inline-block;
+							overflow: hidden;
+							img{
+								width:100%;
+								display: block;
+							}
+						}
+						.score{
+							color: #FA962E;
+						}
+						.date{
+							color: #A2A2A2;
+						}
+					}
+					.detail{
+						.content{
+							text-indent: 2em;
+							.ellipsis(5);
+						}
+						.pics{
+							padding: 10px 0;
+							div{
+								width:58px;
+								height:58px;
+								overflow: hidden;
+								display: inline-block;
+								img{
+									width:100%;
+									display: inline-block;
+								}
+							}
+						}
+					}
+				}
+			}
+			#tip {
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: #999;
+			}
+		}
+	}
+}

@@ -1,0 +1,276 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.header {
+  height: 40px;
+  position: relative;
+  line-height: 40px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #e63a54;
+  text-align: center;
+}
+.header .fa-angle-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+.orderList h3 {
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.orderList li {
+  position: relative;
+  padding: 10px 10px 10px 90px;
+  border-bottom: 1px solid #ddd;
+  height: 70px;
+}
+.orderList li .goodsImg {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  overflow: hidden;
+}
+.orderList li .goodsImg img {
+  display: block;
+  width: 100%;
+}
+.orderList li .price {
+  position: absolute;
+  left: 90px;
+  bottom: 10px;
+  color: #f00;
+}
+.orderList li .num {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.address {
+  padding: 10px 50px 10px 10px;
+  color: #fff;
+  background-color: #E63A54;
+  font-size: 12px;
+  line-height: 16px;
+  position: relative;
+  display: block;
+}
+.address h3 {
+  font-size: 14px;
+  border-bottom: 1px solid #fff;
+  font-weight: normal;
+  line-height: 20px;
+}
+.address .fa-angle-right {
+  font-size: 24px;
+  position: absolute;
+  top: 17px;
+  right: 10px;
+}
+.selectAd {
+  border-bottom: 1px solid #ddd;
+}
+.selectAd .adCon {
+  overflow: hidden;
+}
+.selectAd .adCon:before,
+.selectAd .adCon:after {
+  content: " ";
+  display: table;
+}
+.selectAd .adCon:after {
+  clear: both;
+}
+.selectAd h3 {
+  padding: 0 10px;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #3ac5e6;
+  color: #fff;
+  font-weight: normal;
+  position: relative;
+}
+.selectAd h3 .fa {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+}
+.selectAd .city,
+.selectAd .district {
+  height: 30px;
+  width: 50%;
+  float: left;
+  background-color: #eee;
+  line-height: 30px;
+  padding: 0 10px 0 75px;
+  box-sizing: border-box;
+  position: relative;
+}
+.selectAd .city label,
+.selectAd .district label {
+  position: absolute;
+  left: 10px;
+  width: 70px;
+}
+.selectAd .detailAd {
+  clear: both;
+  height: 30px;
+  background-color: #eee;
+  line-height: 30px;
+  box-sizing: border-box;
+  padding: 0 10px 0 75px;
+  position: relative;
+}
+.selectAd .detailAd label {
+  position: absolute;
+  left: 10px;
+}
+.selectAd select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.orderPrice {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+.orderPrice span {
+  position: absolute;
+  color: #f00;
+  right: 10px;
+}
+.userPhone {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+.userPhone span {
+  position: absolute;
+  right: 10px;
+}
+#submit {
+  width: 50%;
+  height: 30px;
+  border: none;
+  display: block;
+  border-radius: 5px;
+  margin: 30px auto;
+  text-align: center;
+  color: #fff;
+  background-color: #ea603b;
+}

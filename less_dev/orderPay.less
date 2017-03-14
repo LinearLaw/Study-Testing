@@ -1,0 +1,198 @@
+@import "reset";
+
+.textOrange {
+  color: #FF642E;
+}
+
+#container{
+
+  .content{
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    overflow: hidden;
+    .order_info{
+      width:100%;
+      background-color: #fff;
+      overflow: hidden;
+      border-bottom: 10px solid #eee;
+      p,.count{
+        width: 94%;
+        height:40px;
+        line-height: 40px;
+        float: right;
+        border-bottom: 1px solid #ddd;
+        padding:0 10px 0 0;
+        span{
+          display: block;
+          font-size: 14px;
+        }
+        .lfloat{
+          float: left !important;
+        }
+        .rfloat {
+          float: right !important;
+        }
+        .sum {
+            color: #FE632D;;
+        }
+      }
+      .count {
+        position: relative;
+        .num-module{
+          border: 1px solid #ccc;
+          text-align: center;
+          border-radius: 3px;
+          position: absolute;
+          top:4px;
+          right: 10px;
+          span{
+            display: inline;
+          }
+          .minus,
+          .plus {
+            width: 30px;
+            height: 30px;
+            line-height:30px;
+            color: #999;
+            font-size: 20px;
+            display: inline-block;
+            float: left;
+          }
+          input {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            float: left;
+          }
+         .enable {
+           color: #46BBA9;
+         }
+        }
+      }
+      p:last-child {
+        border:none;
+      }
+      }
+    .list {
+      background-color: #fff;
+      li {
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        .radio {
+          padding: 0;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 14px;
+          height: 14px;
+          box-sizing: border-box;
+          border: 2px solid rgb(255, 100, 46);
+          border-radius: 50%;
+          outline: none;
+          float: right;
+        }
+        .radio:checked {
+          background-color: rgb(255, 100, 46);
+        }
+        .bandPhone {
+          display: block;
+          padding-top: 10px;
+        }
+        &:last-child{
+          padding: 0;
+        }
+        &:last-child a{
+          width:100%;
+          height:100%;
+          padding: 10px;
+          display: block;
+          box-sizing: border-box;
+        }
+      }
+    }
+    .sendBtn {
+      display: block;
+      width: 86%;
+      margin: 30px auto 0 auto;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 5px;
+      background-color: #FE632D;
+      text-align: center;
+      color: #fff;
+      font-size: 16px;
+    }
+    .coupon{
+      width:100%;
+      background-color: white;
+      position: fixed;
+      bottom:0;
+      z-index: 11;
+      display: none;
+      .title{
+        text-align: center;
+        height:40px;
+        line-height: 40px;
+      }
+      .coupon-box{
+        width:100%;
+        max-height: 368px;
+        position: relative;
+        bottom: 0;
+        overflow-y: auto;
+        ul{
+          li{
+            margin: 0 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #EEEEEE;
+            position: relative;
+            .amount{
+              color: #B87C5A;
+              .num{
+                font-size: 16px;
+              }
+            }
+            .condition{
+              font-size: 16px;
+            }
+            .deadline{
+              color: #B7B7B7;
+              font-size: 14px;
+            }
+            .use-coupon{
+              width:60px;
+              height:30px;
+              margin-top: -15px;
+              color: #B87C5A;
+              border:1px solid #B87C5A;
+              line-height:30px;
+              text-align: center;
+              box-sizing: border-box;
+              border-radius: 3px;
+              position: absolute;
+              right:0;
+              top:50%;
+            }
+          }
+        }
+      }
+    }
+
+    .mask{
+      position: fixed;
+      left:0;
+      right:0;
+      top:40px;
+      bottom:0;
+      background-color: rgba(0,0,0,0.3);
+      z-index:10;
+      display: none;
+    }
+  }
+}
+
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>淘惠帮</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link href="../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../plugs/swiper/3.3.1/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../css/orderDetail.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="container">
+    <div class="header">
+        <a href="javascript:void(0)" class="fa fa-angle-left"></a>
+        <span>订单详情</span>
+    </div>
+
+    <!--商品列表-->
+    <div class="orderList">
+        <h3>商家名称</h3>
+        <ul>
+            <li>
+                <div class="goodsImg">
+                    <img src="../images/2_1.png">
+                </div>
+                <div class="goodsName">商品名</div>
+                <div class="price">￥233</div>
+                <div class="num">x 1</div>
+            </li>
+            <li>
+                <div class="goodsImg">
+                    <img src="../images/2_1.png">
+                </div>
+                <div class="goodsName">商品名</div>
+                <div class="price">￥233</div>
+                <div class="num">x 1</div>
+            </li>
+        </ul>
+    </div>
+
+    <!--收货地址-->
+    <a href="javascript:;" class="address">
+        <h3>收货地址</h3>
+        <div class="userMes">
+            <span>用户名</span>
+            <span>12345454646</span>
+        </div>
+        <div class="ad">
+            地址地址地址地址地址地址
+        </div>
+
+        <span class="fa fa-angle-right"></span>
+    </a>
+
+    <!--商品列表-->
+    <div class="orderList">
+        <h3>商家名称</h3>
+        <ul>
+            <li>
+                <div class="goodsImg">
+                    <img src="../images/2_1.png">
+                </div>
+                <div class="goodsName">商品名</div>
+                <div class="price">￥233</div>
+                <div class="num">x 1</div>
+            </li>
+        </ul>
+    </div>
+
+    <!--商品自提，选择地址-->
+    <div class="selectAd">
+        <h3 class="adBtn">商品自提 <span class="fa fa-angle-down"></span></h3>
+
+        <div class="adCon">
+            <div class="city">
+                <label for="city">市</label>
+                <select id="city">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+
+            <div class="district">
+                <label for="district">区</label>
+                <select id="district">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+
+            <div class="detailAd">
+                <label for="detailAd">详细地址</label>
+                <select id="detailAd">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!--订单总价-->
+    <div class="orderPrice">
+        订单总价
+        <span>￥2333</span>
+    </div>
+
+    <!--手机号-->
+    <div class="userPhone">
+        您的手机号码
+        <span>12345678901</span>
+    </div>
+
+    <button id="submit">提交订单</button>
+</div>
+
+<script src="../scripts/jquery-2.2.2.min.js"></script>
+<script>
+    $(".adBtn").on("click", function () {
+        $(".adCon").slideToggle();
+        $(".selectAd").find(".fa").toggleClass("fa-angle-down").toggleClass("fa-angle-right");
+    });
+</script>
+</body>
+</html>

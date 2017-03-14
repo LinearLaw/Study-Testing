@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>惠生活</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css" type="text/css">
+    <link href="../../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../css/orderPay.css" type="text/css">
+</head>
+<body style="height: 100%; background-color: #F0EFED;">
+    <div id="container">
+
+        <div class="commonHeader">订单支付
+            <a href="javascript:void (0)" class="fa fa-chevron-left back"></a>
+        </div>
+
+        <div class="content">
+            <!--订单信息-->
+            <div class="order_info">
+                <p><span class="lfloat">牛肉火锅（10人份）</span><span class="rfloat" >245元</span></p>
+                <div class="count">
+                    <span class="lfloat">数量</span>
+                    <div class="num-module">
+                        <span class="minus enable">-</span>
+                        <input type="text" value="1">
+                        <span class="plus enable">+</span>
+                    </div>
+                </div>
+                <p><span class="lfloat">小计</span><span class="rfloat sum">245元</span></p>
+            </div>
+            <!--优惠券-->
+            <ul class="list">
+                <li id="useCoupon">
+                    <span>使用优惠券</span>
+                    <input type="radio" class="radio" name="coupon">
+                </li>
+                <li>
+                    <span>不使用优惠券</span>
+                    <input type="radio" class="radio" name="coupon" checked>
+                </li>
+                <li>
+                    <span>订单总价</span>
+                    <span class="textOrange pullRight"><span class="orderPrice">￥242</span><span class="couponInfo">（使用优惠券抵消3元）</span></span>
+                </li>
+                <li>
+                    <p>您绑定的手机号码</p>
+                    <p class="bandPhone" href="javascript:void(0)">
+                        <span>124****2343</span>
+                        <a class="pullRight bind">绑定新号码 <span class="fa fa-angle-right"></span></a>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <p>
+                            <span>朱思雨</span>
+                            <span class="pullRight">12345678901</span>
+                        </p>
+                        <p>地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址</p>
+                    </a>
+                </li>
+            </ul>
+            <button class="sendBtn">提交订单</button>
+            <!--优惠券详情-->
+            <div class="coupon">
+                <h3 class="title">优惠券</h3>
+                <div class="coupon-box">
+                    <ul>
+                        <li>
+                            <div class="amount"><span class="num">3</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">5</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">8</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">10</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">15</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">20</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">25</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">25</span><span>.00元</span></div>
+                            <div class="condition">订单满50元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">30</span><span>.00元</span></div>
+                            <div class="condition">订单满150元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">35</span><span>.00元</span></div>
+                            <div class="condition">订单满150元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">40</span><span>.00元</span></div>
+                            <div class="condition">订单满150元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                        <li>
+                            <div class="amount"><span class="num">45</span><span>.00元</span></div>
+                            <div class="condition">订单满150元使用</div>
+                            <div class="deadline">使用期限 2016.08.22-2016.10.31</div>
+                            <span class="use-coupon">使用</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mask"></div>
+
+        </div>
+
+    </div>
+</body>
+<script src="../../scripts/jquery-2.2.2.min.js"></script>
+<script src="../../scripts/common.js"></script>
+<script src="../../scripts/orderPay.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>

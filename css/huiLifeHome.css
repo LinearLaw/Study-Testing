@@ -1,0 +1,312 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.title {
+  height: 40px;
+  line-height: 40px;
+  background-color: #E63A54;
+  position: relative;
+  padding: 0 54px 0 84px;
+}
+.title .back {
+  position: absolute;
+  left: 0;
+  display: block;
+  height: 40px;
+}
+.title .back i {
+  width: 30px;
+  line-height: 40px;
+  text-align: center;
+  float: left;
+  font-size: 30px;
+  color: #fff;
+}
+.title span {
+  display: block;
+  float: left;
+  color: #fff;
+}
+.title .imgBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 40px;
+  text-align: center;
+}
+.title .imgBox i {
+  font-size: 20px;
+  color: #fff;
+  margin-top: 12px;
+}
+.title .formBox {
+  position: relative;
+}
+.title .formBox input {
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  background: #fff;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  border-radius: 14px;
+  border: none;
+  padding-left: 10px;
+}
+.title .formBox i {
+  position: absolute;
+  right: 5px;
+  top: 12px;
+  color: #0195FF;
+  font-size: 16px;
+}
+.wrapper {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.wrapper .topBar {
+  overflow: hidden;
+}
+.wrapper .topBar ul li {
+  width: 33.3%;
+  height: 106px;
+  float: left;
+  border-right: 1px solid #f7f2f2;
+  border-bottom: 1px solid #f7f2f2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wrapper .topBar ul li a {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+.wrapper .topBar ul li a .imgBox {
+  margin-top: 20px;
+}
+.wrapper .topBar ul li a .imgBox img {
+  display: block;
+  margin: 0 auto;
+}
+.wrapper .topBar ul li a p {
+  text-align: center;
+}
+.wrapper .topBar ul li:nth-child(3n) {
+  border-right: none;
+}
+.wrapper .content .remmBussinesser {
+  overflow: hidden;
+}
+.wrapper .content .remmBussinesser .remmTitle {
+  height: 25px;
+  line-height: 25px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+}
+.wrapper .content .remmBussinesser .remmTitle span {
+  display: block;
+  float: left;
+  padding: 0 10px;
+  border-left: 3px solid #0195FF;
+}
+.wrapper .content .remmBussinesser .remmTitle a {
+  display: block;
+  float: right;
+  font-size: 12px;
+  padding: 0 10px;
+}
+.wrapper .content .remmBussinesser .remmTitle a i {
+  font-size: 16px;
+  color: #0195FF;
+}
+.wrapper .content .remmBussinesser .remmList ul:before,
+.wrapper .content .remmBussinesser .remmList ul:after {
+  content: " ";
+  display: table;
+}
+.wrapper .content .remmBussinesser .remmList ul:after {
+  clear: both;
+}
+.wrapper .content .remmBussinesser .remmList ul li {
+  box-sizing: border-box;
+  padding: 0 3px;
+}
+.wrapper .content .remmBussinesser .remmList ul li a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.wrapper .content .remmBussinesser .remmList ul li a img {
+  display: block;
+  width: 100%;
+}
+.wrapper .content .remmBussinesser .remmList ul li a img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .content .lover .loverTitle {
+  height: 25px;
+  line-height: 25px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+}
+.wrapper .content .lover .loverTitle span {
+  display: block;
+  float: left;
+  padding: 0 10px;
+  border-left: 3px solid #0195FF;
+}
+.wrapper .content .lover .loverTitle a {
+  display: block;
+  float: right;
+  font-size: 12px;
+  padding: 0 10px;
+}
+.wrapper .content .lover .loverTitle a i {
+  font-size: 16px;
+  color: #0195FF;
+}
+.wrapper .content .lover .loverList ul li {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  min-height: 80px;
+}
+.wrapper .content .lover .loverList ul li a {
+  display: block;
+  position: relative;
+  padding-left: 90px;
+}
+.wrapper .content .lover .loverList ul li a .fImg {
+  position: absolute;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.wrapper .content .lover .loverList ul li a .fImg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.wrapper .content .lover .loverList ul li a h3 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wrapper .content .lover .loverList ul li a p {
+  line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wrapper .content .lover .loverList ul li a p .count {
+  display: block;
+  float: right;
+}

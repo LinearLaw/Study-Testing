@@ -1,0 +1,60 @@
+.scrollLoadCon {
+  position: absolute;
+  width: 100%;
+  padding-bottom: 40px;
+}
+.loadTip1 {
+  width: 320px;
+  height: 40px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -160px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 40px;
+  color: #888;
+}
+.loadTip2 {
+  position: absolute;
+  width: 320px;
+  height: 40px;
+  bottom: 0;
+  left: 50%;
+  margin-left: -160px;
+  display: none;
+}
+.loadTip2 .loadT1,
+.loadTip2 .loadT2,
+.loadTip2 .loadT3 {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 15px;
+  background-color: #60a2ff;
+  border-radius: 50%;
+}
+.loadTip2 .loadT1 {
+  left: 135px;
+  -webkit-animation: loadAni linear infinite 0.9s;
+}
+.loadTip2 .loadT2 {
+  left: 155px;
+  -webkit-animation: loadAni linear infinite 0.9s 0.3s;
+}
+.loadTip2 .loadT3 {
+  right: 135px;
+  -webkit-animation: loadAni linear infinite 0.9s 0.6s;
+}
+@-webkit-keyframes loadAni {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}

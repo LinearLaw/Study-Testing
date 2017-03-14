@@ -1,0 +1,260 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#wrapper {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 0;
+  overflow-y: hidden;
+}
+#wrapper .tip {
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #ddd;
+  color: #666;
+  text-align: center;
+}
+#wrapper .discussion {
+  padding: 0 10px;
+  border-bottom: 1px solid #E2E3E6;
+}
+#wrapper .discussion .userInfo {
+  min-height: 100px;
+  position: relative;
+  padding: 10px 0 10px 90px;
+  border-bottom: 1px solid #E2E3E6;
+  box-sizing: border-box;
+}
+#wrapper .discussion .userInfo .userImg {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+#wrapper .discussion .userInfo .userImg img {
+  width: 100%;
+  display: block;
+}
+#wrapper .discussion .userInfo .nickname {
+  height: 40px;
+  line-height: 60px;
+  font-size: 18px;
+  color: #3889D7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#wrapper .discussion .userInfo .weixinName {
+  font-size: 12px;
+}
+#wrapper .discussion .detail {
+  padding: 10px 0;
+}
+#wrapper .discussion .detail .title {
+  height: 40px;
+  line-height: 40px;
+}
+#wrapper .discussion .detail .date {
+  height: 24px;
+  line-height: 24px;
+  color: #9B9B9D;
+}
+#wrapper .discussion .detail .problem {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+#wrapper .discussion .detail .imgs {
+  margin-top: 10px;
+}
+#wrapper .discussion .detail .imgs .img {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  display: inline-block;
+}
+#wrapper .discussion .detail .imgs .img img {
+  width: 100%;
+  display: block;
+}
+#wrapper .noneEvaluation {
+  width: 80%;
+  margin: 10px auto;
+  display: none;
+}
+#wrapper .noneEvaluation img {
+  width: 100%;
+  display: block;
+}
+#wrapper .allEvaluation {
+  padding: 10px 10px 0;
+}
+#wrapper .allEvaluation .title {
+  color: #30AEE6;
+}
+#wrapper .allEvaluation .evaluationList .evaluation {
+  padding: 10px 10px 0 100px;
+  position: relative;
+  border-bottom: 1px solid #E2E3E6;
+}
+#wrapper .allEvaluation .evaluationList .evaluation .img {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+#wrapper .allEvaluation .evaluationList .evaluation .img img {
+  width: 100%;
+  display: block;
+}
+#wrapper .allEvaluation .evaluationList .evaluation .date {
+  font-size: 12px;
+  color: #A2A3A5;
+}
+#wrapper .allEvaluation .evaluationList .evaluation .content {
+  margin: 10px 0;
+}
+#wrapper .allEvaluation #tip {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #999;
+}
+.operate {
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid #E2E3E6;
+  background-color: #FFF;
+  line-height: 40px;
+  text-align: center;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+}
+.operate li {
+  width: 50%;
+  height: 100%;
+  padding-left: 40px;
+  float: left;
+  box-sizing: border-box;
+  position: relative;
+}
+.operate li:first-child {
+  border-right: 1px solid #E2E3E6;
+}
+.operate li i {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #000;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  font-size: 16px;
+}

@@ -1,0 +1,73 @@
+@import "reset";
+#container {
+    .title {
+        width: 100%;
+        height: 40px;
+        background-color: #0195FF;
+        h3{
+            line-height: 40px;
+            color: #fff;
+            text-align: center;
+            font-weight: normal;
+            span {
+                font-size: 12px;
+            }
+        }
+    }
+    .content {
+        width:100%;
+        position: absolute;
+        left:0;
+        top:40px;
+        bottom:0;
+        overflow: hidden;
+        ul{
+            overflow: hidden;
+            li{
+                width:50%;
+                padding:5px;
+                float: left;
+                box-sizing: border-box;
+                border-bottom: 1px solid #eee;
+                a{
+                    display: block;
+                    img{
+                        display: block;
+                        width:100%;
+                        margin:0 auto;
+                    }
+                    p{
+                        .ellipsis(2);
+                    }
+                    .originPrice{
+                        color: #999;
+                        font-size: 12px;
+                        span{
+                            text-decoration: line-through;
+                        }
+                    }
+                    h3{
+                        height: 30px;
+                        line-height: 30px;
+                        font-size:16px;
+                        color: #E44677;
+                        span{
+                            display: block;
+                            float: right;
+                            color: #999;
+                            font-size: 12px;
+                        }
+                    }
+
+                }
+            }
+        }
+        .tip{
+            height: 40px;
+            line-height: 40px;
+            border-top:1px solid #ddd;
+            color: #666;
+            text-align: center;
+        }
+    }
+}

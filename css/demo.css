@@ -1,0 +1,13 @@
+#wrapper {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  overflow-y: auto;
+}
+#tip {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #999;
+}

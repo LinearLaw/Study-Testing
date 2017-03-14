@@ -1,0 +1,299 @@
+@import "reset";
+
+.swiper-container img{
+	width:100%;
+}
+/*内容导航*/
+.contentBar {
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #dedede;
+	box-sizing: border-box;
+	li{
+		float: left;
+		width: 33.3%;
+		box-sizing: border-box;
+		text-align: center;
+		&:last-child{
+			border-right: none;
+		}
+		a{
+			width:100%;
+			height:100%;
+			display: block;
+			border-right: 1px solid #ddd;
+		}
+		a.active{
+			color: #0f8fec;
+		}
+	}
+}
+#wrapper{
+	width:100%;
+	position: absolute;
+	top:80px;
+	bottom:0;
+	left:0;
+	overflow: hidden;
+	.tip{
+		height: 40px;
+		line-height: 40px;
+		border-top:1px solid #ddd;
+		color: #666;
+		text-align: center;
+	}
+
+	/*更多*/
+	.more {
+		padding-bottom: 10px;
+		.title{
+			line-height:40px;
+			padding: 0 10px;
+			.Stick {
+				padding-left: 40px;
+				color: #999999;
+				display: inline-block;
+				position: relative;
+				i{
+					font-size: 16px;
+					position: absolute;
+					left:0;
+					top:0;
+					.WritingCenterAlignment(@color: #F00);
+				}
+			}
+			.more1 {
+				height:40px;
+				color: #0f8fec;
+				font-size: 12px;
+				display: inline-block;
+				.double {
+					color: #0f8fec;
+				}
+			}
+		}
+
+		.content{
+			.piece{
+				height:30px;
+				line-height: 30px;
+				padding-left: 80px;
+				position: relative;
+				.tip{
+					height:24px;
+					line-height: 24px;
+					text-align: center;
+					padding: 0 10px;
+					background-color: #00A5DF;
+					border-radius: 5px;
+					color: #FFF;
+					display: block;
+					position: absolute;
+					top:50%;
+					left:16px;
+					margin-top: -10px;
+				}
+			}
+		}
+	}
+
+	/*图片*/
+	.photo {
+		min-height: 80px;
+		border-top: 2px solid #ddd;
+		a{
+			display: block;
+			img {
+				width: 100%;
+				display: block;
+			}
+		}
+	}
+
+	/*详情*/
+	.content {
+		.conList {
+			border-bottom: 1px solid #dddddd;
+			li{
+				margin-bottom: 10px;
+				.log {
+					background: #ffffff;
+					border-top: 1px solid #dddddd;
+					.detailsMes {
+						border-bottom: 1px solid #dddddd;
+						padding: 15px 20px 10px 95px;
+						position: relative;
+						min-height: 70px;
+						display: block;
+						.detailsImg {
+							width: 70px;
+							height: 70px;
+							position: absolute;
+							top: 15px;
+							left: 10px;
+							img {
+								width: 100%;
+								height: 100%;
+								display: block;
+							}
+						}
+					}
+				}
+			}
+		}
+		#tip {
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			color: #999;
+		}
+	}
+
+	.content .conList li .log .detailsMes .detailsCon {
+		padding-right: 20px;
+		h3 {
+			font-weight: normal;
+			font-size: 16px;
+			line-height: 35px;
+			color: #007aff;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.audit {
+			color: #ff69b4;
+		}
+		.data {
+			line-height: 20px;
+			font-size: 12px;
+		}
+	}
+
+	.content .conList li .log .detailsMes .detailsRight {
+		position: absolute;
+		top: 30px;
+		right: 15px;
+		font-size: 32px;
+		color: #999;
+	}
+
+	.content .conList li .log .details {
+		padding: 10px;
+		h3 {
+			font-size: 16px;
+			line-height: 25px;
+			.ellipsis(2);
+		}
+		.textDesc {
+			font-size: 12px;
+			color: #999;
+			display: -webkit-box;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+		}
+	}
+
+	.content .conList li .detailsMes1 {
+		height: 50px;
+		line-height: 50px;
+		background: #fff;
+		margin-top: 2px;
+		position: relative;
+		.imgs {
+			padding: 5px 15px;
+		}
+	}
+
+	.content .conList li .detailsMes1 .imgs:before,
+	.content .conList li .detailsMes1 .imgs:after {
+		content: " ";
+		display: table;
+	}
+
+	.content .conList li .detailsMes1 .imgs:after {
+		clear: both;
+	}
+
+	.content .conList li .detailsMes1 .imgs li {
+		float: left;
+		a {
+			width: 40px;
+			height: 40px;
+			display: block;
+			float: left;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.content .conList li .detailsMes1 .imgs li:not(:first-of-type) {
+		margin-left: 5px;
+	}
+
+	.content .conList li .detailsMes1 .button {
+		position: absolute;
+		right: 20px;
+		top: 0;
+		a:first-of-type {
+			padding-right: 10px;
+			border-right: 1px solid #000;
+		}
+		a:last-of-type {
+			padding-left: 10px;
+		}
+		span {
+			margin-right: 5px;
+		}
+	}
+}
+
+.operation {
+    float: right;
+    position: fixed;
+	right:20px;
+	bottom:40px;
+    .publish {
+        background: #01a0e2;
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        line-height: 30px;
+		display: block;
+		.square {
+			color: #FFFFFF;
+			font-size: 22px;
+			margin-top: 14px;
+		}
+		p {
+			color: #FFFFFF;
+			font-size: 12px;
+			margin-top: -10px;
+		}
+    }
+	.publish1{
+		background: #fe7d55;
+		text-align: center;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		line-height: 30px;
+		margin-top: 20px;
+		display: block;
+		.user {
+			color: #FFFFFF;
+			font-size: 22px;
+			margin-top: 14px;
+		}
+		p {
+			color: #FFFFFF;
+			font-size: 12px;
+			margin-top: -10px;
+		}
+	}
+
+}

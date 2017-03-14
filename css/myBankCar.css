@@ -1,0 +1,192 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.my_backcar {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #F0EFF5;
+}
+.my_backcar .title {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #0195FF;
+}
+.my_backcar .title .back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: left;
+  display: block;
+  width: 44px;
+  height: 40px;
+  text-align: center;
+}
+.my_backcar .title .back i {
+  font-size: 30px;
+  color: #fff;
+  margin-top: 5px;
+}
+.my_backcar .title h3 {
+  text-align: center;
+  color: #fff;
+  font-weight: normal;
+}
+.my_backcar .bank_form .mes {
+  height: 60px;
+  font-size: 15px;
+  color: #ABABAD;
+  line-height: 82px;
+  text-indent: 20px;
+  background-color: transparent;
+}
+.my_backcar .bank_form .c_mes {
+  height: 52px;
+  line-height: 52px;
+  background: url(../images/car.png) 3% 50% no-repeat;
+  text-indent: 40px;
+}
+.my_backcar .bank_form p {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0d9d9;
+}
+.my_backcar .bank_form p i {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 25px;
+  color: #999;
+  float: right;
+  line-height: 40px;
+}
+.my_backcar .bank_form p label {
+  display: block;
+  width: 30%;
+  float: left;
+  font-size: 16px;
+  text-indent: 18px;
+}
+.my_backcar .bank_form input[type="text"] {
+  display: block;
+  float: left;
+  width: 70%;
+  font-size: 16px;
+  color: #000;
+  line-height: 40px;
+}
+.my_backcar .bank_form .next {
+  width: 90%;
+  margin: 70px 5% 0 5%;
+  background-color: #1FBAF3;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+}

@@ -1,0 +1,203 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body {
+  background-color: #eee;
+}
+.header {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #e63a54;
+  color: #fff;
+}
+.header .back {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-left: 3px solid #fff;
+  border-top: 3px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 13px;
+  left: 15px;
+}
+.userMes {
+  position: relative;
+}
+.userMes .bg {
+  display: block;
+  width: 100%;
+}
+.userMes .userImg {
+  width: 100px;
+  height: 100px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -52px 0 0 -52px;
+  overflow: hidden;
+}
+.userMes .userImg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.list {
+  overflow: hidden;
+}
+.list li {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 10px;
+  font-size: 16px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+.list li:before,
+.list li:after {
+  content: " ";
+  display: table;
+}
+.list li:after {
+  clear: both;
+}
+.list li .val {
+  float: right;
+}
+.list li .rank {
+  color: #f00;
+}
+.btnArea {
+  margin: 50px 0;
+  padding: 0 60px;
+}
+.btnArea:before,
+.btnArea:after {
+  content: " ";
+  display: table;
+}
+.btnArea:after {
+  clear: both;
+}
+.btnArea a {
+  display: block;
+  width: 80px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #E63A54;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+.btnArea #voteBtn {
+  float: left;
+}
+.btnArea #rankLink {
+  float: right;
+}

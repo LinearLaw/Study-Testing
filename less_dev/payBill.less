@@ -1,0 +1,194 @@
+@import "reset";
+
+.textOrange {
+    color: #FF642E;
+}
+
+#wrapper{
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    overflow-y: auto;
+    .header {
+        position: fixed;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        top: 0;
+        left: 0;
+        background-color: rgb(1, 149, 255);
+        z-index: 1;
+        .fa-chevron-left {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 40px;
+            text-align: center;
+            top: 0;
+            left: 0;
+            position: absolute;
+        }
+    }
+
+    .goods {
+        background-color: #fff;
+        li {
+            padding: 10px 10px 10px 100px;
+            position: relative;
+            height: 80px;
+            border-bottom: 1px solid #ddd;
+            .goodsImg {
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+            h3 {
+                font-size: 16px;
+                font-weight: normal;
+                .ellipsisNormal();
+            }
+            .price {
+                .goodsNum {
+                    float: right;
+                }
+            }
+        }
+        .total {
+            padding: 0 10px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 10px solid #eee;
+            .totalPrice {
+                float: right;
+                .textOrange();
+            }
+        }
+    }
+
+    .list {
+        background-color: #fff;
+        li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            .radio {
+                padding: 0;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: 14px;
+                height: 14px;
+                box-sizing: border-box;
+                border: 2px solid rgb(255, 100, 46);
+                border-radius: 50%;
+                outline: none;
+                float: right;
+            }
+            .radio:checked {
+                background-color: rgb(255, 100, 46);
+            }
+            .bandPhone {
+                display: block;
+                padding-top: 10px;
+            }
+            &:last-child{
+                padding: 0;
+            }
+            &:last-child a{
+                width:100%;
+                padding: 10px;
+                display: block;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    #submit {
+        width: 90%;
+        display: block;
+        border: none;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin: 40px auto 40px auto;
+        background-color: #FF642E;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .coupon{
+        width:100%;
+        background-color: white;
+        position: fixed;
+        bottom:0;
+        z-index: 11;
+        display: none;
+        .title{
+            text-align: center;
+            height:40px;
+            line-height: 40px;
+        }
+        .coupon-box{
+            width:100%;
+            max-height: 368px;
+            position: relative;
+            bottom: 0;
+            overflow-y: auto;
+            ul{
+                li{
+                    margin: 0 15px;
+                    padding: 15px 0;
+                    border-bottom: 1px solid #EEEEEE;
+                    position: relative;
+                    .amount{
+                        color: #B87C5A;
+                        .num{
+                            font-size: 16px;
+                        }
+                    }
+                    .condition{
+                        font-size: 16px;
+                    }
+                    .deadline{
+                        color: #B7B7B7;
+                        font-size: 14px;
+                    }
+                    .use-coupon{
+                        width:60px;
+                        height:30px;
+                        margin-top: -15px;
+                        color: #B87C5A;
+                        border:1px solid #B87C5A;
+                        line-height:30px;
+                        text-align: center;
+                        box-sizing: border-box;
+                        border-radius: 3px;
+                        position: absolute;
+                        right:0;
+                        top:50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mask{
+    position: fixed;
+    left:0;
+    right:0;
+    top:40px;
+    bottom:0;
+    background-color: rgba(0,0,0,0.3);
+    z-index:10;
+    display: none;
+}

@@ -1,0 +1,284 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.textOrange {
+  color: #FF642E;
+}
+#wrapper {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  overflow-y: auto;
+}
+#wrapper .header {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  top: 0;
+  left: 0;
+  background-color: #0195ff;
+  z-index: 1;
+}
+#wrapper .header .fa-chevron-left {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+#wrapper .goods {
+  background-color: #fff;
+}
+#wrapper .goods li {
+  padding: 10px 10px 10px 100px;
+  position: relative;
+  height: 80px;
+  border-bottom: 1px solid #ddd;
+}
+#wrapper .goods li .goodsImg {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+#wrapper .goods li .goodsImg img {
+  display: block;
+  width: 100%;
+}
+#wrapper .goods li h3 {
+  font-size: 16px;
+  font-weight: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#wrapper .goods li .price .goodsNum {
+  float: right;
+}
+#wrapper .goods .total {
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 10px solid #eee;
+}
+#wrapper .goods .total .totalPrice {
+  float: right;
+  color: #FF642E;
+}
+#wrapper .list {
+  background-color: #fff;
+}
+#wrapper .list li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+#wrapper .list li .radio {
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  border: 2px solid #ff642e;
+  border-radius: 50%;
+  outline: none;
+  float: right;
+}
+#wrapper .list li .radio:checked {
+  background-color: #ff642e;
+}
+#wrapper .list li .bandPhone {
+  display: block;
+  padding-top: 10px;
+}
+#wrapper .list li:last-child {
+  padding: 0;
+}
+#wrapper .list li:last-child a {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  box-sizing: border-box;
+}
+#wrapper #submit {
+  width: 90%;
+  display: block;
+  border: none;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 40px auto 40px auto;
+  background-color: #FF642E;
+  color: #fff;
+  border-radius: 5px;
+}
+#wrapper .coupon {
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  z-index: 11;
+  display: none;
+}
+#wrapper .coupon .title {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+#wrapper .coupon .coupon-box {
+  width: 100%;
+  max-height: 368px;
+  position: relative;
+  bottom: 0;
+  overflow-y: auto;
+}
+#wrapper .coupon .coupon-box ul li {
+  margin: 0 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #EEEEEE;
+  position: relative;
+}
+#wrapper .coupon .coupon-box ul li .amount {
+  color: #B87C5A;
+}
+#wrapper .coupon .coupon-box ul li .amount .num {
+  font-size: 16px;
+}
+#wrapper .coupon .coupon-box ul li .condition {
+  font-size: 16px;
+}
+#wrapper .coupon .coupon-box ul li .deadline {
+  color: #B7B7B7;
+  font-size: 14px;
+}
+#wrapper .coupon .coupon-box ul li .use-coupon {
+  width: 60px;
+  height: 30px;
+  margin-top: -15px;
+  color: #B87C5A;
+  border: 1px solid #B87C5A;
+  line-height: 30px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 3px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 40px;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  display: none;
+}

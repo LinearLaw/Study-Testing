@@ -1,0 +1,57 @@
+@import "reset";
+#container {
+    .title {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        background-color: #0195FF;
+        h3{
+            color: #fff;
+            text-align: center;
+            font-weight: normal;
+        }
+    }
+    .content {
+        width:100%;
+        position: absolute;
+        left:0;
+        top:40px;
+        bottom:0;
+        overflow: hidden;
+        ul{
+            li{
+                margin-bottom:5px;
+                a{
+                    display: block;
+                    position: relative;
+                    img{
+                        display: block;
+                        width:100%;
+                        margin:0 auto;
+                    }
+                    p{
+                        width:100%;
+                        height:40px;
+                        line-height: 40px;
+                        text-align: center;
+                        position: absolute;
+                        bottom:0;
+                        left:0;
+                        background: rgba(0, 0, 0, 0.6);
+                        color: #fff;
+                        font-weight:600;
+                        .ellipsisNormal();
+                    }
+
+                }
+            }
+        }
+        .tip{
+            height: 40px;
+            line-height: 40px;
+            border-top:1px solid #ddd;
+            color: #666;
+            text-align: center;
+        }
+    }
+}

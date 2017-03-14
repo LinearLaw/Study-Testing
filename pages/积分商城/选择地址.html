@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择地址</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../css/selectAddress.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="container">
+
+    <div class="commonHeader">快递
+        <a href="javascript:void (0)" class="fa fa-chevron-left back"></a>
+        <a href="javascript:void (0)" class="fa fa-plus add"></a>
+    </div>
+
+    <div class="invoice">
+        <div class="title">是否需要发票
+            <input type="checkbox">
+        </div>
+        <div class="fillName">
+            <span class="tip">发票抬头</span>
+            <input type="text" placeholder="请输入发票抬头">
+        </div>
+    </div>
+
+    <ul class="deliveryList">
+        <li class="deliveryInfo">
+            <a href="javascript:void (0)" class="userInfo">
+                <div class="username">朱思雨
+                    <div class="userTel">18827943397</div>
+                </div>
+                <div class="address">江西省抚州市江西省抚州市江西省抚州市江西省抚州市江西省抚州市江西省抚州市</div>
+            </a>
+            <div class="operate">
+                <label for="default1" class="default">设为默认<input type="radio" id="default1" name="defaultAddress"></label>
+                <div class="delete">删除
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </div>
+                <div class="edit">编辑
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <button class="submitButton">确定</button>
+
+<script src="../../scripts/jquery-2.2.2.min.js"></script>
+<script src="../../scripts/common.js"></script>
+<script>
+    $(".submitButton").on("click",function() {
+       common.alert({
+          width: "70%",
+           title: "温馨提示",
+           content: "是否消耗286积分兑换商品",
+           dialog: true
+       });
+    });
+</script>
+</div>
+</body>
+</html>

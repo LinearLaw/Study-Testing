@@ -1,0 +1,344 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 14px/20px 'Microsoft YaHei', Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #eeeeee;
+  position: absolute;
+}
+#wrapper {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  overflow-y: auto;
+}
+#wrapper .address .details a {
+  background: #ffffff;
+  display: block;
+  padding: 10px 50px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+#wrapper .address .details a .img {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  left: 0;
+}
+#wrapper .address .details a .img .car {
+  color: green;
+}
+#wrapper .address .details a h3 {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: normal;
+  line-height: 20px;
+  color: green;
+}
+#wrapper .address .details a p {
+  font-size: 12px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #999;
+  margin-left: 5px;
+}
+#wrapper .address .details a .right {
+  font-size: 28px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  margin-top: -14px;
+  color: #999;
+  width: 30px;
+}
+#wrapper .address .address1 a {
+  background: #ffffff;
+  display: block;
+  padding: 10px 10px 10px 50px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+#wrapper .address .address1 a .img {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  left: 0;
+}
+#wrapper .address .address1 a .img .map {
+  font-size: 26px;
+}
+#wrapper .address .address1 a .name {
+  padding-right: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#wrapper .address .address1 a p {
+  font-size: 14px;
+  line-height: 20px;
+}
+#wrapper .address .address1 a .phone {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+#wrapper .address .address1 a .add {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+#wrapper .details1 {
+  background: #ffffff;
+  margin: 5px 0;
+}
+#wrapper .details1 li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 10px 40px;
+}
+#wrapper .details1 li a .detailsTop {
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+}
+#wrapper .details1 li a .detailsTop .furniture {
+  margin-left: 5px;
+}
+#wrapper .details1 li a .detailsTop .right {
+  margin-left: 10px;
+  font-size: 16px;
+}
+#wrapper .details1 li a .detailsMes {
+  padding: 10px 5px 10px 100px;
+  position: relative;
+  min-height: 80px;
+}
+#wrapper .details1 li a .detailsMes:before,
+#wrapper .details1 li a .detailsMes:after {
+  content: " ";
+  display: table;
+}
+#wrapper .details1 li a .detailsMes:after {
+  clear: both;
+}
+#wrapper .details1 li a .detailsMes .detailsImg {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+#wrapper .details1 li a .detailsMes .detailsImg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#wrapper .details1 li a .detailsMes .detailsCon {
+  position: relative;
+}
+#wrapper .details1 li a .detailsMes .detailsCon h3 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 25px;
+  padding-right: 85px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#wrapper .details1 li a .detailsMes .detailsCon .centre {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  width: 70px;
+  padding: 0 5px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+#wrapper .details1 li a .detailsMes .detailsCon .address {
+  font-size: 12px;
+  color: #999;
+  line-height: 35px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+#wrapper .details1 li .refund {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  text-align: center;
+  border: 1px solid #dedede;
+  float: right;
+}
+#wrapper .freight {
+  height: 40px;
+  padding: 10px;
+  background: #fff;
+}
+#wrapper .freight .c1 .price {
+  float: right;
+  font-size: 12px;
+}
+#wrapper .freight .c2 .price1 {
+  float: right;
+  color: #ffa500;
+  font-size: 14px;
+}
+#wrapper .data {
+  margin-top: 10px;
+  padding: 10px 10px 15px 15px;
+  background: #fff;
+  color: #999;
+}
+#wrapper .data .dataTop:before,
+#wrapper .data .dataTop:after {
+  content: " ";
+  display: table;
+}
+#wrapper .data .dataTop:after {
+  clear: both;
+}
+#wrapper .data .dataTop p {
+  float: left;
+}
+#wrapper .data .dataTop #copy {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  text-align: center;
+  border: 1px solid #dedede;
+  float: right;
+}
+#wrapper .data p {
+  padding-left: 73px;
+  position: relative;
+  line-height: 25px;
+  min-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#wrapper .data p:nth-child(2) {
+  padding-left: 100px;
+}
+#wrapper .data p .itemName {
+  position: absolute;
+  left: 0;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘惠帮</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../plugs/swiper/3.3.1/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../css/city-wide.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="container">
+    <!--头部-->
+    <div class="commonHeader">同城圈
+        <a href="javascript:void (0)" class="fa fa-chevron-left back"></a>
+    </div>
+
+    <div id="wrapper">
+        <div>
+            <div class="discussion">
+                <div class="userInfo">
+                    <div class="userImg"><img src="../../images/生活圈/2_03.png" alt=""></div>
+                    <div class="nickname">Kerem Lee</div>
+                    <div class="weixinName">微信号：Kerem Lee</div>
+                </div>
+                <div class="detail">
+                    <h3 class="title">生意参谋常见问题汇总</h3>
+                    <div class="date">2016-3-23 15:21</div>
+                    <p class="problem">问：生意参谋平台是什么？</p>
+                    <p class="answer">
+                        答案：生意参谋平台是阿里巴巴重兵打造的首个商家统一数据平台，面向全体商家提供一站式、个性化、可定制的商务决策体验。集成了量子恒道德海量数据及生意参谋的店铺经营思路，不仅整合了量子恒道大部分功能还新增了自助取数、单品分析、商品温度计、试试直播大屏等新功能。</p>
+                    <div class="imgs">
+                        <div class="img">
+                            <img src="../../images/生活圈/2_07.png" alt="">
+                        </div>
+                        <div class="img">
+                            <img src="../../images/生活圈/2_07.png" alt="">
+                        </div>
+                        <div class="img">
+                            <img src="../../images/生活圈/2_07.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="allEvaluation">
+                <h3 class="title">全部评论</h3>
+                <div class="noneEvaluation">
+                    <img src="../../images/生活圈/not%20available.png" alt="">
+                </div>
+                <ul class="evaluationList">
+                    <li class="evaluation">
+                        <div class="img"><img src="../../images/生活圈/2_06.png" alt=""></div>
+                        <div class="nickname">黑色曼陀罗</div>
+                        <div class="date">2015年6月11日 11：35</div>
+                        <p class="content">老师讲的很仔细，学到不少，非常不错！</p>
+                    </li>
+                    <li class="evaluation">
+                        <div class="img"><img src="../../images/生活圈/2_06.png" alt=""></div>
+                        <div class="nickname">黑色曼陀罗</div>
+                        <div class="date">2015年6月11日 11：35</div>
+                        <p class="content">老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！</p>
+                    </li>
+                    <li class="evaluation">
+                        <div class="img"><img src="../../images/生活圈/2_06.png" alt=""></div>
+                        <div class="nickname">黑色曼陀罗</div>
+                        <div class="date">2015年6月11日 11：35</div>
+                        <p class="content">老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！老师讲的很仔细，学到不少，非常不错！</p>
+                    </li>
+                </ul>
+                <div id="tip">上滑加载更多..</div>
+            </div>
+        </div>
+
+    </div>
+
+    <ul class="operate">
+        <li class="evaluate">
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>评论
+        </li>
+        <li class="like">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>点赞
+        </li>
+    </ul>
+    </div>
+</div>
+<script src="../../scripts/jquery-2.2.2.min.js"></script>
+<script src="../../scripts/common.js"></script>
+<script src="../../scripts/iscroll-probe.js"></script>
+<script src="../../scripts/city-wide.js"></script>
+<script type="text/javascript">
+    $(".evaluate").click(function(){
+        common.alert({
+            width: "90%",
+            dialog:"true",
+            content:"<textarea rows='8' placeholder='内容 2-700个字'></textarea>",
+            okValue:"发表",
+            cancelValue:"取消",
+            ok: function(){
+
+            },
+            cancel: function(){
+
+            },
+            mask: "true"
+
+        })
+    })
+</script>
+</body>
+</html>

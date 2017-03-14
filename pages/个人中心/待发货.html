@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘惠帮</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../plugs/swiper/3.3.1/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../css/shipments.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="container">
+    <!--头部-->
+    <div class="commonHeader">全部订单
+        <a href="javascript:void (0)" class="fa fa-chevron-left back"></a>
+    </div>
+
+    <div id="wrapper">
+        <ul class="nav1">
+            <li>
+                <a href="javascript:void(0)">
+                    <span class="fa fa-home"></span>
+                    <p class="pay">待付款</p>
+                </a>
+            </li>
+            <li class="active">
+                <a href="javascript:void(0)" >
+                    <span class="home fa fa-car"><span class="num">10</span></span>
+                    <p>待发货</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" >
+                    <span class="fa fa-trash-o"></span>
+                    <p>待收货</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <span class="fa fa-archive"></span>
+                    <p>待评价</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <span class="fa fa-question-circle "></span>
+                    <p>退款/售后</p>
+                </a>
+            </li>
+        </ul>
+        <!--详情-->
+        <div id="list">
+            <div>
+                <ul class="details">
+                    <li>
+                        <h4>火把瘾火锅米线</h4>
+                        <a class="goods" href="javascript:;">
+                            <div class="goodsImg"><img src="../../images/1_03.png" style="height: 80px"></div>
+                            <h3>BLISS CAKE幸福西饼</h3>
+                            <p class="address">[价值148元]芒果拿破仑1个，约8寸，方形，下</p>
+                            <p  class="num">￥148.00元</p>
+                            <p class="num1">￥128.00元(以满148减20)</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="result">
+                            <div class="audience ">全场满400减30</div>
+                            <div class="amount">合计：￥374.00元
+                                <span>原价：401.00元</span>
+                                <input type="button" class="button pullRight" value="退货申请" id="relation">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="tip">向上滑动加载更多...</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+<script src="../../scripts/jquery-2.2.2.min.js"></script>
+<script src="../../scripts/iscroll-probe.js"></script>
+<script src="../../scripts/shipments.js"></script>
+</html>

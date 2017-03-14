@@ -1,0 +1,93 @@
+@import "common";
+
+.header{
+	height:50px;
+	line-height: 50px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background-image: url(../images/1_011.jpg);
+	position: relative;
+	.back{
+		width:50px;
+		height:100%;
+		display: block;
+		position: absolute;
+		top:0;
+		left:0;
+	}
+}
+
+#wrapper{
+	.coupon{
+		width:100%;
+		background-color: white;
+		position: fixed;
+		bottom:0;
+		z-index: 1;
+		.title{
+			text-align: center;
+			height:40px;
+			line-height: 40px;
+		}
+		.coupon-box{
+			width:100%;
+			max-height: 460px;
+			position: relative;
+			bottom: 0;
+			overflow-y: auto;
+			ul{
+				li{
+					margin: 0 15px;
+					padding: 15px 0;
+					border-bottom: 1px solid #EEEEEE;
+					position: relative;
+					.amount{
+						color: #B87C5A;
+						.num{
+							font-size: 16px;
+						}
+					}
+					.condition{
+						font-size: 16px;
+					}
+					.deadline{
+						color: #B7B7B7;
+						font-size: 14px;
+					}
+					.use-coupon{
+						width:60px;
+						height:30px;
+						margin-top: -15px;
+						color: #B87C5A;
+						border:1px solid #B87C5A;
+						line-height:30px;
+						text-align: center;
+						box-sizing: border-box;
+						border-radius: 3px;
+						position: absolute;
+						right:0;
+						top:50%;
+					}
+				}
+			}
+		}
+		.confirm{
+			height:40px;
+			line-height: 40px;
+			color: white;
+			text-align: center;
+			background-color: #FF5001;
+			font-size:16px;
+		}
+	}
+	.mask{
+		position: fixed;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		background-color: rgba(0,0,0,0.3);
+		z-index:0;
+	}
+}

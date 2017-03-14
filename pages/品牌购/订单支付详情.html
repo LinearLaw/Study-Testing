@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../css/orderPayDetail2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="container">
+    <div class="commonHeader">订单支付
+        <a href="javascript:history.go(-1)" class="fa fa-chevron-left back"></a>
+    </div>
+    <div class="order">
+        <div class="left-time">
+            <div class="title">支付剩余时间</div>
+            <div class="time">14:29</div>
+        </div>
+        <div class="goods">
+            <div class="goods-pic">
+                <img src="../../images/goods1.png" alt="">
+            </div>
+            <h3 class="goods-name">杏仁蛋糕</h3>
+            <div class="goods-price">￥88.00元
+                <span class="goods-num pull-right">×1</span>
+            </div>
+        </div>
+        <div class="goods">
+            <div class="goods-pic">
+                <img src="../../images/goods1.png" alt="">
+            </div>
+            <h3 class="goods-name">杏仁蛋糕</h3>
+            <div class="goods-price">￥88.00元
+                <span class="goods-num pull-right">×1</span>
+            </div>
+        </div>
+        <div class="pay-select">
+            <div class="bank-pay">
+                <div class="img">
+                    <img src="../../images/bank-card.png" alt="">
+                </div>
+                <div class="title">银行卡支付</div>
+                <div class="describe">使用商业银行卡支付立减20元</div>
+                <input type="radio" name="payRadio">
+            </div>
+            <div class="weixin-pay">
+                <div class="img">
+                    <img src="../../images/weixin-pay.png" alt="">
+                </div>
+                <div class="title">微信支付</div>
+                <div class="describe">推荐安装微信5.0及以上版本的用户使用</div>
+                <input type="radio" name="payRadio">
+            </div>
+        </div>
+        <a class="confirm-pay" href="javascript:void (0)">确定支付（￥258.00）</a>
+    </div>
+</div>
+<script src="../../scripts/jquery-2.2.2.min.js"></script>
+<script src="../../scripts/iscroll-probe.js"></script>
+<script src="../../scripts/orderPayDetail.js"></script>
+</body>
+</html>

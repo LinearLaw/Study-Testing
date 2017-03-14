@@ -1,0 +1,66 @@
+@import "reset";
+
+body {
+    background: #eeeeee;
+}
+
+.addressList {
+    li {
+        background: #fff;
+        margin-bottom: 10px;
+        .address {
+            min-height: 80px;
+            border-bottom: 1px solid #dddddd;
+            .name {
+                padding: 0 10px;
+                height: 35px;
+                line-height: 35px;
+                .phone {
+                    float: right;
+                }
+            }
+            .address1 {
+                padding: 0 10px 10px 10px;
+            }
+        }
+        .option {
+            padding: 0 10px;
+            height: 40px;
+            line-height: 40px;
+            .clearFix();
+            .acquiesce {
+                color: #E59501;
+            }
+
+            .handle{
+                float: right;
+                .clearFix();
+                a {
+                    display: block;
+                    float: left;
+                    margin-right: 10px;
+                    span {
+                        font-size: 20px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bottomBtn {
+    a {
+        width: 90%;
+        margin: 20px auto;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        display: block;
+        color: #fff;
+        background: #ff642e;
+        font-size: 16px;
+        letter-spacing: 2px;
+        border-radius: 5px;
+    }
+}

@@ -1,0 +1,232 @@
+@import "reset";
+
+body {
+	background: #eeeeee;
+}
+
+#wrapper{
+	width:100%;
+	position: absolute;
+	top:40px;
+	bottom:0;
+	overflow-y: auto;
+	.address {
+		.details {
+			a {
+				background: #ffffff;
+				display: block;
+				padding: 10px 50px;
+				border-bottom: 1px solid #ddd;
+				position: relative;
+				.img {
+					width: 50px;
+					height: 50px;
+					overflow: hidden;
+					text-align: center;
+					position: absolute;
+					left: 0;
+					.car {
+						color: green;
+					}
+				}
+				h3 {
+					font-size: 14px;
+					.ellipsisNormal();
+					font-weight: normal;
+					line-height: 20px;
+					color: green;
+				}
+				p {
+					font-size: 12px;
+					line-height: 20px;
+					.ellipsisNormal();
+					color: #999;
+					margin-left: 5px;
+				}
+				.right {
+					font-size: 28px;
+					position: absolute;
+					right: 5px;
+					top: 50%;
+					margin-top: -14px;
+					color: #999;
+					width: 30px;
+				}
+			}
+		}
+
+		.address1 {
+			a {
+				background: #ffffff;
+				display: block;
+				padding: 10px 10px 10px 50px;
+				border-bottom: 1px solid #ddd;
+				position: relative;
+				.img {
+					width: 50px;
+					height: 50px;
+					overflow: hidden;
+					text-align: center;
+					position: absolute;
+					left: 0;
+					.map {
+						font-size: 26px;
+					}
+				}
+				.name {
+					padding-right: 100px;
+					.ellipsisNormal();
+				}
+				p {
+					font-size: 14px;
+					line-height: 20px;
+				}
+				.phone {
+					position: absolute;
+					right: 20px;
+					top: 10px;
+				}
+				.add {
+					.ellipsis(2);
+				}
+			}
+		}
+	}
+
+	.details1 {
+		background: #ffffff;
+		margin: 5px 0;
+		li {
+			border-bottom: 1px solid #ddd;
+			padding: 10px 10px 40px;
+			a {
+				.detailsTop {
+					height: 35px;
+					line-height: 35px;
+					padding: 0 10px;
+					.furniture {
+						margin-left: 5px;
+					}
+					.right {
+						margin-left: 10px;
+						font-size: 16px;
+					}
+				}
+
+				.detailsMes {
+					padding: 10px 5px 10px 100px;
+					position: relative;
+					min-height: 80px;
+					.clearFix();
+					.detailsImg {
+						width: 80px;
+						height: 80px;
+						position: absolute;
+						left: 10px;
+						top: 10px;
+						img {
+							width: 100%;
+							height: 100%;
+							display: block;
+						}
+					}
+					.detailsCon {
+						position: relative;
+						h3 {
+							font-weight: normal;
+							font-size: 14px;
+							line-height: 25px;
+							padding-right: 85px;
+							overflow: hidden;
+							.ellipsisNormal();
+						}
+						.centre {
+							position: absolute;
+							right: 0;
+							top: 0;
+							border: 1px solid #ff0000;
+							color: #ff0000;
+							width: 70px;
+							padding: 0 5px;
+							height: 20px;
+							line-height: 20px;
+							text-align: center;
+							border-radius: 10px;
+						}
+						.address {
+							font-size: 12px;
+							color: #999;
+							line-height: 35px;
+							.ellipsis(3);
+						}
+					}
+				}
+			}
+
+			.refund {
+				width: 80px;
+				height: 30px;
+				line-height: 30px;
+				display: block;
+				text-align: center;
+				border: 1px solid #dedede;
+				float: right;
+			}
+		}
+	}
+
+	.freight {
+		height: 40px;
+		padding: 10px 5px 10px 10px;
+		background: #fff;
+		.c1 {
+			.price{
+				float: right;
+				font-size: 12px;
+			}
+		}
+		.c2 {
+			.price1{
+				float: right;
+				color: #ffa500;
+				font-size: 14px;
+			}
+		}
+	}
+
+	.data {
+		margin-top: 10px;
+		padding: 10px 10px 15px 15px;
+		background: #fff;
+		color: #999;
+		.dataTop {
+			.clearFix();
+			p {
+				float: left;
+			}
+			#copy {
+				width: 80px;
+				height: 30px;
+				line-height: 30px;
+				display: block;
+				text-align: center;
+				border: 1px solid #dedede;
+				float: right;
+			}
+		}
+		p {
+			padding-left: 73px;
+			position: relative;
+			line-height: 25px;
+			min-height: 20px;
+			.ellipsisNormal();
+			&:nth-child(2) {
+				padding-left: 100px;
+			}
+			.itemName {
+				position: absolute;
+				left: 0;
+			}
+		}
+	}
+}

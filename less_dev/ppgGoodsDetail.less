@@ -1,0 +1,261 @@
+@import "reset";
+
+#container{
+	width:100%;
+	position: absolute;
+	top:0;
+	bottom:40px;
+	#wrapper{
+		width:100%;
+		position: absolute;
+		top:40px;
+		bottom: 0;
+		overflow-y: auto;
+		background-color: #F4F4F4;
+		.swiper-container{
+			width: 100%;
+			.swiper-slide{
+				max-height: 150px;
+				img{
+					display: block;
+					width:100%;
+				}
+			}
+		}
+		.shop-info{
+			padding: 10px 0;
+			border-bottom: 1px solid #EFEFEF;
+			background-color: #FFF;
+			.shop-name{
+				padding: 5px 30px;
+				font-weight:bold;
+				font-size: 16px;
+			}
+			.score{
+				padding: 0 10px;
+				color: #F99730;
+				float: left;
+			}
+			.average{
+				color: #AAAAAA;
+			}
+			.month-consume{
+				padding: 0 10px 10px 10px;
+				color: #717171;
+				border-bottom: 1px solid #EFEFEF;
+			}
+			.addBox{
+				height: auto;
+				border-bottom: 1px solid #ddd;
+				padding:10px;
+				box-sizing: border-box;
+			}
+			.address{
+				min-height: 30px;
+				padding: 0 60px 0 30px;
+				margin: 10px;
+				font-size: 16px;
+				color: #A0A0A0;
+				position: relative;
+				.ellipsis(2);
+				.fa-map-marker{
+					width:30px;
+					height:30px;
+					line-height: 30px;
+					margin-top: -15px;
+					text-align: center;
+					font-size: 24px;
+					position: absolute;
+					left: 0;
+					top:50%;
+				}
+				.fa-phone{
+					width:60px;
+					height:30px;
+					line-height: 30px;
+					margin-top: -15px;
+					text-align: center;
+					font-size: 24px;
+					color: #63CCBC;
+					border-left: 1px solid #F5F5F5;
+					position: absolute;
+					right: 0;
+					top:50%;
+				}
+			}
+		}
+		.evaluationArea{
+			padding-left: 10px;
+			margin-top: 10px;
+			background-color: #FFF;
+			.title{
+				height:40px ;
+				line-height: 40px;
+				padding-right: 10px;
+				color: #FC942F;
+				border-bottom: 1px solid #F5F5F5;
+				.evaNum{
+					color: #A6A6A6;
+					float: right;
+				}
+			}
+			.evaluation{
+				padding-right: 10px;
+				.userInfo{
+					padding: 10px 0 10px 45px;
+					position: relative;
+					.portrait{
+						width:40px;
+						height:40px;
+						overflow: hidden;
+						position: absolute;
+						left:0;
+						img{
+							width:100%;
+							display: block;
+						}
+					}
+					.username{
+						color: #FC942F;
+					}
+					.vip{
+						width:15px;
+						height:15px;
+						display: inline-block;
+						overflow: hidden;
+						img{
+							width:100%;
+							display: block;
+						}
+					}
+					.score{
+						color: #FA962E;
+					}
+					.date{
+						color: #A2A2A2;
+					}
+				}
+				.detail{
+					.content{
+						text-indent: 2em;
+						.ellipsis(5);
+					}
+					.pics{
+						padding: 10px 0;
+						div{
+							width:58px;
+							height:58px;
+							overflow: hidden;
+							display: inline-block;
+							img{
+								width:100%;
+								display: inline-block;
+							}
+						}
+					}
+				}
+			}
+			.viewAll{
+				height:40px;
+				line-height:40px;
+				padding-right: 10px;
+				color: #32CDBB;
+				border-top: 1px solid #ECECEC;
+				display: block;
+				position: relative;
+				.fa{
+					width:40px;
+					height:40px;
+					line-height: 40px;
+					text-align: center;
+					color: #BEBEBE;
+					position: absolute;
+					right:0;
+				}
+			}
+		}
+		.moreInfo{
+			background-color: #FFF;
+			.title{
+				height:40px;
+				line-height:40px;
+				padding: 0 10px;
+				margin-top: 10px;
+				border-top: 1px solid #ECECEC;
+			}
+			.content{
+				height:60px;
+				border-top: 1px solid #ECECEC;
+			}
+		}
+		.operate{
+			width:100%;
+			height:40px;
+			position: fixed;
+			bottom:0;
+			color: #FFF;
+			font-size: 16px;
+			text-align: center;
+			line-height:40px;
+			.clearFix();
+			.myCart{
+				width:60px;
+				border-top: 1px solid #ccc;
+				background-color: #fff;
+				float: left;
+				box-sizing: border-box;
+				line-height: 17px;
+				position: relative;
+				i{
+					.WritingCenterAlignment(@length: 22px, @color: #999);
+					width:100%;
+					line-height: 38px;
+					font-size: 18px;
+				}
+				span{
+					display: block;
+					text-align: center;
+					color: #999;
+					font-size: 12px;
+					line-height: 11px;
+				}
+				.num{
+					position: absolute;
+					top: 2px;
+					left: 50%;
+					width: 16px;
+					height: 16px;
+					border-radius: 50%;
+					background-color: red;
+					color: #fff;
+					font-size: 13px;
+					line-height: 16px;
+					font-style: normal;
+				}
+			}
+			ul{
+				float: left;
+				overflow: hidden;
+				position: absolute;
+				left: 60px;
+				right:0;
+				top:0;
+				bottom:0;
+				.shoppingCart{
+					width:50%;
+					height:100%;
+					background-color: #F65703;
+					display: block;
+					float: left;
+				}
+				.buy{
+					width:50%;
+					height:100%;
+					background-color: #FF7900;
+					display: block;
+					float: left;
+				}
+			}
+		}
+	}
+}

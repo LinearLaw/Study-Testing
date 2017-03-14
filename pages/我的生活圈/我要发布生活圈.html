@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘惠帮</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../css/releaseLifeCircle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <div class="formBox">
+            <form action="">
+                <p>
+                    <input type="text" name="title" id="title" placeholder="标题 4-25个字" minlength="4" maxlength="25">
+                </p>
+                <p>
+                    <textarea  name="content" id="content" rows="10" minlength="20" maxlength="700" placeholder="内容 10-700字"></textarea>
+                </p>
+                <p>
+                    <button class="btn">发表</button>
+                </p>
+            </form>
+        </div>
+        <div id="uploadImg"></div>
+    </div>
+</body>
+    <script src="../../scripts/jquery-2.2.2.min.js"></script>
+    <script src="../../plugs/plupload/2.1.8/plupload.full.min.js"></script>
+    <script src="../../scripts/plupload.js"></script>
+    <script src="../../scripts/publishArticle.js"></script>
+    <!--限制文本框输入字数-->
+    <script src="../../scripts/releaseLiftCicle.js"></script>
+</html>

@@ -1,0 +1,76 @@
+@import "reset";
+
+html, body, #container{
+	width:100%;
+	height:100%;
+}
+#container{
+	width:100%;
+	height:100%;
+	background: url("../images/10_16.jpg") left 40px no-repeat;
+}
+.img{
+	width:90%;
+	position: absolute;
+	top:70px;
+	left: 5%;
+	img{
+		width:100%;
+		display: block;
+	}
+}
+
+.memberRecordBox{
+	width:76%;
+	height:70%;
+	position: absolute;
+	top:110px;
+	left:12%;
+	overflow-y: auto;
+	font-size: 12px;
+	line-height: 25px;
+	.memberRecord{
+		width:100%;
+		margin-bottom: 10px;
+		height:31%;
+		box-sizing: border-box;
+		overflow-y: auto;
+		border-radius: 15px;
+		&:nth-child(2n){
+			background-color: #FFEEBC;
+		}
+		&:nth-child(2n - 1){
+			background-color: #C3DEB7;
+		}
+		.title{
+			width:100%;
+			text-align: center;
+			top:125px;
+			left:15%;
+			height:25px;
+			border-bottom: 1px solid #fff;
+			span{
+				width:50%;
+				display: inline-block;
+				box-sizing: border-box;
+			}
+
+		}
+		.list{
+			width:100%;
+			text-align: center;
+			top:155px;
+			left:15%;
+			max-height: 75%;
+			overflow-y: auto;
+			.li{
+				height:25px;
+				span{
+					width:50%;
+					display: inline-block;
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+}

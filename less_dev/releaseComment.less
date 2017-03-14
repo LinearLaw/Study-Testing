@@ -1,0 +1,87 @@
+@import "reset";
+#container {
+    .formBox{
+        width:100%;
+        .evaluationList{
+            .evaluation{
+                margin-bottom: 10px;
+                .goodsTitle{
+                    min-height: 100px;
+                    position: relative;
+                    padding: 10px 0 0 100px;
+                    .goodsImg{
+                        width:80px;
+                        height:80px;
+                        overflow: hidden;
+                        position: absolute;
+                        top:10px;
+                        left:10px;
+                    }
+                    .goodsName{
+                        height: 40px;
+                        line-height: 40px;
+                        padding-right: 70px;
+                        position: relative;
+                        .ellipsisNormal();
+                        .submitBtn {
+                            outline:none;
+                            display: block;
+                            background-color: #0295FF;
+                            width: 60px;
+                            height: 26px;
+                            color: #fff;
+                            float: right;
+                            text-align: center;
+                            border-radius: 5px;
+                            border:none;
+                            position: absolute;
+                            top:7px;
+                            right:10px;
+                        }
+                    }
+                    .comment {
+                        height: 40px;
+                        color: #0295FF;
+                        label{
+                            font-size: 16px;
+                            display: block;
+                            float: left;line-height: 40px;
+                            margin-right: 10px;
+                        }
+                        i{
+                            font-size:18px;
+                            line-height: 40px;
+                        }
+                        .active{
+                            color: #f00;
+                        }
+                    }
+                }
+                .con{
+                    width: 100%;
+                    position: relative;
+                    border-bottom: 1px solid #ddd;
+                    .content {
+                        width: 90%;
+                        font-size: 16px;
+                        padding: 10px 5%;
+                    }
+                    span{
+                        display: block;
+                        text-align: right;
+                        height:30px;
+                        line-height:30px;
+                        padding-right: 10px;
+                        .contentNum{
+                            width:20px;
+                            font-weight:normal;
+                            color: #f00;
+                            display: inline-block;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

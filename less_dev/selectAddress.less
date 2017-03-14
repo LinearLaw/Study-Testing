@@ -1,0 +1,123 @@
+@import "reset";
+
+html,body,#container{
+	height:100%;
+}
+#container{
+	background-color: #F4F5F7;
+}
+
+.invoice{
+	padding: 10px;
+	background-color: #FFF;
+	margin-bottom: 3px;
+	.title{
+		input[type=checkbox]{
+			//margin: 0;
+			border:2px solid #F0866A;
+			box-sizing: border-box;
+			border-radius: 5px;
+			float: right;
+			outline:none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			.WritingCenterAlignment(@length: 16px);
+		}
+		input[type=checkbox]:checked{
+			background-color: #F0866A;
+		}
+	}
+	.fillName{
+		.clearFix();
+		.tip{
+			padding-right:40px;
+			font-size: 12px;
+			height:26px;
+			line-height:26px;
+			display: inline-block;
+			float: left;
+		}
+		input{
+			height:26px;
+			float: left;
+		}
+	}
+}
+
+.deliveryList{
+	.deliveryInfo{
+		margin-bottom: 8px;
+		background-color: #FFF;
+		.userInfo{
+			display: block;
+			.username{
+				padding: 0 10px;
+				height:30px;
+				line-height: 30px;
+				.userTel{
+					float: right;
+				}
+			}
+			.address{
+				padding: 0 10px;
+				padding-bottom: 10px;
+				.ellipsis(2);
+			}
+		}
+		.operate{
+			padding: 0 10px;
+			height:40px;
+			line-height: 40px;
+			border-top: 1px solid #F4F5F7;
+			.default{
+				float: left;
+				padding-left: 20px;
+				position: relative;
+				input[type=radio]{
+					width:14px;
+					height:14px;
+					margin: 0;
+					margin-top: -7px;
+					box-sizing: border-box;
+					border: 2px solid #27262C;
+					border-radius: 50%;
+					outline:none;
+					position: absolute;
+					top:50%;
+					left:0;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					appearance: none;
+				}
+				input[type=radio]:checked{
+					background-color: #000;
+				}
+			}
+			.delete, .edit{
+				float: right;
+				position: relative;
+				padding-left: 30px;
+				.fa{
+					font-size: 16px;
+					position: absolute;
+					top:0;
+					left: 0;
+					.WritingCenterAlignment(@color: #000);
+				}
+			}
+		}
+	}
+}
+
+.submitButton{
+	width:80%;
+	height:40px;
+	margin: 30px auto;
+	line-height: 40px;
+	font-size: 16px;
+	background-color: #F0866A;
+	border-radius: 5px;
+	color: #FFF;
+	text-align: center;
+	display: block;
+}

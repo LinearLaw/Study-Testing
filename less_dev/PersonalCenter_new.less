@@ -1,0 +1,163 @@
+@import "reset";
+
+.header {
+	padding: 0 40px 0 80px;
+	height: 40px;
+	line-height: 40px;
+	background-image: url("../images/10_5.jpg");
+	position: relative;
+	.logo {
+		width: 80px;
+		height: 40px;
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		top: 2px;
+		img {
+			margin-top: -3px;
+			height: 100%;
+			line-height: 40px;
+		}
+	}
+	.search {
+		position: relative;
+		input {
+			padding-left: 20px;
+			width: 100%;
+			height: 26px;
+			border-radius: 15px;
+			box-sizing: border-box;
+			border: none;
+			outline: none;
+		}
+	}
+  .searchIcon {
+    font-size: 18px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .WritingCenterAlignment();
+  }
+}
+
+#wrapper {
+	width: 100%;
+	position: absolute;
+	top: 40px;
+	bottom: 50px;
+	overflow: auto;
+	.nav {
+		.clearFix();
+		li {
+			width: 25%;
+			float: left;
+			a {
+				padding: 9px 0;
+				display: block;
+				img {
+					display: block;
+					width: 70%;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+	.swiper-container {
+		width: 100%;
+		.swiper-slide {
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+	#promotions {
+		position: relative;
+		border-right: 1px dotted #F3F3F3;
+		margin: 10px auto;
+		overflow: hidden;
+		background: url("../images/10_12.png");
+		background-size: 100%;
+		.liImg{
+			width:50%;
+			float: left;
+			box-sizing: border-box;
+			overflow: hidden;
+			position: relative;
+			.bgImg{
+				width:100%;
+				display: block;
+			}
+			.img{
+				width:100%;
+				position: absolute;
+				top:0;
+				left:0;
+			}
+		}
+	}
+	.bargainShop {
+		 .title {
+			margin: 10px;
+			padding: 0 10px;
+			border-left: 4px solid #3D85D8;
+		}
+		.goodsList{
+			overflow: hidden;
+			.goods{
+				width:33.3%;
+				box-sizing: border-box;
+				float: left;
+				border-top: 1px solid #c1c1c1;
+				border-right: 1px solid #c1c1c1;
+				padding-bottom: 10px;
+				&:nth-child(3n){
+					border-right-style: none;
+				}
+				.imgList{
+					width:100%;
+					overflow: hidden;
+					position: relative;
+					.bgImg{
+						width:100%;
+						display: block;
+					}
+					.img{
+						width:100%;
+						position: absolute;
+						top:0;
+						left:0;
+					}
+				}
+				.goodsName{
+					padding: 0 5px;
+					.ellipsisNormal();
+				}
+				.price{
+					padding: 0 5px;
+					color: #f00;
+					font-size: 12px;
+					span{
+						float: right;
+					}
+				}
+			}
+		}
+	}
+
+	.backTop{
+		position: fixed;
+		bottom:70px;
+		right:20px;
+		width:36px;
+		height:36px;
+		border-radius: 50%;
+		overflow: hidden;
+		img{
+			width:100%;
+			display: block;
+		}
+	}
+}
+

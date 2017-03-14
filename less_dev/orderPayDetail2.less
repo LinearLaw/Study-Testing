@@ -1,0 +1,176 @@
+@import "reset";
+
+.checkbox{
+	width:10px;
+	height:10px;
+	display: inline-block;
+	border-radius: 6px;
+	border: 1px solid red;
+}
+.checkbox.checked{
+	background-color: #FF642E;
+}
+.header{
+	height:40px;
+	line-height: 40px;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+	background-color: #0195FF;
+	position: relative;
+	.back{
+		width:40px;
+		height:100%;
+		display: block;
+		position: absolute;
+		top:0;
+		left:0;
+	}
+}
+
+.order{
+	width:100%;
+	background-color: #F4F5F7;
+	position: absolute;
+	top:40px;
+	bottom:0;
+	overflow: hidden;
+	.left-time{
+		text-align: center;
+		border-bottom:1px solid #E7E7E9;
+		.title{
+			height: 30px;
+			line-height: 40px;
+		}
+		.time{
+			height: 30px;
+		}
+	}
+	.goods{
+		min-height: 80px;
+		padding:10px 20px 10px 100px;
+		border-top: 1px solid #F2F2F2;
+		position: relative;
+		.goods-pic{
+			width:80px;
+			height:80px;
+			position: absolute;
+			left: 10px;
+			img{
+				width:100%;
+				display: block;
+			}
+		}
+		.goods-name{
+			font-weight:normal;
+			font-size: 16px;
+			padding:5px 0;
+			.ellipsisNormal();
+		}
+	}
+	.goods::after{
+		content: '';
+		clear: both;
+		display: block;
+	}
+	.pay-select{
+		background-color: white;
+		.bank-pay{
+			height:60px;
+			padding-left: 65px;
+			position: relative;
+			border-bottom:1px solid #EEEEEE;
+			.img{
+				width:60px;
+				height:60px;
+				overflow: hidden;
+				position: absolute;
+				left:0;
+				top:0;
+				img{
+					width:100%;
+				}
+			}
+			.title{
+				font-size: 14px;
+				height:35px;
+				line-height: 40px;
+			}
+			.describe{
+				font-size: 12px;
+				color: #E0080C;
+			}
+			input[type=radio]{
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				width: 14px;
+				height: 14px;
+				outline:none;
+				box-sizing: border-box;
+				border: 2px solid rgb(255, 100, 46);
+				border-radius: 50%;
+				position: absolute;
+				right:10px;
+				top:50%;
+				margin-top: -7px;
+			}
+		}
+		.weixin-pay{
+			height:60px;
+			padding-left: 65px;
+			position: relative;
+			.img{
+				width:60px;
+				height:60px;
+				overflow: hidden;
+				position: absolute;
+				left:0;
+				top:0;
+				img{
+					width:100%;
+				}
+			}
+			.title{
+				font-size: 15px;
+				height:35px;
+				line-height: 40px;
+			}
+			.describe{
+				font-size: 12px;
+			}
+			input[type=radio]{
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				width: 14px;
+				height: 14px;
+				outline:none;
+				box-sizing: border-box;
+				border: 2px solid rgb(255, 100, 46);
+				border-radius: 50%;
+				position: absolute;
+				right:10px;
+				top:50%;
+				margin-top: -7px;
+			}
+		}
+		.bank-pay.checked, .weixin-pay.checked{
+			.fa-check{
+				background-color: #FD6332;
+				border-style: none;
+			}
+		}
+	}
+	.confirm-pay{
+		display: block;
+		margin: 20px;
+		height:40px;
+		line-height: 40px;
+		text-align: center;
+		color: white;
+		background-color: #FF642E;
+		font-size: 16px;
+		border-radius: 5px;
+	}
+}

@@ -1,0 +1,102 @@
+@import "reset";
+
+body{
+    background: #eeeeee;
+}
+#container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.header {
+    background: @mainColor;
+}
+ .goodsMes {
+    position: relative;
+    padding: 30px 20px 10px 70px;
+     .goodsImg {
+         width: 50px;
+         height: 50px;
+         position: absolute;
+         top: 30px;
+         left: 10px;
+         overflow: hidden;
+         img {
+             display: block;
+             width: 100%;
+             height: 100%;
+         }
+     }
+     .calendar{
+         font-size: 48px ;
+         color: #ddd;
+     }
+}
+.goodsMes .machine {
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    .ellipsisNormal();
+    color: #eeeeee;
+}
+
+.goodsMes{
+    .vip {
+        border: 1px solid #dddddd;
+        padding: 2px 5px;
+        margin-left: 10px;
+        background: #a9a9a9;
+        color: #fff;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .integral{
+        font-size: 14px;
+        color: #ffffff;
+        line-height: 35px;
+        height:35px;
+        position: relative;
+        .ellipsisNormal();
+        span{
+            float: right;
+        }
+        .buy{
+            border-radius: 3px;
+            background-color: #fff;
+            padding: 3px 10px;
+            font-size: 12px;
+            color: #000;
+            position: absolute;
+            box-sizing: border-box;
+            line-height:initial;
+        }
+    }
+}
+/*链接*/
+.catalogue a {
+    height:40px;
+    line-height: 40px;
+    background: #ffffff;
+    display: block;
+    padding:0 40px;
+    border-top: 1px solid #ddd;
+    position: relative;
+    .map, .right{
+        font-size: 16px;
+        position: absolute;
+        top:0;
+        .WritingCenterAlignment(@color: #999999);
+    }
+    .map{
+        left:0;
+    }
+    .right{
+        right:0;
+    }
+}
+.consume{
+    border-bottom: 1px solid #dddddd;
+}

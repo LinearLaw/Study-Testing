@@ -1,0 +1,115 @@
+@import "reset";
+
+#container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url("../images/vote/2_5.jpg") top center no-repeat;
+    background-size: 100% 100%;
+}
+
+.header {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    background-color: rgb(230, 58, 84);
+    color: #fff;
+
+    .back {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-left: 3px solid #fff;
+        border-top: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        top: 13px;
+        left: 15px;
+    }
+}
+
+.con {
+    position: absolute;
+    width: 300px;
+    top: 120px;
+    left: 50%;
+    margin-left: -150px;
+    bottom: 30px;
+    border-radius: 10px;
+    background-color: rgb(255, 217, 108);
+
+    .rankHeader {
+        position: absolute;
+        width: 100%;
+        top: -59px;
+        left: 0;
+    }
+
+    .row1 {
+        width: 60px;
+        .ellipsisNormal();
+    }
+    .row2 {
+        width: 60px;
+        .ellipsisNormal();
+    }
+    .row3 {
+        width: 90px;
+        .ellipsisNormal();
+    }
+    .row4 {
+        width: 90px;
+        .ellipsisNormal();
+    }
+
+    .thead {
+        font-weight: bold;
+        color: rgb(150, 77, 20);
+        .clearFix();
+
+        li {
+            height: 40px;
+            font-size: 16px;
+            line-height: 40px;
+            float: left;
+            text-align: center;
+        }
+    }
+}
+
+#wrapper {
+    position: absolute;
+    width: 300px;
+    left: 0;
+    top: 40px;
+    bottom: 30px;
+    overflow: hidden;
+
+    li {
+        .clearFix();
+        padding: 5px 0;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        div {
+            float: left;
+        }
+        .userImg {
+            display: block;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+        }
+
+        .row1 {
+            color: rgb(29, 154, 164);
+        }
+    }
+}

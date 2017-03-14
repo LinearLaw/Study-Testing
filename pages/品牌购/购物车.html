@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../../plugs/fontAwesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../css/cart.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="container">
+    <div class="commonHeader">订单详情
+        <a href="javascript:history.go(-1)" class="fa fa-chevron-left back"></a>
+    </div>
+
+    <div class="shops">
+        <!--店铺-->
+        <div class="shop">
+            <div class="shop-title">BLISS CAKE<span>（本店满150减20）</span></div>
+
+            <!--商品列表-->
+            <div class="goods">
+                <input type="checkbox" class="checkbox">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <div class="goods-pic">
+                    <img src="../../images/1_02.png" alt="">
+                </div>
+                <h3 class="goods-name">杏仁蛋糕杏仁蛋糕杏仁蛋糕杏仁蛋糕杏仁蛋糕杏仁蛋糕</h3>
+                <div class="goods-price">
+                    <span>￥88.00元</span>
+                    <span class="goodsNum">x1</span>
+                </div>
+                <div class="num-module">
+                    <span class="minus">-</span>
+                    <input type="text" value="1">
+                    <span class="plus enable">+</span>
+                </div>
+            </div>
+
+            <div class="goods">
+                <input type="checkbox" class="checkbox">
+                <div class="goods-pic">
+                    <img src="../../images/1_02.png" alt="">
+                </div>
+                <h3 class="goods-name">杏仁蛋糕</h3>
+                <div class="goods-price">
+                    <span>￥88.00元</span>
+                    <span class="goodsNum">x1</span>
+                </div>
+                <div class="num-module">
+                    <span class="minus">-</span>
+                    <input type="text" value="1">
+                    <span class="plus enable">+</span>
+                </div>
+            </div>
+
+            <div class="subtotal">
+                <span>小计：￥</span>
+                <span class="subprice">133.00</span>
+                <span class="cross-price">￥155.00</span>
+            </div>
+        </div>
+
+        <!--店铺-->
+        <div class="shop">
+            <div class="shop-title">BLISS CAKE<span>（本店满150减20）</span></div>
+
+            <!--商品列表-->
+            <div class="goods">
+                <input type="checkbox" class="checkbox">
+                <div class="goods-pic">
+                    <img src="../../images/1_02.png" alt="">
+                </div>
+                <h3 class="goods-name">杏仁蛋糕</h3>
+                <div class="goods-price">
+                    <span>￥88.00元</span>
+                    <span class="goodsNum">x1</span>
+                </div>
+                <div class="num-module">
+                    <span class="minus">-</span>
+                    <input type="text" value="1">
+                    <span class="plus enable">+</span>
+                </div>
+            </div>
+
+            <div class="subtotal">
+                <span>小计：￥</span>
+                <span class="subprice">133.00</span>
+                <span class="cross-price">￥155.00</span>
+            </div>
+            <a href="javascript:void (0)" class="favorable">再买12元可以优惠15元哦
+                <span class="go">去凑单<span class="fa fa-chevron-right"></span></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="total">
+        <input type="checkbox" class="checkbox" id="selectAll"><label for="selectAll">全选</label>
+
+        <p class="tip">全场满500减35</p>
+        <p class="total-price">合计：￥221.00元</p>
+
+        <a class="submit-order" href="javascript:void (0)">提交订单</a>
+    </div>
+</div>
+
+<script src="../../scripts/jquery-2.2.2.min.js"></script>
+<script>
+    $(".plus").on("click", function () {
+        var minus = $(this).siblings(".minus");
+        var input = $(this).siblings("input");
+        if ($(this).hasClass("enable")) {
+            input.val(Number(input.val()) + 1);
+            minus.addClass("enable");
+        }
+    });
+    $(".minus").on("click", function () {
+        var input = $(this).siblings("input");
+        if ($(this).hasClass("enable")) {
+            input.val(Number(input.val()) - 1);
+            if (input.val() == 1)
+                $(this).removeClass("enable");
+        }
+    });
+</script>
+</body>
+</html>

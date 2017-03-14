@@ -1,0 +1,222 @@
+@import "reset";
+.title {
+    height: 40px;
+    line-height: 40px;
+    background-color: @mainColor;
+    position: relative;
+    padding:0 54px 0 84px;
+    .back{
+        position: absolute;
+        left:0;
+        display: block;
+        height: 40px;
+        i {
+            width: 30px;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            font-size: 30px;
+            color: #fff;
+        }
+    }
+    span {
+        display: block;
+        float: left;
+        color: #fff;
+    }
+    .imgBox{
+        position: absolute;
+        top:0;
+        right: 0;
+        width:44px;
+        height: 40px;
+        text-align: center;
+        i{
+            font-size: 20px;
+            color: #fff;
+            margin-top: 12px;
+        }
+    }
+
+    .formBox{
+        position: relative;
+        input{
+            width:100%;
+            height: 28px;
+            line-height: 28px;
+            background: #fff;
+            -webkit-border-radius:14px;
+            -moz-border-radius:14px;
+            border-radius:14px;
+            border:none;
+            padding-left:10px;
+        }
+        i{
+            position: absolute;
+            right: 5px;
+            top: 12px;
+            color: #0195FF;
+            font-size: 16px;
+
+        }
+    }
+}
+.wrapper {
+      width:100%;
+      position: absolute;
+      top:40px;
+      left:0;
+      bottom:0;
+      overflow: hidden;
+    .topBar {
+        overflow: hidden;
+        ul{
+            li{
+                width: 33.3%;
+                height: 106px;
+                float: left;
+                border-right: 1px solid #f7f2f2;
+                border-bottom: 1px solid #f7f2f2;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+
+                a{
+                    display: block;
+                    height:100%;
+                    overflow: hidden;
+                    .imgBox{
+                        margin-top:20px;
+                        img{
+                            display: block;
+                            margin:0 auto;
+                        }
+                    }
+
+                    p{
+                        text-align: center;
+                    }
+                }
+            }
+            li:nth-child(3n){
+                border-right:none;
+            }
+        }
+    }
+    .content{
+        .remmBussinesser {
+            overflow: hidden;
+            .remmTitle {
+                height: 25px;
+                line-height: 25px;
+                border-bottom: 1px solid #ddd;
+                padding:5px 10px;
+                span{
+                    display: block;
+                    float: left;
+                    padding:0 10px;
+                    border-left: 3px solid #0195FF;
+                }
+                a{
+                    display: block;
+                    float: right;
+                    font-size: 12px;
+                    padding:0 10px;
+                    i{
+                        font-size: 16px;
+                        color: #0195FF;
+                    }
+                }
+            }
+            .remmList{
+                ul {
+                    .clearFix();
+                    li {
+                        box-sizing: border-box;
+						padding: 0 3px;
+                        a {
+                            display: block;
+                            position: relative;
+                            overflow: hidden;
+                            img {
+                                display: block;
+                                width: 100%;
+                                &:nth-child(2){
+                                    position: absolute;
+                                    top:0;
+                                    left:0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .lover{
+            .loverTitle{
+                height: 25px;
+                line-height: 25px;
+                border-bottom: 1px solid #ddd;
+                padding:5px 10px;
+                span{
+                    display: block;
+                    float: left;
+                    padding:0 10px;
+                    border-left: 3px solid #0195FF;
+                }
+                a{
+                    display: block;
+                    float: right;
+                    font-size: 12px;
+                    padding:0 10px;
+                    i{
+                        font-size: 16px;
+                        color: #0195FF;
+                    }
+                }
+            }
+            .loverList {
+                ul {
+                    li{
+                        position: relative;
+                        padding:10px;
+                        border-bottom:1px solid #ddd;
+                        min-height:80px;
+                        a{
+                            display: block;
+                            position: relative;
+                            padding-left:90px;
+
+                            .fImg{
+                                position: absolute;
+                                left:0;
+                                width: 80px;
+                                height: 80px;
+                                img{
+                                    display: block;
+                                    width: 100%;
+                                    height:100%;
+                                }
+
+                            }
+                            h3{
+                                font-weight:normal;
+                                font-size:14px;
+                                line-height: 25px;
+                                .ellipsisNormal();
+                            }
+                            p{
+                                line-height: 25px;
+                                .ellipsisNormal();
+                                .count {
+                                    display: block;
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
