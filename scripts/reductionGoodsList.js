@@ -40,7 +40,7 @@ var myScroll;
             myScroll.refresh();
             main.max = myScroll.maxScrollY;
             //canLoad = true;
-            console.log(main.max);
+            //console.log(main.max);
         }
     }
 
@@ -57,7 +57,7 @@ var myScroll;
         });
 
         main.max = myScroll.maxScrollY;
-        console.log(main.max);
+        //console.log(main.max);
 
         myScroll.on("scroll", move);
     };
