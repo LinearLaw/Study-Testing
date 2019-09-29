@@ -1,11 +1,12 @@
 #include "./sqlist.cpp"
 
+// å†’æ³¡æ’åº
 void BubbleSort(RecType R[],int n){
 	int i,j;
 	RecType tmp;
 	for(i=0;i<n-1;i++){
 		for(j=n-1;j>i;j--){
-			// ±È½ÏjÓëj-1µÄ´óĞ¡£¬½«¸üĞ¡µÄ¹Ø¼ü×Ö½øĞĞÏòÇ°ÒÆ¶¯
+			// æ¯”è¾ƒï¼Œæ‰¾å‡ºæœ¬è¶Ÿæœ€å°å…³é”®å­—çš„è®°å½•
 			if(R[j].key < R[j-1].key){
 				tmp = R[j];
 				R[j]=R[j-1];
@@ -17,16 +18,53 @@ void BubbleSort(RecType R[],int n){
 	}
 }
 
+// å¿«é€Ÿæ’åº
+int count = 1;
+void QuickPartition(RecType R[],int s, int t){
+	int i = s,j=t;
+	RecType tmp = R[i];
+	while(i<j){
+		while(i<j && R[j].key >= tmp.key)
+			j--;
+		R[i] = R[j];
+
+		while(i<j && R[i].key <= tmp.key)
+			i++;
+		R[j] = R[i];
+	}
+	R[i] = tmp;
+	return i;
+}
+void QuickSort(RecType R[],int s, int t){
+	int i;
+	RecType tmp;
+	if(s<t){
+		count++;
+		i = QuickPartition(R,s,t);
+		DispList(R,10); // æ‰“å°å½“å‰çš„Ræ•°ç»„
+		QuickSort(R,s,i-1);
+		QuickSort(R,i+1,t);
+	}
+}
+
 int main(){
-	int n = 10; // ÓÃÀ´±íÕ÷Ë³Ğò±í³¤¶È
-	RecType R[MAXL]; // Ë³Ğò±í×î´ó³¤¶È
-	KeyType a[] = {9,8,7,6,5,4,3,2,1,0}; // Ë³Ğò±íÔªËØ
+	int n = 10; // ç”¨äºè¡¨å¾é¡ºåºè¡¨çš„å…ƒç´ ä¸ªæ•°
+	RecType R[MAXL]; // ç”¨äºè¡¨å¾é¡ºåºè¡¨çš„æœ€å¤§é•¿åº¦
+	KeyType a[] = {9,8,7,6,5,4,3,2,1,0}; // æ•°æ®å…ƒç´ 
 	CreateList(R,a,n);
 
-	printf("ÅÅĞòÇ°£º");
+	// 1ã€å†’æ³¡æ’åº
+	printf("æ’åºä¹‹å‰ï¼š");
 	DispList(R,n);
-	printf("ÅÅĞòºó£º");
+
+	BubbleSort(R,n);
+	printf("æ’åºä¹‹åï¼š");
 	DispList(R,n);
+
+	// 2ã€å¿«é€Ÿæ’åº
+	QuickSort(R,0,n-1);
+	printf("count=%d\n",count);
+
 	return 1;
 
 }
