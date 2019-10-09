@@ -1,31 +1,31 @@
-// Ë³Ğò±í»ù±¾Ëã·¨
+// é¡ºåºè¡¨åŸºæœ¬ç®—æ³•
 
 #include <stdio.h>
 #define MAXL 100
 typedef int KeyType;
 typedef char InfoType;
 
-// ²éÕÒÔªËØµÄÀàĞÍ
+// æŸ¥æ‰¾å…ƒç´ çš„ç±»å‹
 typedef struct{
 	KeyType key;
 	InfoType data;
 } RecType;
 
-// xºÍyµÄË³Ğò½øĞĞ½»»»
+// xå’Œyçš„é¡ºåºè¿›è¡Œäº¤æ¢
 void swap(RecType x,RecType y){
 	RecType tmp = x;
 	x=y;
 	y=tmp;
 }
 
-// ´´½¨Ë³Ğò±í
+// åˆ›å»ºé¡ºåºè¡¨
 void CreateList(RecType R[],KeyType keys[],int n){
 	for(int i = 0;i<n;i++){
 		R[i].key = keys[i];
 	}
 }
 
-// ÒÀ´Î´òÓ¡ËùÓĞË³Ğò±íÄÚµÄkeyÔªËØ
+// ä¾æ¬¡æ‰“å°æ‰€æœ‰é¡ºåºè¡¨å†…çš„keyå…ƒç´ 
 void DispList(RecType R[],int n){
 	for(int i =0;i<n;i++){
 		printf("%d",R[i].key);
