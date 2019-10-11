@@ -16,15 +16,16 @@ typedef struct node{
  * @desc 传入一个str，创建二叉树
  */
 void CreateBTree(BTNode *&b,char *str){
-    BTNode *St[MaxSize],*p=NULL; // 创建一个空数组作为栈，一个指针
-    int top = -1,k,j=0;
+    BTNode *St[MaxSize];
+    BTNode *p=NULL; // 创建一个空数组作为栈，一个指针
+    int top = -1,k=0,j=0;
     char ch;
     b = NULL; // b用来指示根节点
     ch = str[j];
     while(ch!='\0'){
         switch(ch){
-            case ')':top++;St[top] = p;k=1;break; // 左孩子
-            case '(':top--;break;
+            case '(':top++;St[top] = p;k=1;break; // 左孩子
+            case ')':top--;break;
             case ',':k=2;break; // 右孩子
             default:
                 p=(BTNode *)malloc(sizeof(BTNode));
@@ -74,12 +75,6 @@ BTNode *FindNode(BTNode *b,ElemType x){
     }
 }
 
-BTNode *LchildNode(BTNode *p){
-    return p->lchild;
-}
-BTNode *RchildNode(BTNode *p){
-    return p->rchild;
-}
 
 /**
  * @desc 求二叉树的高度
@@ -111,12 +106,12 @@ void DispBTree(BTNode *b){
 }
 
 // 调试
-int main(){
-    BTNode *b;
-    char str[15];
-    strcpy(str, "A(B(D,E),C(,F))");
-    CreateBTree(b,str);
-    DispBTree(b);
-    // printf("\n");
-	return 1;
-}
+// int main(){
+//     BTNode *b;
+//     char str[30];
+//     strcpy_s(str, "A(B(D,E),C(,F))");
+//     CreateBTree(b,str);
+//     DispBTree(b);
+//     // printf("\n");
+// 	return 1;
+// }
