@@ -26,5 +26,8 @@
     <ClCompile Include="1-btree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="3-OrderRecu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

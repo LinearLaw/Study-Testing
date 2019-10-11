@@ -93,25 +93,25 @@ int BTHeight(BTNode *b){
 // 显示一棵树
 void DispBTree(BTNode *b){
     if(b!=NULL){
-        // printf("%c",&b->data);
+        printf("%c",&b->data);
         if(b->lchild!=NULL || b->rchild!=NULL){
-            // printf("(");    // 如果当前节点有孩子节点，输出一个前括号包裹
+            printf("(");    // 如果当前节点有孩子节点，输出一个前括号包裹
             DispBTree(b->lchild);
             if(b->rchild!=NULL)
-                // printf(",");  // 左右节点用逗号分隔
+                printf(",");  // 左右节点用逗号分隔
             DispBTree(b->rchild);
-            // printf(")");    // 输出一个后括号包裹当前的层次的树节点
+            printf(")");    // 输出一个后括号包裹当前的层次的树节点
         }
     }
 }
 
 // 调试
-// int main(){
-//     BTNode *b;
-//     char str[30];
-//     strcpy_s(str, "A(B(D,E),C(,F))");
-//     CreateBTree(b,str);
-//     DispBTree(b);
-//     // printf("\n");
-// 	return 1;
-// }
+int main(){
+    // BTNode *b;
+    // char str[30];
+    // strcpy_s(str, "A(B(D,E),C(,F))");
+    // CreateBTree(b,str);
+    // DispBTree(b);
+    // printf("\n");
+	return 1;
+}

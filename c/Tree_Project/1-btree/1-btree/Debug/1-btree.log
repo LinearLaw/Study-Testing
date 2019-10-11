@@ -1,1 +1,6 @@
-﻿  1-btree.vcxproj -> E:\Can_we_found_zzz\Code\My_Project\taohuibang\c\Tree_Project\1-btree\Debug\1-btree.exe
+﻿3-OrderRecu.obj : error LNK2005: "int __cdecl BTHeight(struct node *)" (?BTHeight@@YAHPAUnode@@@Z) 已经在 1-btree.obj 中定义
+3-OrderRecu.obj : error LNK2005: "void __cdecl CreateBTree(struct node * &,char *)" (?CreateBTree@@YAXAAPAUnode@@PAD@Z) 已经在 1-btree.obj 中定义
+3-OrderRecu.obj : error LNK2005: "void __cdecl DestoryBTree(struct node * &)" (?DestoryBTree@@YAXAAPAUnode@@@Z) 已经在 1-btree.obj 中定义
+3-OrderRecu.obj : error LNK2005: "void __cdecl DispBTree(struct node *)" (?DispBTree@@YAXPAUnode@@@Z) 已经在 1-btree.obj 中定义
+3-OrderRecu.obj : error LNK2005: "struct node * __cdecl FindNode(struct node *,char)" (?FindNode@@YAPAUnode@@PAU1@D@Z) 已经在 1-btree.obj 中定义
+E:\Can_we_found_zzz\Code\My_Project\taohuibang\c\Tree_Project\1-btree\Debug\1-btree.exe : fatal error LNK1169: 找到一个或多个多重定义的符号

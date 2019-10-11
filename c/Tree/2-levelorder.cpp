@@ -3,6 +3,7 @@
 
 
 //------------------------------------------------------
+// 队列的基本方法
 typedef struct{
     BTNode *data[MaxSize];
     int front,rear;
@@ -38,7 +39,7 @@ bool DeQueue(SqQueue *&q,BTNode *&e){
     return true;
 }
 //------------------------------------------------------
-
+// 层次遍历
 void levelOrder(BTNode *b){
     BTNode *p;
     SqQueue *qu;
