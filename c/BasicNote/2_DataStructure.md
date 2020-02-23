@@ -4,6 +4,7 @@
 - 数据结构：面向存储
 
 ## 2.1、基本数据类型
+
 字符型
 - char
 
@@ -105,8 +106,57 @@ int main(void)
     return 0;
 }
 ```
+
+## 2.3、字符型
+
 字符型char ，仅可存一个字符，用单引号；   
 
-输出字符，
+输出字符：
 - printf → 输出一个字符串
 - putchar → 输出一个字符
+```c
+printf("%c",a);
+putchar('a');
+```
+
+输入字符：
+- scanf → 输入一个字符串
+- getchar → 输入一个字符
+```c
+scanf("%c",&b);
+getchar(字符)；
+char a = getchar();
+```
+
+溢出：有符号数的加减操作，进位之后符号位被更改，造成高位数据丢失；
+
+```c
+// 以f结尾的是float类型，不以f结尾的是double型
+float a = 10.0f; // f可加可不加，默认就是float
+
+```
+```c
+#include <stdio.h>
+int main(void)
+{
+    float r = 2;
+    float s = r*r*3.14
+    printf("%.2f\n",s);
+    return 0;
+}
+
+```
+> Tips：科学计数法：3.2e3f → 3200   
+> Tips：字符常量，例如'a'，字符串常量"a"相当于是'a''\0';   
+
+
+类型限定符
+- extern：声明一个变量，extern声明变量后，该变量并未立刻申请存储空间；
+- const：定义一个常量
+- volatile：防止该变量被编译器优化
+- register：定义寄存器变量，有空闲寄存器就会把变量放入寄存器；
+
+
+
+
+
