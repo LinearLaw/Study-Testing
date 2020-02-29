@@ -467,8 +467,27 @@ printf("%s   %s",p,arr);    // p会打印Bllo world，arr会打印ABllo world
 
 // Tips：在printf时，字符串会从当前地址打印直到\0
 ```
+```c
+// 这是一个字符串常量，可读不可写，存放在内存的常量区
+char *arr = "hello world";
+
+// 这是一个字符串数组，可读可写，存放在内存的栈区
+char arr[] = "hello world";
+```
+```c
+// 例、strcat函数 → 将一个字符串追加到另一个字符串数组中
+void mystrcat(char *arr,char *s1)
+{
+    while(*arr)
+        arr++;
+    while(*arr++ = *s1++);
+}   
+
+// 例、字符串排序
 
 
+
+```
 ———————————————————————————————————————————————     
 
 
