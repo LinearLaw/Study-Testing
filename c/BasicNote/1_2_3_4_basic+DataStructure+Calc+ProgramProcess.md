@@ -296,8 +296,8 @@ putchar('a');
 - scanf → 输入一个字符串
 - getchar → 输入一个字符
 ```c
+// scanf接收的是一个地址
 scanf("%c",&b);
-getchar(字符)；
 char a = getchar();
 ```
 
@@ -417,8 +417,3 @@ rand(); // 生成了一个随机数；
 ```cmd
 gcc -o 文件名 -std=c99
 ```
-
-
-
-
-
