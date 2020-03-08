@@ -528,5 +528,23 @@ a->pa;
 ————————————————————————————————————————————————————————        
 指向静态成员的指针
 和指向成员变量的指针差不多，定义时无需跟类关联。
+```c++
+class A{
+public:
+    static void dis(){
+        cout <<data<<endl;
+    }
+    static int data;
+}
+
+int A::data = 100;
+
+void test(){
+    int *p = &A::data; // 用指针直接执行静态成员函数
+
+    void(*pfunc)() = &A::dis; // 将函数指针赋值给void指针
+    pfunc();    // 借助指针执行函数
+}
+```
 
 
