@@ -77,6 +77,21 @@ Person(String name){
     this.name = name;   // 所以，就用this来指代当前对象的name
 }
 ```
-this指代哪个对象？
+* this指代哪个对象？   
+代表所在函数所属对象的引用。   
 
+谁调用，就指向谁。   
 
+7、多个重载构造函数不可以互相调用   
+②、this可以用作重载的构造函数，用来对当前对象进行构造   
+用于构造函数的互相调用，作用是初始化当前对象。   
+```java
+Person(String name){}
+Person(String name,int age){
+    this(name);     // 相当于调用了重载的Person(name)
+    this.age = age;
+}
+/**
+注意：this(name)只能放在第一行，放其他行会报错。
+*/
+```
