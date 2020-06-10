@@ -84,4 +84,43 @@ class ForceSwitch{
 
 Tag：有没有什么例子？
 
-## 5、
+## 5、变量类型
+
+有三种变量类型：类变量、实例变量、局部变量
+
+- 类变量：就是static修饰的成员，也叫静态成员
+    - 类变量是类的成员，所有的类的实例都共享同一个类变量
+    - 生命周期特别长，类定义后就存在，程序结束才销毁。
+    - 存在静态存储区，一般会给它声明为常量。
+    - 可以直接用类访问到类变量。
+```java
+class Person{
+    static String name = "abc";
+}
+// 1、
+Person.name;
+
+// 2、
+Person a = new Person();
+a.name;
+```
+
+- 实例变量：就是一个类下的非static修饰的成员
+    - 在new 一个类的实例，生成一个对象时，实例变量才被创建出来，
+    - 不同的对象实例变量不是同一个。
+
+- 局部变量：定义在函数内部的变量。
+
+```java
+class VariableType{
+    static int age; // 类变量
+
+    String country; // 实例变量
+    int year;   // 实例变量
+
+    public void show(){
+        int g = 0;  // 局部变量
+    }
+}
+
+```
