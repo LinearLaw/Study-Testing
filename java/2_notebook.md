@@ -124,3 +124,104 @@ class VariableType{
 }
 
 ```
+## 6、什么时候用静态
+两方面下手，   
+静态修饰的有成员变量和成员函数。   
+
+什么时候定义静态变量？   
+- 当对象中出现共享数据时，该数据被静态修饰，
+- 对象中的特有数据，需要定义成非静态，存在对象内部，堆内存中。
+
+什么时候定义静态函数？   
+- 当功能内部没有访问到非静态数据，或对象特有数据，可以定义成静态的。
+
+```java
+class Person{
+    String name;
+
+    // show没有访问非静态数据，可以设置成静态的
+    public static void show(){
+        System.out.printIn("hahhhahah ");
+    }
+}
+```
+
+### 7、静态的应用
+每个应用程序都有共性的功能，可以将其抽取，独立封装，以便复用。   
+```java
+class Demo{
+    public static void main(String[] args){
+        int[] arr = {3,4,5,67,8};
+        int max = getMax(arr)
+    }
+
+    public static void getMax(int[] arr){
+
+        int max = 0;
+        for(int x=1;x<arr.length;i++){
+            if(arr[x]>arr[max]){
+                max=x;
+            }    
+        }
+        return arr[max]
+    }
+}
+
+// 多个类共用某一些功能，可以把这些工具封装到某一个类中，定义成其静态成员函数
+class Test{
+
+}
+```
+
+```java
+class Tools{
+    public int getMax(int[] arr){
+
+    }
+    public int getMin(int[] arr){
+
+    }
+}
+```
+注意：   
+编译时，当前类引用了其他类，会把其他类的java文件也编译，如果没有指定相关类的所在目录，会在当前文件夹找。   
+如果没找到，javac不会报错，java运行时会报错。   
+
+- 对象是用来封装数据的，工具类并未封装持有数据；
+- 操作数组的每一个方法都没有用到工具类中的持有数据；
+
+所以此时，此时是不需要对象的，**可以直接把工具类的方法，全部定义成static，直接通过类名调用**。   
+
+方法静态后，可以方便使用，该类依然可以被其他程序建立对象，   
+可以限制该类不能创建实例化对象，   
+可以通过对该构造函数私有化，来限制不能进行new。     
+
+能隐藏起来的全部隐藏起来。   
+
+### 8、文档
+
+```
+set classpath=.;c/myclass
+```
+
+.class文件看不到里面的代码，里面都是二进制。   
+
+如何将ArrayTools文件生成文档？（06-05-10:10）   
+```java
+/**
+类的说明描述
+@author 坐着
+@version v1.1
+*/
+class ArrayTools{
+    /**
+    描述
+    @param arr 参数描述
+    @return 结果描述
+    */
+    public static void getMax(int[] arr){
+
+    }
+}
+
+```
