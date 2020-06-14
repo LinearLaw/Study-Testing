@@ -198,30 +198,3 @@ class Tools{
 
 能隐藏起来的全部隐藏起来。   
 
-### 8、文档
-
-```
-set classpath=.;c/myclass
-```
-
-.class文件看不到里面的代码，里面都是二进制。   
-
-如何将ArrayTools文件生成文档？（06-05-10:10）   
-```java
-/**
-类的说明描述
-@author 坐着
-@version v1.1
-*/
-class ArrayTools{
-    /**
-    描述
-    @param arr 参数描述
-    @return 结果描述
-    */
-    public static void getMax(int[] arr){
-
-    }
-}
-
-```
