@@ -745,3 +745,141 @@ class MainTest
     }
 }
 ```
+
+### 7、注释生成文档
+
+注意，要生成文档，要求类是public修饰。   
+并且，最好要static修饰。   
+
+```java
+/**
+ * 类的说明
+ * @author xxx
+ * @version v1.1
+ */
+public class ArrayTool{
+    private ArrayTool(){}
+
+    /**
+    这里写说明：求数组最大值
+    @param arr 接收一个int类型数组
+    @return 返回数组最大值
+    */
+    public static int getMax(int[] arr){
+
+    }
+
+    /**
+    求数组最小值
+    @param arr 接收一个int类型数组
+    @return 返回数组最小值
+    */
+    public static int getMin(int[] arr){}
+}
+```
+
+接着用工具对注释进行提取，javadoc.exe命令
+
+```cmd
+javadoc -d ./myhelp -author -version  ArrayTool.java
+```
+
+会生成一堆网页，从index.html可以看到。   
+public会被生成文档，但是private不会被提取。   
+
+一个类中默认会有一个空参数的构造函数，   
+这个默认的构造函数和所属类是一致，   
+如果类是public，构造函数也是public，   
+如果类是private，构造函数也是private。   
+
+API帮助文档。   
+java也自带文档。   
+
+### 8、静态代码块
+
+格式：
+```java
+static{
+    // 这里写静态代码块中的语句。
+}
+```
+
+特点：   
+随着类的加载而执行，只执行一次。   
+用于给类进行初始化。   
+
+静态代码块里面只能访问静态成员。    
+
+```java
+class staticCode {
+    static{
+        System.out.printIn("a");
+    }
+}
+```
+```java
+class StaticDemo{
+    static{
+        System.out.printIn("b");
+    }
+    public static void main(){
+        new StaticCode();   // 此时类加载到内存
+        new StaticCode();   // 前一句已经加载了，现在不需要再加载
+        System.out.printIn("over");
+    }
+    static{
+        System.out.printIn("c")
+    }
+}
+// b c a over
+```
+
+注意：   
+如果对象是null，此时类依然不会被加载。   
+实际用到了类的时候才会加载。   
+
+```java
+StaticCode s = null; // 此时类不会加载，static不会执行。 
+```
+
+### 6.9、对象初始化的过程
+
+注意区分构造代码块和静态代码块
+
+```java
+Person p = new Person()
+```
+
+- new命令执行， Person.class类文件加载到内存，开辟了堆内存空间。
+
+- 静态代码块执行，给类进行初始化。
+
+- 开辟空间，分配内存地址
+
+- 在堆内存中，分配对象private，public成员变量的堆内存空间，此时成员变量是默认值。
+
+- 对属性进行显示初始化。
+
+- 对对象进行构造代码块初始化。
+
+- 执行构造函数，给成员变量赋值，对象初始化。
+
+- 将内存地址赋值给栈内存的p变量
+
+
+### 6.10、对象调用成员的过程
+
+```java
+Person p = new Person();
+p.setName("lisi");
+```
+
+- 堆区
+- 栈区
+- 方法区：放的都是方法，public private都会放到这里，static的也会放到这里。
+
+static方法用Person调用，也就是当前的类。   
+非静态方法用对象this调用。   
+
+### 6.11、单例设计模式
+
