@@ -883,3 +883,83 @@ static方法用Person调用，也就是当前的类。
 
 ### 6.11、单例设计模式
 
+对某一类问题常用的规律，形成了模式，这就是设计模式。   
+
+GOF。   
+
+纯偏思想，不是代码。   
+如果没有真实业务需求，很枯燥。   
+
+设计模式：解决某一类问题最行之有效的方法。   
+java中有23种设计模式。   
+
+
+单例设计模式：   
+解决一个类在内存中只存在一个对象的问题。   
+有些时候，会要求这个类，只能有一个对象，不能有更多的，就可以用单例设计模式。  
+
+**第一种方式**。   
+
+怎么保证只有一个对象？   
+1、为了避免其他程序过多建立该类对象，先禁止其他程序禁止建立该类对象   
+2、为了让其他程序可以访问到该类对象，只好在本类中自定一个对象。   
+3、为了方便其他程序对自定义对象的访问可以对外提供一些访问方式。   
+
+
+怎么用代码体现？   
+1、把构造函数private，私有化
+2、在类中国创建一个本类对象；   
+3、提供一个方法可以获取到该对象   
+
+
+对于事物该怎么描述，还是怎么描述；   
+当需要将该事物的对象在内存中保持唯一时，就可以用单例设计模式。   
+
+```java
+class Single{
+    private Single(){}
+
+    // 创建一个唯一的实例
+    private static Single s = new Single();
+
+    // 获取实例的方法
+    public static Single getInstance(){
+        return s;
+    }
+}
+
+class SingleDemo{
+    public static void main(){
+        System.out.printIn("hallo world");
+
+        // 通过类名调用静态方法，获取到这个唯一的对象。
+        Single ss = Single.getInstance();
+
+        // 即使再次调用静态方法，此时的s1和ss指向的是同一个对象。
+        Single s1 = Single.getInstance();
+    }
+}
+```
+
+单例设计模式的**第二种方式**。   
+
+第一种模式是先初始化对象，饿汉式。   
+Single类一进入内存，对象就已经创建好了。   
+
+第二种模式是后初始化对象，懒汉式。   
+是一种延迟加载，只有调用了方法的时候，才会创建对象。   
+
+
+```java
+class Single{
+    private static Single s = null;
+    private Single();
+
+    public static Single getInstance(){
+        if(s === null){
+            s = new Single()
+        }
+        return s;
+    }
+}
+```
