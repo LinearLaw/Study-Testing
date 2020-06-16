@@ -198,3 +198,38 @@ class Tools{
 
 能隐藏起来的全部隐藏起来。   
 
+### 8、修饰符
+
+修饰符分两种
+- 访问修饰符
+- 非访问修饰符
+
+```
+https://www.runoob.com/java/java-modifier-types.html
+```
+
+访问修饰符有四种：
+- default：什么也不写，就是default，同一包内可见。
+- private：同一类内部可见
+- public：所有类可见
+- protected：对同一个包内的类和所有子类可见。
+
+非访问修饰符
+- static：修饰类方法和类变量，
+
+- final：修饰类、方法、变量，
+    - 拿来修饰类，这个类就不能被继承，
+    - 拿来修饰方法，这个方法就不能被继承类重新定义
+    - 拿来修饰变量，这个变量就是常量，不可修改
+
+- abstract：用来创建抽象类，抽象方法
+
+- synchronized：主要用于线程的编程。
+- volatile
+
+### 9、运算符
+### 10、循环结构
+### 11、条件语句、switch case
+
+### 12、Number类和Math类
+
