@@ -1,3 +1,7 @@
+
+/**
+ * @desc 各块代码的执行顺序，一定要知道！！
+ */
 public class StaticCode {
     
     int num = 0;
