@@ -27,7 +27,7 @@ class NetCard implements PCI{
     }
 
     public void close(){
-        System.out.printIn("NetCard close.")
+        System.out.printIn("NetCard close.");
     }
 }
 // 定义一个声卡，实现了PCI
