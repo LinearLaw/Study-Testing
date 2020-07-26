@@ -1,17 +1,74 @@
 
 /**
- * @desc åˆ—å‡ºæŸä¸€ä¸ªæ–‡ä»¶å¤¹ä¸‹é¢çš„æ‰€æœ‰æ–‡ä»¶å’Œæ–‡ä»¶å¤¹ï¼ŒåŒ…æ‹¬å­ç›®å½•
+ * @desc ÁĞ³öÄ³Ò»¸öÎÄ¼ş¼ĞÏÂÃæµÄËùÓĞÎÄ¼şºÍÎÄ¼ş¼Ğ£¬°üÀ¨×ÓÄ¿Â¼
  * 
- * é€’å½’
- * 1ã€é™å®šæ¡ä»¶
- * 2ã€é€’å½’æ¬¡æ•°ï¼Œé¿å…å†…å­˜æº¢å‡º
+ * µİ¹é
+ * 1¡¢ÏŞ¶¨Ìõ¼ş
+ * 2¡¢µİ¹é´ÎÊı£¬±ÜÃâÄÚ´æÒç³ö
  */
 
 import java.io.*;
-public class ListAllFile {
+class ListAllFile {
 
-    public static void ShowDir(File dir,int level){
-        
+    public static void main(String[] args){
+        File dir = new File("./TestFolder");
+
+        ListAllFile.showDir(dir,0);
+    }
+
+    /**
+     * @desc ¸ù¾İ´«ÈëµÄlevel£¬´òÓ¡³ö¶ÔÓ¦µÄ²ã¼¶·û
+     * @param level
+     */
+    public static String getLevel(int level){
+        StringBuilder sb = new StringBuilder();
+        sb.append("|--");
+
+        for(int x=0;x<level;x++){
+            sb.insert(0,"|");
+        }
+
+        return sb.toString();
+    }
+
+    /**
+     * @desc ´«ÈëÒ»¸öFile¶ÔÏó£¬½«ËùÓĞµÄÎÄ¼şºÍÎÄ¼ş¼Ğ´òÓ¡³öÀ´
+     * @param dir
+     * @param level
+     */
+    public static void showDir(File dir,int level)
+    {
+        String name = dir.getName();
+
+        System.out.print(ListAllFile.getLevel(level)+name+"\n");
+
+        // ÔÚ´òÓ¡Ö®Ç°£¬ÈÃlevel½øĞĞ+1
+        level++;
+        try{
+            // ×¢Òâ£ºÈç¹ûÕâ¸öÂ·¾¶²¢²»´æÔÚ£¬ÄÇÃ´dir.listFiles¾ÍÊÇÒ»¸ö¿ÕÖ¸ÕëÒì³£
+            
+            // listFiles¿ÉÒÔ ·µ»Øµ±Ç°Ä¿Â¼ÏÂµÄËùÓĞÎÄ¼şºÍÎÄ¼ş¼ĞµÄÊı×é£¬ÔªËØÀàĞÍÊÇFile
+            File[] files = dir.listFiles();
+
+            for(int x=0;x<files.length;x++){
+
+                // Èç¹ûfiles[x]ÊÇÒ»¸öÄ¿Â¼£¬Ôò¼ÌĞøÍùÏÂ±éÀúÕâ¸öÄ¿Â¼£¬
+                if(files[x].isDirectory()){
+                    showDir(files[x], level);
+                }else{
+                    // Èç¹ûÊÇÎÄ¼ş£¬ÔòÖ±½Ó´òÓ¡³öÎÄ¼şÃû
+                    System.out.print(ListAllFile.getLevel(level) + files[x] + "\n");
+                }
+            }   
+        }catch(Exception e){
+            // System.out.print(e);
+
+            /**
+             * printStackTrace»á´òÓ¡ËùÓĞ±¨´íĞÅÏ¢
+             * e.toStringÖ»»á´òÓ¡±¨´íÀàĞÍĞÅÏ¢
+             */
+            e.printStackTrace();
+        }
     }
 
 
