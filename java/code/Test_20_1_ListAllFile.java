@@ -13,7 +13,12 @@ class ListAllFile {
     public static void main(String[] args){
         File dir = new File("./TestFolder");
 
-        ListAllFile.showDir(dir,0);
+        // 用exists来判断文件是否存在。
+        if(dir.exists()){
+            ListAllFile.showDir(dir,0);
+        }else{
+            System.out.println("TestFolder 目录不存在");
+        }
     }
 
     /**
