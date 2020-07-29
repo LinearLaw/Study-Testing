@@ -1,4 +1,8 @@
 
+/**
+ * @desc 客户端发送一串英文，服务端返回一串英文的大写。
+ */
+
 import java.io.*;
 import java.net.*;
 
