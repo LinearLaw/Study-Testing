@@ -7,7 +7,7 @@ import java.net.*;
  */
 class TransClient{
 
-    public static void main(String[] args)throws Exception
+    public static void main(String[] args) throws Exception
     {
         // 1、创建Socket对象，建立连接，端口号10005
         Socket s = new Socket("localhost",10005);
@@ -24,7 +24,7 @@ class TransClient{
 
         // 5、读取键盘输入的内容，用out进行发送出去
         String line = null;
-        while((line=bufr.readLine())!==null){
+        while((line=bufr.readLine())!=null){
             if("over".equals(line)){
                 break;
             }
@@ -47,7 +47,7 @@ class TransClient{
  * @desc 服务端
  */
 class TransServer{
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         // 1、创建一个ServerSocket对象，监听端口10006，
         ServerSocket ss = new ServerSocket(10006);
