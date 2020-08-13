@@ -1,6 +1,6 @@
-# Vol.12 MySQL
+# Vol.26 MySQL
 
-## 12.1、数据库DB
+## 26.1、数据库DB
 
 - 1. 持久化存储数据的。其实数据库就是一个文件系统
 - 2. 方便存储和管理数据
@@ -8,14 +8,14 @@
 
 ——————————————————————————————————————————      
 
-## 12.2、安装MySQL
+## 26.2、安装MySQL
 
 如果安装失败，需要删除C:/ProgramData/MySQL文件夹，再卸载MySQL，     
 然后重新安装。      
 
 ——————————————————————————————————————————      
 
-## 12.3、MySQL服务
+## 26.3、MySQL服务
 
 - 启动服务
 ```cmd
@@ -58,7 +58,7 @@ quit
 
 ——————————————————————————————————————————      
 
-## 12.4、MySQL目录
+## 26.4、MySQL目录
 
 - 安装目录
     - 配置文件 ：my.ini
@@ -68,7 +68,7 @@ quit
 
 ——————————————————————————————————————————      
 
-## 12.5、SQL Structured Query Language
+## 26.5、SQL Structured Query Language
 
 SQL，结构化查询语言，   
 定义了操作所有关系型数据库的规则，不同数据库会有一些各自特定的命令。
@@ -85,7 +85,7 @@ show database; -- 注释
 ```
 ——————————————————————————————————————————      
 
-## 12.6、SQL总共有四类
+## 26.6、SQL总共有四类
 
 - 1、DDL(Data Definition Language)数据定义语言
 	- 用来定义数据库对象：数据库，表，列等。
@@ -105,9 +105,9 @@ show database; -- 注释
 
 ——————————————————————————————————————————      
 
-## 12.7、DDL
+## 26.7、DDL
 
-### 12.7.1、DDL - 操作数据库
+### 26.7.1、DDL - 操作数据库
 
 - 创建
 ```sql
@@ -161,7 +161,7 @@ use 数据库名称;
 ```
 ——————————————————————————————————————————      
 
-### 12.7.2、DDL - 操作表
+### 26.7.2、DDL - 操作表
 
 - 创建表
     - 数据类型
@@ -241,7 +241,7 @@ SQLYog：MySQL的图形化工具。
 
 ——————————————————————————————————————————      
 
-## 12.8、DML - 操作数据 → 用的最多
+## 26.8、DML - 增删表中数据 → 用的最多
 
 - 添加
 ```sql
@@ -285,6 +285,153 @@ update table1 set name="哇哇哇",age=299 where id=1;
 
 > Tips：    
 > 如果不加任何条件，则会将表中所有记录全部修改。    
+
+——————————————————————————————————————————      
+
+## 26.9 DQL 查询表中数据 → 用的最多
+
+```sql
+select * from 表名;
+```
+——————————————————————————————————————————      
+
+### 26.9.1 语法结构：
+```
+- select    → 字段列表
+
+- from      → 表名列表
+
+- where     → 条件列表
+
+- group by  → 分组字段
+
+- having    → 分组之后的条件
+
+- order by  → 排序
+
+- limit     → 分页限定
+```
+
+——————————————————————————————————————————      
+### 26.9.2 基础查询
+
+select 字段名1，字段名2... from 表名；
+
+```sql
+/* 1、查询多个字段 */
+select name,age from student;
+
+/* 2、查询student表中的address，并且去重 */
+select distinct address from student;
+
+/* 3、出现了多个字段，然后还加了distinct，此时必须要name和age都相同才去重 */
+select distinct name,age from student;
+
+/* 4、支持四则运算，此时会新起一列来作为 math+english 的结果 */
+select math, english, math+english from student;
+
+/* 5、如果english的值是null，可以设置一个缺省值0 */
+select math, english, math+ifnull(english,0) from student;
+
+/* 6、甚至你还可以给这些起一个别名 */
+select 
+    math as "数学", 
+    english as "英语", 
+    math+ifnull(english,0) as "总分" 
+from 
+    student;
+
+/* 7、as也可以省略，空格分隔 */
+select 
+    math "数学", 
+    english "英语", 
+    math+ifnull(english,0) "总分" 
+from 
+    student;
+```
+
+——————————————————————————————————————————      
+### 26.9.3 条件查询
+
+select * from student where [条件]
+
+where后面可以接一些逻辑条件：
+* \> 、< 、<= 、>= 、= 、<>
+    -       <> 这个等价于 != 不等于
+
+* BETWEEN...AND  
+    -       eg: 
+            where age between 10 and 30 
+            等价于 
+            where age>=10 and age<=30
+
+* IN(集合) 
+    -       eg: 
+            where age in(22,33,44) 
+            等价于 
+            where age=22 or age=33 or age=44
+
+* IS NULL  
+* and 或 &&     
+    -       注意，建议用and，而不是用&&
+
+* or  或 || 
+    -       注意，建议用or，而不是用||
+
+* not 或 !
+
+
+```sql
+-- 查询年龄大于20岁
+SELECT * FROM student WHERE age > 20;
+
+-- 查询年龄不等于20岁
+SELECT * FROM student WHERE age != 20;
+SELECT * FROM student WHERE age <> 20;
+
+-- 查询年龄大于等于20 小于等于30
+-- 以下两句，是等价的
+SELECT * FROM student WHERE age >= 20 AND  age <=30;
+SELECT * FROM student WHERE age BETWEEN 20 AND 30;
+
+-- 查询年龄22岁，18岁，25岁的信息
+-- 以下两句，是等价的
+SELECT * FROM student WHERE age = 22 OR age = 18 OR age = 25
+SELECT * FROM student WHERE age IN (22,18,25);
+
+/*
+    Tips：查询为null的时候，不能用xx=null来查，要用xx is null来查
+ */
+-- 查询英语成绩为null
+SELECT * FROM student WHERE english IS NULL;
+
+-- 查询英语成绩不为null
+SELECT * FROM student WHERE english  IS NOT NULL;
+
+```
+——————————————————————————————————————————      
+
+* LIKE：模糊查询
+	*       占位符：
+            _ : 单个任意字符
+		    % : 多个任意字符
+
+```sql
+-- 查询姓马的有哪些？ like
+SELECT * FROM student WHERE NAME LIKE '马%';
+
+
+-- 查询姓名第二个字是化的人
+SELECT * FROM student WHERE NAME LIKE "_化%";
+
+
+-- 查询姓名是3个字的人
+SELECT * FROM student WHERE NAME LIKE '___';
+
+
+-- 查询姓名中包含德的人
+SELECT * FROM student WHERE NAME LIKE '%德%';
+```
 
 ——————————————————————————————————————————      
 
