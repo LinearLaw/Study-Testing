@@ -297,13 +297,277 @@ public class JDBCDemo{
 }
 ```
 
+——————————————————————————————————————————      
+
 > 练习：  
 > 定义一个方法，查询emp表的数据将其封装为对象，然后装载集合，返回。     
 > 		1. 定义Emp类    
 > 		2. 定义方法 public List<Emp> findAll(){}    
 > 		3. 实现方法 select * from emp;  
+
+```java
+/*  Emp.java
+    定义一个类，里面的成员变量，和emp表中的列明保持一致
+ */
+package cn.domain;
+import java.util.Date;
+
+public class Emp{
+    private int id;
+    private String ename;
+    private int job_id;
+    private int mgr;
+    private Date joindate;
+    private double salary;
+    private double bonus;
+    private int dept_id;
+    /*  然后，idea 右键 - Generate - Getter And Setter
+        全选所有属性，点确认，就可以生成set get这些成员变量的方法；
+     */
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public String getEname() { return ename; }
+    public void setEname(String ename) { this.ename = ename; }
+    public int getJob_id() { return job_id; }
+    public void setJob_id(int job_id) { this.job_id = job_id; }
+    public int getMgr() { return mgr; }
+    public void setMgr(int mgr) { this.mgr = mgr; }
+    public Date getJoindate() { return joindate; }
+    public void setJoindate(Date joindate) { this.joindate = joindate; }
+    public double getSalary() { return salary; }
+    public void setSalary(double salary) { this.salary = salary; }
+    public int getDept_id() { return dept_id; }
+    public void setDept_id(int dept_id) { this.dept_id = dept_id; }
+    public double getBonus() { return bonus;  }
+    public void setBonus(double bonus) { this.bonus = bonus; }
+    
+    /* idea 右键，Generate - toString - 全选所有属性 - 确认 */
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "id=" + id +
+                ", ename='" + ename + '\'' +
+                ", job_id=" + job_id +
+                ", mgr=" + mgr +
+                ", joindate=" + joindate +
+                ", salary=" + salary +
+                ", bonus=" + bonus +
+                ", dept_id=" + dept_id +
+                '}';
+    }
+}
+```
+
+```java
+package cn.itcast.jdbc;
+
+import cn.itcast.domain.Emp;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class JDBCDemo{
+    public static void main(String[] args){
+        List<Emp> list = new JDBCDemo().findAll();
+
+        System.out.println(list);
+        System.out.println(list.size());
+    }
+
+    /* 查询emp表中的所有对象 */
+    public List<Emp> findAll(){
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        // List用来装一条一条的数据
+        List<Emp> list = null;
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql:///db3","root","root");
+            stmt = conn.createStatement();
+            
+            String sql = "select * from emp";
+            rs = stmt.executeQuery(sql);
+
+            Emp emp = null;
+            list = new ArrayList<Emp>();
+
+            while(rs.next()){
+                // 获取数据
+                int id = rs.getInt("id");
+                String ename = rs.getString("ename");
+                int job_id = rs.getInt("job_id");
+                int mgr = rs.getInt("mgr");
+                Date joindate = rs.getDate("joindate");
+                double salary = rs.getDouble("salary");
+                double bonus = rs.getDouble("bonus");
+                int dept_id = rs.getInt("dept_id");
+
+                // 创建emp对象,并赋值
+                emp = new Emp();
+                emp.setId(id);
+                emp.setEname(ename);
+                emp.setJob_id(job_id);
+                emp.setMgr(mgr);
+                emp.setJoindate(joindate);
+                emp.setSalary(salary);
+                emp.setBonus(bonus);
+                emp.setDept_id(dept_id);
+
+                //装载集合
+                list.add(emp);
+            }
+
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            /* 关闭资源 */
+            if(rs != null){
+                try{
+                    rs.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+            }
+
+            if(stmt != null){
+                try{
+                    stmt.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+            }
+
+            if(conn != null){
+                try{
+                    conn.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+}
+
+```
+
 ——————————————————————————————————————————      
 
 ## 29.8 PreparedStatement
 
+原本的Statement，传入的sql是一个拼接的字符串。  
+有可能会造成sql注入。   
+
+所以就有了PreparedStatement，使用预编译的sql，参数用 ? 占位。
+
+```java
+Connection conn = null;
+PreparedStatement pstmt = null;
+
+String sql = "update account set balance = balance - ? where id = ?";
+pstmt = conn.prepareStatement(sql);
+
+// 用这种 setXxx 的方式来给占位的 ? 赋值
+pstmt.setDouble(1,500);
+pstmt.setInt(2,1);
+
+// 执行sql
+pstmt.executeUpdate();
+```
+> Tips:     
+> 以后都会用 PreparedStatement，取代之前的Statement，       
+> 可以防止sql注入，而且效率更高。       
+
+——————————————————————————————————————————      
+
+## 29.9 自己封装一个JDBC工具类
+
+
+——————————————————————————————————————————      
+
+
+## 29.10 JDBC控制事务
+
+- 开启事务 ：setAutoCommit(false)
+- 提交 ：commit()
+- 回滚 ：roollback()
+
+```java
+
+package cn.itcast.jdbc;
+
+import cn.itcast.domain.Emp;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class JDBCDemo{
+    public static void main(String[] args){
+        List<Emp> list = new JDBCDemo().findAll();
+
+        System.out.println(list);
+        System.out.println(list.size());
+    }
+
+    /* 查询emp表中的所有对象 */
+    public List<Emp> findAll(){
+        Connection conn = null;
+        Statement stmt = null;
+
+        PreparedStatement pstmt1 = null;
+        PreparedStatement pstmt2 = null;
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql:///db3","root","root");
+
+            // 1、开启事务，false就是关闭自动提交，变为手动提交
+            conn.setAutoCommit(false);
+            
+            // 2、sql语句
+            // 张三 - 500
+            String sql1 = "update account set balance = balance - ? where id = ?";
+            // 李四 + 500
+            String sql2 = "update account set balance = balance + ? where id = ?";
+            
+            // 3、获取预编译sql执行对象
+            pstmt1 = conn.prepareStatement(sql1);
+            pstmt2 = conn.prepareStatement(sql2);
+
+            // 4、设置sql的参数
+            pstmt1.setDouble(1,500);
+            pstmt1.setInt(2,1);
+
+            pstmt2.setDouble(1,500);
+            pstmt2.setInt(2,2);
+
+            // 5、执行sql
+            pstmt1.executeUpdate();
+            pstmt2.executeUpdate();
+
+            // 6、提交事务
+            conn.commit();
+        } catch (Exception e) {
+            try {
+                // 7、如果发现了异常，进行事务回滚
+                if(conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }finally{
+            /* 在这里关闭资源 */
+        }
+    }
+}
+```
 
