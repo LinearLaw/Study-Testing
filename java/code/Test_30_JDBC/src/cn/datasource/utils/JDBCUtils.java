@@ -10,11 +10,17 @@ import java.util.Properties;
 
 /**
  * @desc 连接池工具类
+ *
+ * 1、获取一个数据库连接
+ * 2、释放资源
+ * 3、获取连接池对象
+ *
  */
 public class JDBCUtils {
     /* 1、DataSource 连接对象 */
     private static DataSource ds;
 
+    /* 静态代码块里面加载Druid的配置文件，并给 DataSource 赋值 */
     static{
         try{
             /* 2、加载配置文件 */
