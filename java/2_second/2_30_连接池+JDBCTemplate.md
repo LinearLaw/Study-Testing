@@ -199,12 +199,14 @@ public class JDBCUtils {
 ## 30.4 Sprint JDBC
 
 Spring框架对JDBC的简单封装。    
-提供了一个JDBCTemplate对象简化JDBC的开发。    
+提供了一个JdbcTemplate对象简化JDBC的开发。    
 
 - 1. 导入jar包
 
 - 2. 创建JdbcTemplate对象。依赖于数据源DataSource
-	* JdbcTemplate template = new JdbcTemplate(ds);
+```java
+JdbcTemplate template = new JdbcTemplate(ds);
+```
 
 - 3. 调用JdbcTemplate的方法来完成CRUD的操作
 
