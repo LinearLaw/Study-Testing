@@ -241,3 +241,68 @@ public @interface WebServlet {
 	- WEB-INF目录下的资源不能被浏览器直接访问。
 
 - 3. 断点调试：使用 dubug 启动
+
+
+
+## PS
+
+idea在项目中使用Servlet，需要配置几个东西
+- 1、Run - Edit Configurations - Add new Configuration - Tomcat
+    - 然后配置Tomcat程序的路径；
+    - 在Server栏中，可以配置默认端口号之类的东西。
+    - 在Deployment中，需要配置Deploy at the server startup，
+        - Add - Artifact - 选中当前的那个Project名称
+        - 此时Deployment里面会多出一个： xxx:war exploded
+
+        - Tips：如果Deployment设置里面是空的，访问指定url不会有效果（踩到的坑）。
+
+![Image text](./img/20200825231551.png)
+
+```java
+/** 
+    注解 @WebServlet("/abc")，Tomcat端口号1999，
+    当前ServletDemo类访问http://localhost:1999/abc的时候，
+    service函数会被执行。
+
+    初次访问 http://localhost:1999/abc ，会打印init...和run...
+  */
+@WebServlet("/abc")
+public class ServletDemo implements Servlet {
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+        System.out.println("init..");
+    }
+
+    @Override
+    public ServletConfig getServletConfig() { return null; }
+
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        System.out.println("run..");
+    }
+
+    @Override
+    public String getServletInfo() { return null; }
+
+    @Override
+    public void destroy() {
+        System.out.println("destroy..");
+    }
+}
+```
+
+- 2、右键当前项目的根目录
+    - Open Module Settings - Libraries(最左侧菜单) - 点中间菜单左上角的 + 号 - 弹出菜单选中java
+    - Select Library Files，选中
+        - /tomcat/lib/servlet-api.jar
+        - /tomcat/lib/tomcat-api.jar
+
+- 3、如何自动生成Servlet实现代码？
+    - ServletDemo.java文件里面，先写定义
+    ```java
+    public class ServletDemo implements Servlet{
+
+    }
+    ```
+    - 右键菜单 - Generate... - Override Methods 
+        - 选中javax.servlet.Servlet下面的所有方法 - ok
