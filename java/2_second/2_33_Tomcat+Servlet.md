@@ -233,16 +233,19 @@ public @interface WebServlet {
     ```cmd
     Using CATALINA_BASE:"C:\Users\fqy\.IntelliJIdea2018.1\system\tomcat\_itcast"
     ```
+——————————————————————————————————————————      
 
 - 2. 有两个：工作空间项目 、 tomcat部署的web项目
 	- tomcat真正访问的是“tomcat部署的web项目”，
         - "tomcat部署的web项目" 对应着 "工作空间项目" 的web目录下的所有资源
 
 	- WEB-INF目录下的资源不能被浏览器直接访问。
+    
+——————————————————————————————————————————      
 
 - 3. 断点调试：使用 dubug 启动
 
-
+——————————————————————————————————————————      
 
 ## PS
 
@@ -290,12 +293,15 @@ public class ServletDemo implements Servlet {
     }
 }
 ```
+——————————————————————————————————————————      
 
 - 2、右键当前项目的根目录
     - Open Module Settings - Libraries(最左侧菜单) - 点中间菜单左上角的 + 号 - 弹出菜单选中java
     - Select Library Files，选中
         - /tomcat/lib/servlet-api.jar
         - /tomcat/lib/tomcat-api.jar
+
+——————————————————————————————————————————      
 
 - 3、如何自动生成Servlet实现代码？
     - ServletDemo.java文件里面，先写定义
@@ -306,3 +312,4 @@ public class ServletDemo implements Servlet {
     ```
     - 右键菜单 - Generate... - Override Methods 
         - 选中javax.servlet.Servlet下面的所有方法 - ok
+——————————————————————————————————————————      
