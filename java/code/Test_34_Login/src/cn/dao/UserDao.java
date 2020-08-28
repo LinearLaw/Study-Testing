@@ -11,6 +11,11 @@ public class UserDao {
 
     private JdbcTemplate tpl = new JdbcTemplate(JDBCUtils.getDataSource());
 
+    /**
+     * 用户登录
+     * @param loginUser
+     * @return
+     */
     public User login(User loginUser){
 
         try {
