@@ -315,3 +315,12 @@ JavaServer Pages Tag Library  JSP标准标签库。
 - 2. 业务逻辑层：处理业务逻辑的。
 
 - 3. 数据访问层：操作数据存储文件。
+
+——————————————————————————————————————————      
+
+## Tips
+
+> IDEA自动生成接口实现类。      
+>       
+> 先创建一个interface，然后鼠标放在接口名称处，     
+> alt+enter，在弹出菜单选中 implement interface，然后定义类名即可。     
