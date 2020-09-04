@@ -237,8 +237,186 @@ Redis 是内存数据库，redis服务重启时，数据就会丢失。
 
 ## 41.5 Jedis
 
-Jedis，用java操作redis数据库。
+Jedis，用java操作redis数据库。		
+需要导入jedis的jar包。		
 
+```java
+/* 1、如果Jedis里面啥都不传，默认是localhost:6379 */
+Jedis jedis = new Jedis("localhost",6379);
+
+/* 2、操作redis，操作完成后关闭连接。 */
+jedis.set("username","lisi");
+jedis.close();
+```
+——————————————————————————————————————————      
+
+Jedis操作几种数据结构
+
+- string : set get
+
+```java
+Jedis jedis = new Jedis();
+
+// 存储
+jedis.set("username","zhangsan");
+
+// 获取
+String username = jedis.get("username");
+
+/* username设置过期时间，20s后自动删除该键值对 */
+jedis.setex("username",20,"lisi")
+
+jedis.close();
+```
+——————————————————————————————————————————      
+
+- hash : hset hget hgetAll
+
+```java
+Jedis jedis = new Jedis();
+
+jedis.hset("user","name","wangwu");
+jedis.hset("user","age","100");
+
+String name = jedis.hget("user","name");
+String age = jedis.hget("user","age");
+
+// 获取hash user中所有数据
+Map<String,String> user = jedis.hgetAll("user");
+Set<String> keySet = user.keySet(); // map转set
+for(String key : keySet){
+	String value = user.get(key);
+	// key value
+}
+
+jedis.close();
+```
+——————————————————————————————————————————      
+
+- list : linkedList，支持重复元素
+	- lpush
+	- rpush
+	- lpop
+	- rpop
+	- lrange start end
+
+```java
+Jedis jedis = new Jedis();
+
+jedis.lpush("mylist","a","b","c");
+jedis.rpush("mylist","d","e","f");
+
+// 从左往右，获取list
+List<String> mylist = jedis.lrange("mylist",0,-1);
+
+// 从左边弹出队列中的第一个元素
+String ele = jedis.lpop("mylist");
+
+// 从右边弹出队列中的第一个元素
+String ele2 = jedis.rpop("mylist");
+
+jedis.close();
+```
+——————————————————————————————————————————      
+
+- set : sadd smembers ，不允许重复，元素无序
+
+```java
+Jedis jedis = new Jedis();
+
+// 添加abc三个元素
+jedis.sadd("myset","a","b","c");
+
+// 获取一个元素
+Set<String> myset = jedis.smembers("myset");
+
+jedis.close();
+```
+——————————————————————————————————————————      
+
+- sortedset : zadd zrange ，不允许重复元素，且元素有序
+
+```java
+Jedis jedis = new Jedis();
+
+// 存储，存的时候需要带权值
+jedis.zadd("mySortedSet",1,"a");
+jedis.zadd("mySortedSet",31,"b");
+jedis.zadd("mySortedSet",44,"c");
+jedis.zadd("mySortedSet",20,"d");
+
+Set<String> mySortedSet = jedis.zrange("mySortedSet",0,-1);
+
+jedis.close();
+```
+——————————————————————————————————————————      
+
+## 41.6 Jedis连接池
+
+JedisPool，和JDBC差不多。
+
+```java
+/**
+	设置一个jedis.properties文件，用来写jedis的配置
+ */
+// jedis.properties
+host=127.0.0.1
+port=6379
+maxTotal=50
+maxIdle=10
+
+// JedisPoolUtils.java
+public class JedisPoolUtils{
+	private static JedisPool jedisPool;
+
+	static{
+		/* 1、加载配置文件 */
+		InputStream is = JedisPoolUtils.class
+			.getClassLoader()
+			.getResourceAsStream("jedis.properties");
+		
+		/* 2、以参数形式读取配置文件 */
+		Properties pro = new Properties;
+		try{
+			pro.load(is);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+
+		/* 3、将参数写入到jedis pool config */
+		JedisPoolConfig config = new JedisPoolConfig();
+		config.setMaxTotal(
+			Integer.parseInt(pro.getProperties("maxTotal"))
+		);
+		config.setMaxIdle(
+			Integer.parseInt(pro.getProperties("maxIdle"))
+		);
+
+		/* 4、创建jedis 连接池对象 */
+		jedisPool = new JedisPool(
+			config,
+			config.getProperties("host"),
+			Integer.parseInt(config.getProperties("port"))
+		)
+	}
+
+	public static Jedis getJedis(){
+		return jedisPool.getResource();
+	}
+}
+
+// xxx.java使用连接池
+public class JedisDemo{
+	public void test(){
+		Jedis jedis = JedisPoolUtils.getJedis();
+
+		jedis.set("hello","world");
+
+		// 此时并非关闭连接，而是归还连接。
+		jedis.close();
+	}
+}
+```
 
 
 
