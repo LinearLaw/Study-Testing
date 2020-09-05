@@ -172,7 +172,5 @@ File → Settings → Build Execution,Deployment → Build Tools → Maven
         <scope>provided</scope>
     </dependency>
 </dependencies>
-
-
-
 ```
+
