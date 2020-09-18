@@ -7,5 +7,5 @@ int main()
     int b = 20;
     (a>b?a:b) = 100;
 
-    return;
+    return 0;
 }
