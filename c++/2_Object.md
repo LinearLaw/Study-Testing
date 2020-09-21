@@ -56,16 +56,16 @@ const修饰的常对象只能调用const的成员函数；
 ```c++
 class Complex{
 
-public:
-    // 重载++运算符 
-    Complex& operator++(){
-        a++;
-        b++;
-        return *this;
-    }
-private:
-    int a;
-    int b;
+    public:
+        // 重载++运算符 
+        Complex& operator++(){
+            a++;
+            b++;
+            return *this;
+        }
+    private:
+        int a;
+        int b;
 }
 void test(){
     Complex complex;
@@ -98,20 +98,20 @@ void test(){
 另外再次强调：操作符重载其实是另一种形式的函数调用。    
 ```c++
 class Complex{
-public:
-    Complex(int flag){
-        this->flag = flag;
-    }
-    Complex& operator+=(Complex& complex){
-        this->flag = this->flag + complex.flag;
-        return *this;
-    }
-    bool operator&&(Complex&& complex){
-        return this->flag && complex.flag;
-    }
+    public:
+        Complex(int flag){
+            this->flag = flag;
+        }
+        Complex& operator+=(Complex& complex){
+            this->flag = this->flag + complex.flag;
+            return *this;
+        }
+        bool operator&&(Complex&& complex){
+            return this->flag && complex.flag;
+        }
 
-public:
-    int flag;
+    public:
+        int flag;
 }
 
 int main(){
@@ -154,24 +154,24 @@ int main(){
 // 【不使用继承时，在成员相互交集的类与类之间，需要写重复代码】
 // 一个页面类
 class Page{
-public:
-    void header(){}
-    void body(){}
-    void section(){}
-    void footer(){}
-private:
-    string title;
+    public:
+        void header(){}
+        void body(){}
+        void section(){}
+        void footer(){}
+    private:
+        string title;
 }
 // 另一个新闻页面类，具有Page所有的成员，如果不用继承，就要重写一遍Page的成员
 class NewsPage{
-public:
-    void header(){}
-    void body(){}
-    void section(){}
-    void footer(){}
-    void mainBody(){}   // NewPage自己特有的成员
-private:
-    string title;
+    public:
+        void header(){}
+        void body(){}
+        void section(){}
+        void footer(){}
+        void mainBody(){}   // NewPage自己特有的成员
+    private:
+        string title;
 
 }
 ```
@@ -256,24 +256,24 @@ class B:private A
 如果要访问父类的这个成员，用作用域 :: 进行区分。
 ```c++
 class Base{
-public:
-    Base():mp(0){}
-    void print(){ cout<<mp<<endl; }
-public:
-    int mp;
+    public:
+        Base():mp(0){}
+        void print(){ cout<<mp<<endl; }
+    public:
+        int mp;
 }
 // 使用mp访问到的是派生类的mp成员
 // 使用Base::mp可以访问到基类的mp成员
 class Derived:public Base{
-public:
-    Derived:mp(10){}
-    void print(){
-        cout<< Base::mp <<endl;
-        cout<< mp <<endl;
-    }
-    int& getBaseMp(){return Base::mp;}
-public:
-    int mp;
+    public:
+        Derived:mp(10){}
+        void print(){
+            cout<< Base::mp <<endl;
+            cout<< mp <<endl;
+        }
+        int& getBaseMp(){return Base::mp;}
+    public:
+        int mp;
 }
 ```
 
@@ -356,16 +356,16 @@ class D:public A,public B{};
 
 ```c++
 class Animal{
-public:
-    void speak(){
-        cout <<"动物在唱歌"<<endl;
-    }
+    public:
+        void speak(){
+            cout <<"动物在唱歌"<<endl;
+        }
 }
 class Dog:public Animal{
-public:
-    void speak(){
-        cout <<"小狗在唱歌"<<endl;
-    }
+    public:
+        void speak(){
+            cout <<"小狗在唱歌"<<endl;
+        }
 }
 // Do传入的是一个Animal的引用
 void Do(Animal& animal){
