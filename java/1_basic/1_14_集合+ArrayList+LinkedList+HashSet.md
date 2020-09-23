@@ -106,6 +106,7 @@ Boolean isRemoveSuccess = it.remove();
     - ArrayList
     - LinkedList
 
+
 ——————————————————————————————————————————      
 
 ### 1、ArrayList
