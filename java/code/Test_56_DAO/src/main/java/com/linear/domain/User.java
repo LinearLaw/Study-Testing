@@ -1,4 +1,4 @@
-package linear.domain;
+package com.linear.domain;
 
 import java.io.Serializable;
 import java.util.Date;

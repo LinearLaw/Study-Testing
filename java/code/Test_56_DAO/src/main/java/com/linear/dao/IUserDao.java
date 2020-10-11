@@ -1,4 +1,4 @@
-package linear.dao;
+package com.linear.dao;
 
 import com.linear.domain.QueryVo;
 import com.linear.domain.User;

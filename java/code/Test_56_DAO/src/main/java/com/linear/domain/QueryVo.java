@@ -1,4 +1,4 @@
-package linear.domain;
+package com.linear.domain;
 
 /**
  * 使用QueryVo，将User对象作为QueryVo的一个成员

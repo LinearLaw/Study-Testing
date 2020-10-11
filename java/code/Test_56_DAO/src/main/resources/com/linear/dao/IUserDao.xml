@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.linear.dao.IUserDao">
+<mapper namespace="com.com.linear.dao.IUserDao">
 
     <!--我们发现，User类和数据库的user表的字段，并不是一一对应的，
         因此需要给他们做映射，使用resultMap标签，
@@ -12,7 +12,7 @@
             在select、update等标签上，加上一个resultMap="userMap"，
             此时本条查询语句就会自动进行字段的映射
     -->
-    <resultMap id="userMap" type="com.linear.domain.User">
+    <resultMap id="userMap" type="com.com.linear.domain.User">
         <id property="userId" column="id" />
         <result property="userName" column="username" />
         <result property="userAddress" column="address"/>
@@ -21,12 +21,12 @@
     </resultMap>
 
     <!--1、查找所有-->
-    <select id="findAll" resultType="com.linear.domain.User">
+    <select id="findAll" resultType="com.com.linear.domain.User">
         select * from user;
     </select>
 
     <!--2、插入一条-->
-    <insert id="saveUser" parameterType="com.linear.domain.User">
+    <insert id="saveUser" parameterType="com.com.linear.domain.User">
         <selectKey keyProperty="userId" keyColumn="id" resultType="int" order="AFTER">
             select last_insert_id();
         </selectKey>
@@ -35,7 +35,7 @@
     </insert>
 
     <!--3、修改一条-->
-    <update id="updateUser" parameterType="com.linear.domain.User">
+    <update id="updateUser" parameterType="com.com.linear.domain.User">
         update user set username=#{userName},address=#{userAddress},sex=#{userSex},birthday=#{userBirthday} where id=#{userId};
     </update>
 
@@ -45,7 +45,7 @@
     </delete>
 
     <!--5、根据id查找一条记录-->
-    <select id="findById" parameterType="java.lang.Integer" resultType="com.linear.domain.User" resultMap="userMap">
+    <select id="findById" parameterType="java.lang.Integer" resultType="com.com.linear.domain.User" resultMap="userMap">
         select * from user where id=#{userId};
     </select>
 
@@ -60,7 +60,7 @@
     </select>
 
     <!--8、借助封装类进行查询-->
-    <select id="findUserByVo" parameterType="com.linear.domain.QueryVo"
+    <select id="findUserByVo" parameterType="com.com.linear.domain.QueryVo"
         resultType="java.util.List"
         resultMap="userMap"
     >
