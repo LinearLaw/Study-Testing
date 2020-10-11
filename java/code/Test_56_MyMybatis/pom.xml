@@ -9,7 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <!-- 56.1、实现一个Mybatis -->
+    <!-- 56.1、实现一个Mybatis
+            未完成...
+    -->
     
     <dependencies>
         <dependency>
