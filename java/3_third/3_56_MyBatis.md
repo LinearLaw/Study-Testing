@@ -131,12 +131,14 @@ public class UserDaoImpl{
 但是，这个JDBCUtils，还是配置太麻烦了，     
 所以就有了Mybatis，全用配置的方式来实现sql。
 - 1、在pom.xml中，dependency加入mybatis，groupId是org.mybatis，artifactId是mybatis。
-- 2、/main/resources 新建SqlMapperConfig.xml
+- 2、/main/resources 新建SqlMapperConfig.xml，作为mybatis的主配置文件
 
 ```java
-/**
- * 
- */
+// SqlMapperConfig.xml
+
+
+// UserMapper.xml
+
 ```
 
 ## 56.2 自己实现一个mybatis
