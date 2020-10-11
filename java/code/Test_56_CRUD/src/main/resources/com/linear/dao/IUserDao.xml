@@ -5,10 +5,12 @@
 
 <mapper namespace="com.linear.dao.IUserDao">
 
+    <!--1、查找所有-->
     <select id="findAll" resultType="com.linear.domain.User">
         select * from user;
     </select>
 
+    <!--2、插入一条-->
     <insert id="saveUser" parameterType="com.linear.domain.User">
         <selectKey keyProperty="userId" keyColumn="id" resultType="int" order="AFTER">
             select last_insert_id();

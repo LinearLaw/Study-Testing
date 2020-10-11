@@ -49,4 +49,8 @@ public class MybatisTest {
         }
     }
 
+    public void testInsertOne(){
+
+    }
+
 }
