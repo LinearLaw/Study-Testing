@@ -26,6 +26,9 @@
 
             <!--配置连接池
                 这里的 jdbc.xxx 对应了 properties 标签的 jdbcConfig.properties
+
+                type属性，有三种连接池方式
+                    
             -->
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}" />

@@ -18,8 +18,7 @@
     </resultMap>
 
     <!--
-        @desc Account表查找所有记录
-
+        @desc Account表查找所有包含用户名和地址的记录
     -->
     <select id="findAllAccount" resultType="AccountUser">
         select a.*,u.username,u.address
