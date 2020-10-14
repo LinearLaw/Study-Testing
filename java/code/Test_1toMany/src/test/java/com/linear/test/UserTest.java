@@ -28,6 +28,12 @@ public class UserTest {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
 
         // 3、利用工厂对象，生成一个session
+        /**
+         * 这里可以设置mybatis自动提交事务
+         *      传入true，mybatis将会自动提交事务
+         *          sqlSession = factory.openSession(true);
+         *      在传入false时，数据的操作需要手动sqlSession.commit();
+         */
         sqlSession = factory.openSession();
 
         // 4、利用session，获取dao的代理对象
