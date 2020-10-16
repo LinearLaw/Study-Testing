@@ -10,6 +10,9 @@
 
     <!--
         56.4、Mybatis多表查询  一对多
+
+            1、多表查询一对多 - 用户表+账户表关联
+            2、动态SQL的配置方式 - if标签、where标签、foreach标签
      -->
 
     <dependencies>
