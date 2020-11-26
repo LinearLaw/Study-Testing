@@ -211,6 +211,8 @@ dict.update({'name':'123'})
 Tips：   
 如果dict没有某一个key，会自动将这个key插入。   
 
+——————————————————————————————————————    
+
 ## 17、随机数
 
 ```py
@@ -226,6 +228,8 @@ random.shuffle(myl)  # 将myl打乱，返回
 random.sample(myl,3)    # 从myl中，随机取三个元素
 
 ```
+
+——————————————————————————————————————    
 
 ## 18、字符串
 
@@ -260,9 +264,228 @@ str1.rstrip()   # 去掉右空格
 str1.lstrip()   # 去掉左空格
 
 ```
+——————————————————————————————————————    
 
 ```py
 import os
-os.listdir("./")
 
+os.listdir("./")        # 返回一个list，里面放的是当前目录的文件
+
+os.mkdir(path,mode)     # 在指定的path下创建文件夹
+
+mystr.captialize()      # 让字符串的首字母大写
+
+str1.center(10)     # 10个空间，字符串居中
+
+str1.endswith("a")  # 判断是否以某一个字符开头
+
+str1.upper()    # 返回字符串的全大写形式
+
+str1.lower()    # 返回字符串的全小写形式
+
+"x".join("ABC") # 返回AxBxC，将"x"作为ABC的字符串分隔符插入
+"x".join("A") # 返回A
+
+"x".join(["A","B","C"])  # "AxBxC"
+"".join(["aaa","bbb","ccc"])    # "aaabbbccc"
+
+String.letters  # 返回A-Za-z
+String.digits   # 返回0-9
+```
+——————————————————————————————————————    
+例、实现生成序列号，absfsd-sdfsdf-sdfgsd-g-gsgsg
+——————————————————————————————————————    
+
+```py
+str1 = "123456789abc123"
+
+str1.ljust(10)  # 10个字符空间，向左对齐，"abc       "
+str1.rjust(10)  # 10个字符空间，向右对齐，"       abc"
+
+# 返回 ["123456789","abc","123"]，默认分成了三份，无论abc有几个
+str1.partition("abc")
+
+str1.rpartition("abc") # 从后往前
+str1.lpartition("abc") # 从前往后，可以用在bit map里面
+```
+
+——————————————————————————————————————    
+
+## 19、时间
+
+- 系统时间：1970.1.1到现在的时间戳
+- 开发时间：是一个时间结构体
+- 显示时间：是一个可视化的字符串时间
+
+```py
+# 时间模块
+import time
+
+time.time()   # 返回时间戳，带小数点
+
+# 传入一个时间戳，返回一个时间结构体
+my_time = time.localtime(time.time())
+
+my_time.tm_year   # 返回2020
+
+
+time.asctime(my_time) # 返回一个时间字符串
+
+```
+——————————————————————————————————————    
+
+```py
+# 日历模块
+import calendar
+
+# 可以完成对日期的各种判定
+
+```
+——————————————————————————————————————    
+
+## 20、函数的高级用法
+
+1、注释
+```py
+# 函数的注释，写在函数内部的第一句中
+# help(test_func)，弹出的提示里面，会自动加上这段注释说明
+
+# test_func.py
+def func():
+    "这里写这个函数的注释"
+
+    print("xxx")
+```
+
+2、参数传递   
+- 必备参数：也就是必须要传的参数
+```py
+# 必备传参
+def func(a,b):
+    return a
+
+# 报错。要传2个参数，结果只传了一个
+func(1)
+```
+——————————————————————————————————————    
+
+- 命名参数
+```py
+def func2(a,b):
+    print("a="+a)
+    print("b="+b)
+
+# 可以在传参的时候去规定指定形参的数值
+func2(b=66,a=33)
+
+```
+——————————————————————————————————————    
+
+- 缺省参数
+```py
+# 在定义的时候，就给某一些形参设置默认值
+def func3(a,b,c=66):
+    return a
+
+# 已经有了默认值的形参，可以不再传参。
+func3(100,200)
+
+```
+
+——————————————————————————————————————    
+
+- 不定长参数
+```py
+# 要传入func4的参数个数不确定，
+
+# 第一种，
+# *args是一个元组类型
+# 在a之后的参数全都会放到args里面
+def func4(a,*args):
+    return args
+
+func4(1,4,2,534,6756,98,5645)
+
+
+# 第二种，
+# 此时args加了两个*，代表了一个字典类型
+def func5(a,**args):
+    return args
+
+
+func5(100,name="web",age=100)
+```
+——————————————————————————————————————    
+
+## 21、类
+
+```py
+class Student:
+    '''  学生类  '''
+
+    # 构造函数
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+    # 对象方法
+    def showMe(self):
+        print(self.name)
+
+    # 析构函数
+    def __del__(self):
+        print("析构函数")
+
+    # 前面没有什么修饰，代表了类的属性，对应C++的静态成员
+    #   访问成员：Student::school （c++）
+    #           Student.school（python）
+    school = "ustc"
+
+    # C++中的静态方法需要加static修饰，并且内部没有this指针
+    # python则是类方法，没有self，但是有cls，代表当前class对象
+    # 要声明一个前缀
+    @classmehtod
+    def getSchool(cls):
+        print("xxx")
+
+    # 如果是私有成员，则命名前缀需要加__
+    __age = 100 # 类私有成员
+    age = 100 # 类属性
+
+
+if __name__ == '__main__'
+    s1 = Student("abc",18)
+
+    # 报错，这里访问了私有成员
+    s1.__age = 80
+
+```
+
+Tips：    
+如果前后都有__，则说明这是一个内置方法，    
+例如构造函数__init__    
+
+## 22、继承和多态
+
+py中没有多态
+多态的意义在于解耦，用同一个接口进行多实现。
+
+```py
+class Person:
+    def __init__(self,name):
+        print("xx")
+
+        self.name = name
+    def show(self):
+        return self.name
+
+# 在定义类的时候声明父级元素，即Student继承Person
+class Student(Person):
+    def __init__(self,name,age):
+        # 在C++中子类的构造函数会自动调用父类的构造函数，
+        # 但是在python中，需要手动声明。
+        Person.__init__(self,name)
+
+    def show(self):
+        print(self.name)
 ```
