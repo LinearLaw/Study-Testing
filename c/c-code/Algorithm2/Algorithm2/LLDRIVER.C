@@ -6,6 +6,12 @@
 #include "llgen.h"          
 #include "llapp.h"   
 
+/**
+	输入一个字符串，判断该字符串是否首尾对称
+	0：不对称
+	1：对称
+	-1：判断出错
+ */
 int judgeChar(char *c,int len) {
 	// 创建一个链表
 	struct  List *L1 = CreateLList(
@@ -23,40 +29,56 @@ int judgeChar(char *c,int len) {
 		{	
 			temp[0] = c[i];
 			temp[1] = '\0';
-			printf("%s\n", temp);
-			if (!AddNodeAscend(L1, temp)) {
+			if (!AddNodeAtHead(L1, temp)) {
 				return -1;
 			}
 		}
-		Link head1 = L1->LHead;
+
+		// 遍历链表，打印链表信息
+		Link head = L1->LHead;
+		Link tail = NULL;
 		for (i = 0; i < len; i++)
 		{
-			printf("%d:%s\n", i, ((pND1)(head1->pdata))->word);
-			head1 = head1->next;
+			printf("%08x__%d:%s_____Prev->%08x_____Next->%08x\n", 
+				head,
+				i, 
+				((pND1)(head->pdata))->word,
+				head->prev,
+				head->next 
+			);
+			if (head->next == NULL) {
+				tail = head;
+			}
+			head = head->next;
 		}
 
-		
-		// 头指针尾指针，判断是否相等
-		Link head = L1->LHead;
-		Link tail = L1->LHead->prev;
+		head = L1->LHead;
+
+		/*	头指针从前往后，尾指针从后往前，
+			遍历到len/2处停止，
+			每一步判断两者的word是否相等
+		*/
 		for (i = 0; i < len/2; i++)
 		{
-			if (head != tail && head!=NULL && tail!=NULL) {
-				if ( NodeDataCmp1(head,tail) ) {
+			if (head != NULL && tail != NULL && head != tail) {
+				int res = NodeDataCmp1(head->pdata, tail->pdata);
+				if (res != 0 ) {
 					return 0;
 				}
+				head = head->next;
+				tail = tail->prev;
 			}
 		}
 		return 1;
 	}
-	else {
-		return 1;
+	else { // 空链表直接返回0
+		return 0;
 	}
 }
 
 int main ( int argc, char *argv[] )
 {
-	// 用户输入的字符串
+	// 用户输入字符串
 	char cmd[128];
 	printf("输入数字字母组成的字符串：");
 	scanf("%s", &cmd);
@@ -64,6 +86,8 @@ int main ( int argc, char *argv[] )
 	int len = strlen(cmd);
 	cmd[len] = '\0';
 
+	// 判断是否首尾对称，用result获取返回的结果
 	int result = judgeChar(cmd,len);
-	printf("\nResult:%d", result);
+	printf("\n");
+	printf("Result:%d \n", result);
 }
