@@ -151,7 +151,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bits.c" />
     <ClCompile Include="Bits.cpp" />
+    <ClCompile Include="btest.c" />
+    <ClCompile Include="decl.c" />
+    <ClCompile Include="fshow.c" />
+    <ClCompile Include="ishow.c" />
+    <ClCompile Include="tests.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bits.h" />
+    <ClInclude Include="btest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

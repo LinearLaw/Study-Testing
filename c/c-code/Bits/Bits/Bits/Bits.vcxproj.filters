@@ -18,5 +18,31 @@
     <ClCompile Include="Bits.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="bits.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="btest.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="decl.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fshow.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ishow.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tests.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="btest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bits.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
