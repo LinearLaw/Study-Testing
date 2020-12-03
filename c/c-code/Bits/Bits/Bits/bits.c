@@ -141,20 +141,22 @@ NOTES:
  *   Legal ops: ~ &
  *   Max ops: 14
  *   Rating: 1
+
+ 1、用~和&实现异或。
+	异或，相同得0，不同得1，
  */
 int bitXor(int x, int y) {
-  return 2;
+  return (~x)&y;
 }
 /* 
  * tmin - return minimum two's complement integer 
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 4
  *   Rating: 1
+ 2、返回二进制的最小补码
  */
 int tmin(void) {
-
-  return 2;
-
+  return 1<<31;
 }
 //2
 /*
@@ -163,9 +165,12 @@ int tmin(void) {
  *   Legal ops: ! ~ & ^ | +
  *   Max ops: 10
  *   Rating: 1
+
+ 3、如果x是最大的二进制数，返回1，否则返回0
+	最大的二进制数是 0x7fff ffff
  */
 int isTmax(int x) {
-  return 2;
+  return !(~x << 1);
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
@@ -174,9 +179,11 @@ int isTmax(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 12
  *   Rating: 2
+ 4、所有偶数位为1，则返回1
+	先将所有的奇数位置为1，如果偶数位全为1，此时x就是全1，全1则返回1。
  */
 int allOddBits(int x) {
-  return 2;
+  return !~(x | 0x55555555);
 }
 /* 
  * negate - return -x 
@@ -184,9 +191,11 @@ int allOddBits(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 5
  *   Rating: 2
+
+ 5、取反加一
  */
 int negate(int x) {
-  return 2;
+  return ~x+1;
 }
 //3
 /* 
@@ -197,9 +206,15 @@ int negate(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 15
  *   Rating: 3
+ 6、传入一个ASCII字符，判断该字符是否是0-9的数字，是返回1，不是返回0
+	先减去一个0x30，如果是数字，则结果会在0-9
+	再拿来除以10，0-9都会返回0，
+		如何除以10，分解成 8 + 2 ，8是右移3位，2是右移1位
+	得到的结果取非，得到1。
  */
 int isAsciiDigit(int x) {
-  return 2;
+	int temp = x + (~0x30 + 1);
+  return !(temp>>3 + temp >>1);
 }
 /* 
  * conditional - same as x ? y : z 
@@ -207,6 +222,8 @@ int isAsciiDigit(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 16
  *   Rating: 3
+ 7、实现三元运算符
+
  */
 int conditional(int x, int y, int z) {
   return 2;
