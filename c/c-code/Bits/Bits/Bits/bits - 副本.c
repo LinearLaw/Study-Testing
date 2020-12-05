@@ -141,7 +141,9 @@ NOTES:
  *   Legal ops: ~ &
  *   Max ops: 14
  *   Rating: 1
-	1、只使用~和&实现^
+
+ 1、用~和&实现异或。
+	异或，相同得0，不同得1，
  */
 int bitXor(int x, int y) {
   return ~(x & y) & ~(~x & ~y);
@@ -151,7 +153,7 @@ int bitXor(int x, int y) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 4
  *   Rating: 1
-	2、返回二进制最小补码
+ 2、返回二进制的最小补码
  */
 int tmin(void) {
   return 1<<31;
@@ -163,7 +165,9 @@ int tmin(void) {
  *   Legal ops: ! ~ & ^ | +
  *   Max ops: 10
  *   Rating: 1
-	3、判断是否是补码最大值
+
+ 3、如果x是最大的二进制数，返回1，否则返回0
+	最大的二进制数是 0x7fff ffff
  */
 int isTmax(int x) {
   return !(~(x ^ (x + 1))) & !!(~x);
@@ -175,7 +179,8 @@ int isTmax(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 12
  *   Rating: 2
-	4、判断补码的所有奇数位是否都为1
+ 4、所有偶数位为1，则返回1
+	先将所有的奇数位置为1，如果偶数位全为1，此时x就是全1，全1则返回1。
  */
 int allOddBits(int x) {
 	int temp = 0x55 + (0x55 << 8) + (0x55 << 16) + (0x55 << 24);
@@ -187,7 +192,8 @@ int allOddBits(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 5
  *   Rating: 2
-	5、将x -> -x
+
+ 5、取反加一
  */
 int negate(int x) {
   return ~x+1;
@@ -201,11 +207,17 @@ int negate(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 15
  *   Rating: 3
-	6、判断x是否是ASCII码
-
+ 6、传入一个ASCII字符，判断该字符是否是0-9的数字，是返回1，不是返回0
+	先减去一个0x30，如果是数字，则结果会在0-9
+	再拿来除以10，0-9都会返回0，
+		如何除以10，分解成 8 + 2 ，8是右移3位，2是右移1位
+	得到的结果取非，得到1。
  */
 int isAsciiDigit(int x) {
 	return (!((x + ~48 + 1) >> 31)) & !!((x + ~58 + 1) >> 31);
+
+	// int temp = x + (~48 + 1);
+	// return !((temp >> 3) + (temp >> 1));
 }
 /* 
  * conditional - same as x ? y : z 
@@ -213,11 +225,19 @@ int isAsciiDigit(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 16
  *   Rating: 3
-	7、实现三元运算符
+ 7、实现三元运算符
+	如果x为0，则返回z;
+	如果x不为0，则返回y;
+		将x的所有位全部置为1，和z做&运算 ->如果x为0，则结果为z；如果x为非0，则结果为0；
+		0000 0000和任何数相与，结果都为0；
+		1111 1111和任何数相与，结果都为数本身；
  */
 int conditional(int x, int y, int z) {
-	x = (!x) << 31 >> 31;
-	return (~x & y) | (x & z);
+	x = !!x;
+	x = ~x + 1;//求补码
+	return (x&y) | (~x&z);
+	
+	//return ((!x << 31 >> 31) & y) | ((!!x << 31 >> 31) & z);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -227,19 +247,21 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  8、如果x <= y，返回1
 	如果x > y，返回0 
+
  */
 int isLessOrEqual(int x, int y) {
-	int xLeft = x >> 31;
-	int yLeft = y >> 31;
+	int negX = ~x + 1;//-x
+	int addX = negX + y;//y-x
+	int checkSign = addX >> 31 & 1; //y-x的符号
+	int leftBit = 1 << 31;//最大位为1的32位有符号数
+	int xLeft = x & leftBit;//x的符号
+	int yLeft = y & leftBit;//y的符号
+	int bitXor = xLeft ^ yLeft;//x和y符号相同标志位，相同为0不同为1
+	bitXor = (bitXor >> 31) & 1;//符号相同标志位格式化为0或1
+	return ((!bitXor)&(!checkSign)) | (bitXor&(xLeft >> 31));//返回1有两种情况：符号相同标志位为0（相同）位与 y-x 的符号为0（y-x>=0）结果为1；符号相同标志位为1（不同）位与x的符号位为1（x<0）
 
-	// 符号相同 condition==0x00000000，符号不同condition==0xffffffff
-	int condition = xLeft ^ yLeft;
-
-	int negY = ~y + 1;
-	return (condition & !!xLeft) 
-		| (~condition 
-			& ( !(x + negY) | (!~((x + negY) >> 31)) )
-		);
+	
+	// return ((x + (~y + 1)) >> 31) | (!(x^y));
 }
 //4
 /* 
@@ -249,12 +271,18 @@ int isLessOrEqual(int x, int y) {
  *   Legal ops: ~ & ^ | + << >>
  *   Max ops: 12
  *   Rating: 4 
-	9、实现!运算
-		关键在于实现判断x==0
+ 9、实现!运算
+	关键在于实现判断x==0
+		0的特点，0000 0000 取反+1得到的还是0000 0000，符号位没变
+			如果不是0，比如1101 0011 取反+1得到的是0010 1101，符号位变了。
+		此外还有1000 0000 取反+1得到的还是1000 0000，
+
+	(^y & 1) 如果x是0000 0000 ，y就是0000 0000，(^y & 1)得到0000 0001
+	
  */
 int logicalNeg(int x) {
-	int y = ~x + 1;
-	return ( (~y & ~x) >> 31 ) & 1;
+	int y = (x ^ (~x + 1)) >> 31;
+  return (~y & 1) & (~(x >> 31) & 1);
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -267,39 +295,35 @@ int logicalNeg(int x) {
  *  Legal ops: ! ~ & ^ | + << >>
  *  Max ops: 90
  *  Rating: 4
-	10、计算表示x所需要的的最少位数
+ 10、返回表示x所需的最小位数
 
  */
 int howManyBits(int x) {
 	int b16, b8, b4, b2, b1, b0;
 	int mask = x >> 31;
+	x = (mask & ~x) | (~mask & x); //如果为正数，保持不变；如果为负数，按位取反
 
-	// 如果为正数，保持不变；如果为负数，则按位取反
-	x = (mask & ~x) | (~mask & x); 
+	//step1:判断高16为是否有1
+	b16 = !!(x >> 16) << 4; //如果高16为有1,则b16 = 16，否则为0
+	x >>= b16; //如果高16为有1,x右移16位舍弃低16位,在新的低16位继续查找；否则保持不变
 
-	// 判断高16位是否存在1
-	// 如果高16位有1,则b16 = 16，否则为0
-	b16 = !!(x >> 16) << 4; 
-	// 如果高16位有1，令x右移16位舍弃低16位，在新的低16位继续查找；否则保持不变
-	x >>= b16; 
-
-	// 判断高8位是否存在1
+	//step2:判断高8位是否有1
 	b8 = !!(x >> 8) << 3;
 	x >>= b8;
 
-	// 判断高4位是否存在1
+	//step3:高4位
 	b4 = !!(x >> 4) << 2;
 	x >>= b4;
 
-	// 判断高2位是否存在1
+	//step4:高2位
 	b2 = !!(x >> 2) << 1;
 	x >>= b2;
 
-	// 判断高1位是否存在1
+	//step5:高1位
 	b1 = !!(x >> 1);
 	x >>= b1;
 
-	// 判断低1位是否存在1
+	//step6:低1位
 	b0 = x;
 
 	return b16 + b8 + b4 + b2 + b1 + b0 + 1;
@@ -315,29 +339,29 @@ int howManyBits(int x) {
  *   Legal ops: Any integer/unsigned operations incl. ||, &&. also if, while
  *   Max ops: 30
  *   Rating: 4
-	11、计算2 * uf
+ 11、返回浮点数的阶码大小
+	s:符号位  exp:阶码  frac: 尾数
+		exp == 1111 1111  frac == 0 ->  则无穷大
+		exp == 1111 1111  frac != 0 ->  NaN
+		exp!=0 && exp!=255  ->  规格化浮点数
+		exp == 0 ->  非规格化浮点数
+
  */
 unsigned floatScale2(unsigned uf) {
-	// 取出阶码的值
+	// 阶码的值
 	int exp = (uf & 0x7f800000) >> 23;
-	// 取出符号位的值
+	// 符号位
 	int sign = (uf & (1 << 31));
 
-	// 如果当前阶码是全1，也就是 无穷大 or NaN，直接返回uf本身
-	if (exp == 255) return uf;
+	if (exp == 255) return uf; // 1、无穷大或NaN
+	if (exp == 0) return uf << 1 | sign; // 2、0或无穷小
 
-	// 如果当前阶码是0，说明是非规格化数，直接乘2加上符号位返回就行
-	if (exp == 0) return uf << 1 | sign; 
-
-	// 将uf * 2，也就是阶码 + 1
 	exp = exp + 1;
-
-	// 如果乘2之后，阶码变成了全1，返回最大值加上符号位
 	if (exp == 255)
-		return 0x7f800000 | sign;
-
-	// 如果乘2之后一切正常，将乘2之后的结果返回
+		return 0x7f800000 | sign; 
 	return (exp << 23) | (uf & 0x807fffff);
+
+
 }
 /* 
  * floatFloat2Int - Return bit-level equivalent of expression (int) f
@@ -350,30 +374,35 @@ unsigned floatScale2(unsigned uf) {
  *   Legal ops: Any integer/unsigned operations incl. ||, &&. also if, while
  *   Max ops: 30
  *   Rating: 4
-	12、将float转int
+
+
+
  */
 int floatFloat2Int(unsigned uf) {
-	// 取出符号位
-	int sign = uf >> 31;
-	// 取出阶码
+	int sign = (uf >> 31) & 1;
 	int exp = (uf >> 23) & 0xff;
-	// 尾数
 	int frac = uf & 0x7fffff;
 
-	// 减去127，得到实际的阶数
 	int E = exp - 127;
 
-	// 如果E<0，说明x是一个小数
-	if (E < 0) {
+	if (E < 0) //小数
+	{
 		return 0;
-	}else if (E >= 31) { // 如果E>=32，说明超出了int范围
+	}
+	else if (E >= 31) // 超出int范围
+	{
 		return 0x80000000u;
-	}else{
-		frac = frac | (1 << 23);  // 给浮点数加上隐含的整数部分1
+	}
+	else
+	{
+		frac = frac | (1 << 23);  //加上隐含的1
 
-		if (E < 23) { // 舍去小数部分
+		if (E < 23)     //舍去部分小数
+		{
 			frac >>= (23 - E);
-		}else { // 不需要舍去小数
+		}
+		else        //不需要舍去小数
+		{
 			frac <<= (E - 23);
 		}
 
@@ -395,19 +424,24 @@ int floatFloat2Int(unsigned uf) {
  *   Legal ops: Any integer/unsigned operations incl. ||, &&. Also if, while 
  *   Max ops: 30 
  *   Rating: 4
-	13、计算 2^x 的值
  */
 unsigned floatPower2(int x) {
-	// 最大值
-	int LARGE = 0xFF << 23;
-	// 计算阶码
-	int exp = x + 127;
-
-	// 数太小，阶码小于0，返回0
-	if (exp <= 0) return 0;
-
-	// 数太大，超出了浮点数的阶码最大值，直接返回最大值
-	if (exp >= 255) return LARGE;
-
-	return exp << 23;
+	if (x > 127) //too large, return +INF
+	{
+		return (0xFF << 23);
+	}
+	else if (x < -148) //too small, return 0
+	{
+		return 0;
+	}
+	else if (x >= -126) //norm，计算exp
+	{
+		int exp = x + 127;
+		return (exp << 23);
+	}
+	else //denorm，令frac中某一位为1
+	{
+		int t = 148 + x;
+		return (1 << t);
+	}
 }
