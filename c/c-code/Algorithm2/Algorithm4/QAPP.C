@@ -2,7 +2,7 @@
  *  Application-specific functions for queue examples.
  *  Replace these routines with your own.
  *-------------------------------------------------------------*/
-
+#pragma warning(disable : 4996) 
 #include <stdio.h>
 #include <stdlib.h>         /* for free() */
 #include <string.h>         /* for strcmp() and strdup() */

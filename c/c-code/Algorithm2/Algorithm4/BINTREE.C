@@ -2,6 +2,7 @@
  * Binary tree routines. Provides plain binary search
  *
  *-------------------------------------------------------------*/
+#pragma warning(disable : 4996) 
 
 #define TEST
 #include <stdlib.h>
@@ -431,6 +432,7 @@ int enqueue ( struct List *lqueue, struct List *lfree,
 
     new_node = lfree->LHead;
 	
+	// link[0] link[1] text都会从new_entry -> pdata
     if ( DataCopy ( new_node->pdata, new_entry ) == 0 )
          return  ( 0 );
 	
@@ -514,10 +516,74 @@ int dequeue ( struct List *lqueue, struct List *lfree,
 
 
 
-
+/*	层次遍历
+	1、根节点入队
+	2、开始while循环，判断条件为队列是否为空
+	3、队列弹出一个节点，打印
+	4、该节点的左右子树节点入队
+	5、重复3、4，直至队列为空，则遍历完毕。
+ */
 int LevelTraBintree(Bintree *t, DoFunc df)//yyw
 {
 	// to do...
+	if (t == NULL) {
+		return TREE_FAIL;
+	}
+
+	// 1、构造队列
+	char     record[64];
+	int      count;
+	// 1.1、创建队列
+	struct  List *queue, *free_list;  /* our two queues */
+	queue = CreateLList(
+		CreateData1,
+		DeleteData1,
+		DuplicatedNode1,
+		NodeDataCmp1
+	);
+	free_list = CreateLList(
+		CreateData2,
+		DeleteData2,
+		DuplicatedNode2,
+		NodeDataCmp2
+	);
+
+	// 1.2、初始化free_list
+	for (count = 0; count < QMAX; count++)
+	{
+		if (!AddNodeAtHead(free_list, record))
+		{
+			fprintf
+			(stderr, "Could not create queue of %d\n",
+				QMAX);
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	// 2、头结点入队
+	Mynode *temp = (Mynode *)malloc(sizeof(Mynode));
+	enqueue(queue, free_list, (Mynode *)t->DummyHead);
+	int level = 0;
+	while (queue->LCount != 0) {
+
+		int level_length = queue->LCount;
+		for (int i = 0; i < level_length; i++)
+		{
+			dequeue(queue, free_list, temp);
+			df(temp, level);
+			if (temp->link[LEFT] != NULL) {
+				enqueue(queue, free_list, temp->link[LEFT]);
+			}
+			if (temp->link[RIGHT] != NULL) {
+				enqueue(queue, free_list, temp->link[RIGHT]);
+			}
+		}
+
+		level++;
+	}
+	
+
+	return TREE_OK;
 
 }
 
@@ -536,6 +602,7 @@ main(int argc, char **argv)
                         CompareFunc, 1, sizeof(Mynode));
 
     for (;;) {
+		printf("-------------------------------------------\n");
         fputs("Action (? for help): ", stdout);
         fflush(stdout);
         fgets(inbuf, BUFLEN, stdin);

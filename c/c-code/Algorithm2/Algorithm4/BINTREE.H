@@ -25,7 +25,7 @@ typedef int (*CompFunc) (void *node1, void *node2);
 typedef int (*DoFunc) (void *node, int level);
 
 typedef struct sBintree {
-    Bnode *DummyHead;
+	Mynode *DummyHead;
     CompFunc Compare;
     int DuplicatesOk;
     size_t NodeSize;
