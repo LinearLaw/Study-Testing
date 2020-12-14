@@ -526,14 +526,12 @@ int dequeue ( struct List *lqueue, struct List *lfree,
 int LevelTraBintree(Bintree *t, DoFunc df)//yyw
 {
 	// to do...
-	if (t == NULL) {
-		return TREE_FAIL;
-	}
+	if (t == NULL) { return TREE_FAIL; }
 
 	// 1、构造队列
 	char     record[64];
 	int      count;
-	// 1.1、创建队列
+	// 1.1、创建队列和空闲队列
 	struct  List *queue, *free_list;  /* our two queues */
 	queue = CreateLList(
 		CreateData1,
@@ -562,13 +560,15 @@ int LevelTraBintree(Bintree *t, DoFunc df)//yyw
 
 	// 2、头结点入队
 	Mynode *temp = (Mynode *)malloc(sizeof(Mynode));
-	enqueue(queue, free_list, (Mynode *)t->DummyHead);
+	enqueue(queue, free_list, (Mynode *)t->DummyHead->link[RIGHT]);
 	int level = 0;
 	while (queue->LCount != 0) {
 
+		// 记录当前层次的结点个数
 		int level_length = queue->LCount;
 		for (int i = 0; i < level_length; i++)
-		{
+		{	
+			// 出队一个元素，并将该元素下的左右子树都加入到队列中
 			dequeue(queue, free_list, temp);
 			df(temp, level);
 			if (temp->link[LEFT] != NULL) {
@@ -579,6 +579,7 @@ int LevelTraBintree(Bintree *t, DoFunc df)//yyw
 			}
 		}
 
+		// 遍历下一层元素，level++
 		level++;
 	}
 	
