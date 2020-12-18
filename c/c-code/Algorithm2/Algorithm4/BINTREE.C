@@ -561,14 +561,18 @@ int LevelTraBintree(Bintree *t, DoFunc df)//yyw
 	// 2、头结点入队
 	Mynode *temp = (Mynode *)malloc(sizeof(Mynode));
 	enqueue(queue, free_list, (Mynode *)t->DummyHead->link[RIGHT]);
+
+	// 3、当前的深度
 	int level = 0;
 	while (queue->LCount != 0) {
 
-		// 记录当前层次的结点个数
+		// 3.1、记录当前层次的结点个数
 		int level_length = queue->LCount;
+		
+		// 3.2、按照记录的结点个数，遍历队列
 		for (int i = 0; i < level_length; i++)
 		{	
-			// 出队一个元素，并将该元素下的左右子树都加入到队列中
+			// 3.3、每出队一个元素，打印，将该元素下的左右子树都加入到队列中
 			dequeue(queue, free_list, temp);
 			df(temp, level);
 			if (temp->link[LEFT] != NULL) {
@@ -582,10 +586,8 @@ int LevelTraBintree(Bintree *t, DoFunc df)//yyw
 		// 遍历下一层元素，level++
 		level++;
 	}
-	
 
 	return TREE_OK;
-
 }
 
 main(int argc, char **argv)
