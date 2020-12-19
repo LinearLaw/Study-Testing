@@ -1,5 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ void test01() {
 	cout <<"--------Test1-----------"<< endl;
 	LOL::GoAtk();
 	KingGlory::GoAtk();
+	cout << endl;
 }
 
 /*  1、命名空间下可以放函数、变量、结构体、类，
@@ -30,6 +32,7 @@ void test02() {
 	cout << "----------Test2---------" << endl;
 	cout << "A::ma=" << A::ma << endl;
 	cout << "A::B::ma=" << A::B::ma << endl;
+	cout << endl;
 }
 
 /*  4、namespace可以添加内容，
@@ -47,6 +50,7 @@ void test03(){
 	C::mc = 100;	// 添加新内容
 	cout << "-----------Test3--------" << endl;
 	cout << "C的新成员：mc="<< C::mc << endl;
+	cout << endl;
 }
 
 /*  6、匿名的namespace
@@ -57,10 +61,35 @@ namespace {
 }
 void test04() {
 	cout << "-----------Test4--------" << endl;
+	cout << "6、匿名namespace，相当于是static int ma，仅限在当前文件中使用"<< endl;
 	cout << "匿名namespace：ma=" << ma << endl;
-	cout << "------------------------" << endl;
+	cout << endl;
 }
 
+/*	7、using关键字，来开启一个命名空间
+		使用using后，using之后的目标命名空间内的变量都会被引入
+ */
+namespace D {
+	string temp = "D_temp";
+}
+namespace E {
+	string temp = "E_temp";
+}
+void test05() {
+	cout << "-----------Test5--------" << endl;
+	cout << "using 用来打开一个命名空间" << ma << endl;
+	using namespace C;
+	cout << "1、使用using之后，可以直接访问C中的变量而无需加前缀" << endl;
+	cout << "C::mb --->" << mb << endl;
+	cout << "C::mc --->" << mc << endl;
+
+	cout << "2、多个using namespace，要注意二义性问题" <<endl;
+	using namespace D;
+	using namespace E;
+	cout << "D::temp = " << D::temp << endl;
+	cout << "E::temp = " << E::temp << endl;
+	cout << endl;
+}
 
 int main()
 {
@@ -79,5 +108,8 @@ int main()
 
 	// 四、匿名namespace
 	test04();
+
+	// 五、using关键字
+	test05();
 
 }
