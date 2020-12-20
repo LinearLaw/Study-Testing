@@ -35,3 +35,7 @@ cout是可以输出string的，cout重载了string类型。
 
 > Tips：    
 > cout 函数重载的是string类库中的string类型，而不是string.h和CString中的    
+
+
+## C1060 编译器的堆空间不足
+## C3859 超过了PCH的虚拟内存范围
