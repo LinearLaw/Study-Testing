@@ -35,6 +35,7 @@ StkExtern struct StkElement *
 StkExtern struct StkElement  {
     struct StkElement *link[2];
     char text[20];
+	int level;
 };
 
 #endif

@@ -411,6 +411,10 @@ int CompareFunc(void *n1, void *n2)
 
 /*
 	@desc 二叉树的非递归中序遍历
+		利用栈
+		1、先令根节点入栈
+		2、
+		
  */
 int WalkBintreeByStack(Bintree *t, DoFunc df)//yyw
 {
@@ -431,25 +435,58 @@ int WalkBintreeByStack(Bintree *t, DoFunc df)//yyw
 		exit(EXIT_FAILURE);
 	}
 
+	
 	Mynode *temp = t->DummyHead->link[RIGHT];
 	memcpy(stk_el->link, temp, sizeof(struct sMynode *));
+	memcpy(stk_el->text, temp->text, sizeof(char)*20);
+	stk_el->level = 0;
 	PushElement(stk, stk_el);
 
-	int level = 0;
-	while (temp != NULL || stk->top > -1 ) {
+	int level = -1;
+	while (temp != NULL || stk->top > 0) {
+		// temp指向节点时，将结点入栈
+		if (temp != NULL) {
+			level++;
+			memcpy(stk_el->link, temp, sizeof(struct sMynode *));
+			memcpy(stk_el->text, temp->text, sizeof(char) * 20);
+			stk_el->level = level;
+
+			PushElement(stk, stk_el);
+			temp = temp->link[LEFT];
+		} else {
+			// temp指向NULL时，将节点出栈，并打印。
+			PopElement(stk, stk_el);
+			temp = (struct sMynode *)stk_el->link;
+			memcpy(temp->text, stk_el->text, sizeof(char) * 20);
+			df(temp, stk_el->level);
+
+			temp = temp->link[RIGHT];
+			level = stk_el->level;
+			stk_el->level++;
+		}
+	}
+
+	/*
+	while (temp != NULL || stk->top > 0 ) {
 		while (temp != NULL) {
 			memcpy(stk_el->link, temp, sizeof(struct sMynode *));
+			memcpy(stk_el->text, temp->text, sizeof(char) * 20);
 			PushElement(stk, stk_el);
 
 			temp = temp->link[LEFT];
+			level++;
 		}
-		
+		level--;
 		PopElement(stk, stk_el);
 		temp = (struct sMynode *)stk_el->link;
+		memcpy(temp->text, stk_el->text, sizeof(char) * 20);
 		df(temp, level);
-		printf("%s\n", temp->text);
+
 		temp = temp->link[RIGHT];
 	}
+	*/
+
+
 	
 
 }
