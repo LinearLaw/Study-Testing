@@ -412,12 +412,20 @@ int CompareFunc(void *n1, void *n2)
 /*
 	@desc 二叉树的非递归中序遍历
 		利用栈
-		1、先令根节点入栈
-		2、
+		1、先令根节点入栈，设置指针temp指向根节点
+		2、栈非空且temp非空，开始遍历
+		3、temp非空，则说明temp指向了某一个节点，将该节点入栈
+		4、temp为空，说明temp已经遍历到了二叉树的左子树or右子树结点的末尾，
+			出栈一个元素，将temp指向这个元素
+		5、重复3和4，直至不满足遍历条件
 		
  */
 int WalkBintreeByStack(Bintree *t, DoFunc df)//yyw
 {
+	if (t == NULL || t->DummyHead->link[RIGHT]==NULL) {
+		printf("Error：二叉树为空\n");
+		return 0;
+	}
 	struct StkElement *stk_el;  /* scratch stack element */
 	Stack *stk;                 /* the stack we will use */
 
@@ -434,61 +442,44 @@ int WalkBintreeByStack(Bintree *t, DoFunc df)//yyw
 		fprintf(stderr, "Insufficient memory\n");
 		exit(EXIT_FAILURE);
 	}
-
 	
+	// 将根节点入栈
 	Mynode *temp = t->DummyHead->link[RIGHT];
 	memcpy(stk_el->link, temp, sizeof(struct sMynode *));
 	memcpy(stk_el->text, temp->text, sizeof(char)*20);
-	stk_el->level = 0;
+
+	int level = -1;		// 当前遍历的深度
+	stk_el->level = 0;	// 当前结点的深度
+
 	PushElement(stk, stk_el);
 
-	int level = -1;
 	while (temp != NULL || stk->top > 0) {
-		// temp指向节点时，将结点入栈
+
 		if (temp != NULL) {
-			level++;
+			// temp不为NULL，说明指向了节点，将结点入栈
 			memcpy(stk_el->link, temp, sizeof(struct sMynode *));
 			memcpy(stk_el->text, temp->text, sizeof(char) * 20);
+			level++;
 			stk_el->level = level;
 
 			PushElement(stk, stk_el);
 			temp = temp->link[LEFT];
 		} else {
-			// temp指向NULL时，将节点出栈，并打印。
+			// temp指向NULL，说明已经遍历到了二叉树的某一个节点的左子树or右子树末尾，
+			//		将节点出栈，并打印。
 			PopElement(stk, stk_el);
 			temp = (struct sMynode *)stk_el->link;
 			memcpy(temp->text, stk_el->text, sizeof(char) * 20);
+
 			df(temp, stk_el->level);
 
 			temp = temp->link[RIGHT];
+
 			level = stk_el->level;
 			stk_el->level++;
 		}
+
 	}
-
-	/*
-	while (temp != NULL || stk->top > 0 ) {
-		while (temp != NULL) {
-			memcpy(stk_el->link, temp, sizeof(struct sMynode *));
-			memcpy(stk_el->text, temp->text, sizeof(char) * 20);
-			PushElement(stk, stk_el);
-
-			temp = temp->link[LEFT];
-			level++;
-		}
-		level--;
-		PopElement(stk, stk_el);
-		temp = (struct sMynode *)stk_el->link;
-		memcpy(temp->text, stk_el->text, sizeof(char) * 20);
-		df(temp, level);
-
-		temp = temp->link[RIGHT];
-	}
-	*/
-
-
-	
-
 }
 
 main(int argc, char **argv)
