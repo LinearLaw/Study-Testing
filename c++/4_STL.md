@@ -243,6 +243,32 @@ s1.erase(1,3); // hello
 ————————————————————————————————————————        
 ### 8.8、map/multimap
 
+```cpp
+vector<int> nums = {-1,2,-1,4,5};
+
+multimap<int, int> resSet;
+int i = 0;
+for (i = 0; i < size; i++){
+    // multimap必须要用 insert 才能插入元素。
+	resSet.insert({ nums[i] , i });
+}
+
+// 使用find函数，传入一个key值，会返回一个迭代器
+int key = -1;
+multimap<int,int>::iterator it = resSet.find(key);
+for (it; it->first != key; it++)
+{
+    /* 对于multimap迭代器，迭代出来的结构，有两个域
+        it->first   key
+        it->second  value
+    */	
+    cout<<"num="<< it->first <<";index="<< it->second <<endl;
+}
+
+
+
+```
+
 
 ————————————————————————————————————————        
 ## 9、常用算法
