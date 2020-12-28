@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MySet.cpp" />
+    <ClCompile Include="MySet.c" />
     <ClCompile Include="rbtree.c" />
     <ClCompile Include="rbtree_test.c" />
   </ItemGroup>
