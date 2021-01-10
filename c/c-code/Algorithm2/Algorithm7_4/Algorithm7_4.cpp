@@ -161,6 +161,7 @@ int main(int argc, char *argv[])
 		memset(stack, 0, sizeof(stack));
 		distance = 0;	// 记录当前的distance
 
+		// 查找prev，将路径依次入栈
 		int top = 0;
 		stack[top++] = target;
 		while (target != current)
