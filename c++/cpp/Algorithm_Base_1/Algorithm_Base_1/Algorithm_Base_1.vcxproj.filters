@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Algorithm_Base_1.cpp">
+    <ClCompile Include="Sort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
