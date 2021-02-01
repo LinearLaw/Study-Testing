@@ -20,7 +20,7 @@ public:
 		}
 		int i = l - 1;
 		int j = r + 1;
-		int x = q[l + r >> 1]; // 取中间点作为基准
+		int x = q[(l + r) >> 1]; // 取中间点作为基准
 
 		while (i < j) {
 			do i++; while (q[i] < x);	// 从前往后，找一个比基准大的
@@ -62,12 +62,12 @@ public:
 		if (l >= r) {
 			return;
 		}
-		int mid = l + r >> 1;
+		int mid = (l + r) >> 1;
 
 		merge_sort(q, l, mid);
 		merge_sort(q, mid + 1, r);
 
-		// 这里有点像双指针法，首尾指针，向中间遍历，小的先放，大的后放
+		// 1、这里有点像双指针法，首尾指针，向中间遍历，小的先放，大的后放
 		int k = 0;
 		int i = l;
 		int j = mid + 1;
@@ -82,6 +82,7 @@ public:
 		while (i <= mid) tmp[k++] = q[i++];
 		while (j <= r) tmp[k++] = q[j++];
 
+		// 2、然后将本次排序好的内容，还原到q[l] ~ q[r]中
 		for ( i = l,j = 0; i <= r; i++,j++ ) {
 			q[i] = tmp[j];
 		}
