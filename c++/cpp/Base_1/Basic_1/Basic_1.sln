@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Basic01", "Basic01\Basic_1.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Basic03", "Basic03\Basic3.vcxproj", "{ABB37F05-90ED-4E94-A91E-3B235EDDA52F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Basic04_Vector", "Basic04_Vector\Basic04_Vector.vcxproj", "{7DD89C27-26A9-4ABB-927E-B102700039AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{ABB37F05-90ED-4E94-A91E-3B235EDDA52F}.Release|x64.Build.0 = Release|x64
 		{ABB37F05-90ED-4E94-A91E-3B235EDDA52F}.Release|x86.ActiveCfg = Release|Win32
 		{ABB37F05-90ED-4E94-A91E-3B235EDDA52F}.Release|x86.Build.0 = Release|Win32
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Debug|x64.ActiveCfg = Debug|x64
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Debug|x64.Build.0 = Debug|x64
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Debug|x86.ActiveCfg = Debug|Win32
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Debug|x86.Build.0 = Debug|Win32
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Release|x64.ActiveCfg = Release|x64
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Release|x64.Build.0 = Release|x64
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Release|x86.ActiveCfg = Release|Win32
+		{7DD89C27-26A9-4ABB-927E-B102700039AF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
