@@ -6,8 +6,8 @@ using namespace std;
 class VectorTest {
 
 public:
+	// 1、erase 函数的使用方法
 	void testErase(vector<int> a) {
-		
 		/*
 			// 删除从start到end之间的元素
 			erase(const_iterator start, const_iterator end);
@@ -16,12 +16,12 @@ public:
 			erase(const_iterator pos);	
 		*/
 		
-		cout<<"1、删除头结点"<<endl;
+		cout<<"1.1、删除头结点"<<endl;
 		a.erase(a.begin());
 
 		printVector(a);
 		
-		cout <<"2、删除所有节点，以下erase和clear效果等价"<<endl;
+		cout <<"1.2、删除所有节点，以下erase和clear效果等价"<<endl;
 		vector<int> b = copyVector(a);
 		b.erase(b.begin(), b.end());
 		b.clear();
@@ -52,6 +52,33 @@ public:
 
 		printVector(a);
 	}
+	/* 2、测试 push 和 pop 的特性
+		
+		结论：注意，push_back一个数组的时候，
+			vector不是简单的把数组的地址push进去，而是将数组复制了一份，复制到了vector中；
+			原数组后续的变更不会对res中已push的元素产生影响；
+	*/
+	void testPush() {
+		vector<int> a = { 1,2,3,4,5,6 };
+		vector<vector<int>> res;
+		
+		res.push_back(a);
+
+		a.pop_back();
+		res.push_back(a);
+
+		for (int i = 0; i < res.size(); i++)
+		{
+			cout << i << " : ";
+			vector<int>::iterator at = res[i].begin();
+			for (int j = 0; j < res[i].size(); j++)
+			{
+				cout << "[" << &res[i][j] << "]" << res[i][j] << endl;
+			}
+			cout << endl;
+		}
+	}
+	
 	void printVector(vector<int> a) {
 		cout<<"-------print--------"<<endl;
 		for (int i = 0; i < a.size(); i++)
@@ -74,6 +101,11 @@ int main()
 {
 	vector<int> a = { 0,1,2,3,4,55,666,7777 };
 
+	// 1、erase
 	VectorTest vt = VectorTest();
 	vt.testErase(a);
+
+	cout << "-----------" << endl;
+	// 2、push和pop
+	vt.testPush();
 }
