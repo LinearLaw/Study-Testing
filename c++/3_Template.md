@@ -158,6 +158,189 @@ void test03() {
 
 ### 4.3、模板的机制
 
+#### 4.3.1、编译过程
+- 预处理（Pre-processing）：宏定义展开等；
+- 编译（Compiling）：高级语言 -> 汇编语言
+- 汇编（Assembiling）：汇编语言 -> 二进制文件
+- 链接（Linking）：将二进制文件和引用库链接等；
+
+Tips：
+- 编译器并不是把函数模板处理成能够处理任何类型的函数
+- 函数模板通过具体类型产生不同的函数
+- 编译器会对函数模板进行两次编译，
+    - 在声明的地方对模板代码本身进行编译，
+    - 在调用的地方对参数替换后的代码进行编译。
+
+#### 4.3.2、函数模板，及其局限性
+模板函数有局限性，对于一段逻辑而言，并非所有的类型都可以处理。  
+此时可以进行模板的重载，对某些特定类型提供具体化模板
+```cpp
+// 1、定义一个Person类
+class Person{
+    public:
+    Person(string name,int age){
+        this->name = name;
+        this->age = age;
+    }
+    string name;
+    int age;
+}
+
+// 2、定义一个模板函数
+template<class T>
+bool myCmp(T &a, T &b){
+    if(a == b){return true;}
+    return false;
+}
+
+// 3、自定义数据类型的模板函数
+// 注意，具体化类型后的函数，会优先匹配，通用类型的函数则后匹配
+template<> bool myCmp<Person>(Person &a, Person &b){
+    if(a.age == b.age){return true;}
+    return false;
+}
+```
+——————————————————————————————————————————      
+
+### 4.4、类模板
+
+类模板和函数模板的定义类似；    
+类模板用于实现类所需数据的类型参数化；  
+
+注意：类模板定义后，在定义类的时候，需要声明具体类型，不支持自动推导类型；
+
+```cpp
+template<class NameType, class AgeType>
+class Person{
+public:
+    Person(NameType name, AgeType age){
+        this->mName = name;
+        this->mAge = age;
+    }
+    void showPerson(){
+        cout << "name: " << this->mName << endl;
+        cout << "age: " << this->mAge << endl;
+    }
+    NameType mName;
+    AgeType mAge;
+}
+
+void test(){
+    // 下面的语句错误，类模板不能进行类型的自动推导，需要声明
+    Person P1("奥巴马",100);
+
+    // 下面的语句正确；
+    Person<string,int> P1("特朗普","70");
+    P1.showPerson();
+}
+```
+
+#### 4.4.1、类模板做函数参数
+```cpp
+// 1、类模板做函数参数，指定其具体的类型
+void DoBusi(Person<string,int>& p){
+    p.mAge += 20;
+    p.mName += "_123"
+    p.showPerson();
+}
+void test_2(){
+    Person<string,int> p("希拉里", 30);
+    DoBusi(p);
+}
+
+// 2、不指定类型，参数模板化 -> 其实就是定义一个函数模板
+template<class T1,class T2>
+void DoWork(Person<T1,T2> &p){
+    //  使用typeid，可以获取到当前对象所属类的信息；
+    //  name表示当前类型的名称
+    cout << typeid(T1).name() << endl;
+    cout << typeid(T2).name()<< endl;
+}
+void test_3(){
+    Person<string,int> p("奥特曼",200);
+    DoWork(p);
+}
+
+// 3、整体模板化
+//      直接将Person也省去，作为模板指定
+template<class T>
+void DoPush(T &p){
+    cout << typeid(T).name() <<endl;
+    p.showPerson();
+}
+void test_4(){
+    Person<string,int> p("铁甲", 18);
+    DoPush(p);
+}
+
+```
+
+#### 4.4.2、类模板派生类模板
+
+```cpp
+// 父类
+template<class T>
+class Base{
+    T m;
+}
+
+// 子类继承父类的时候，对父类的T指定类型；
+template<class T>
+class Child_1: public Base<double>{
+public:
+    T mParam;
+}
+void test_5(){
+    Child_1<int> d2;
+}
+
+```
+
+#### 4.4.3、类模板类内实现、类外实现
+
+```cpp
+// 1、类内实现，其实就是刚才我们说的类模板的普通形式
+template<class NameType, class AgeType>
+class Person{
+public:
+    Person(NameType name,AgeType age){
+        this->mName = name;
+        this->mAge = age;
+    }
+    void ShowPerson(){
+        cout << this->mName <<"   "<< this->mAge <<endl;
+    }
+    NameType mName;
+    AgeType mAge;
+}
+
+// 2、类外实现，在类定义的时候，只声明，在后面再对成员进行定义
+// 2.1、首先，定义类，类的成员只进行声明
+template<class T1, class T2>
+class Person{
+public:
+    Person(T1 name, T2 age);
+    void showPerson;
+
+public:
+    T1 mName;
+    T2 mAge;
+}
+
+// 2.2、接着，定义成员函数，此时和函数模板写法基本一致；
+template<class T1, class T2>
+Person<T1,T2>::Person(T1 name, T2 age){
+    this->mAge = name;
+    this->mAge = age;
+}
+
+template<class T1, class T2>
+void Person<T1,T2>::showPerson(){
+    cout << this->mName <<"   "<< this->mAge <<endl;
+}
+```
+
+
 
 ——————————————————————————————————————————      
 
