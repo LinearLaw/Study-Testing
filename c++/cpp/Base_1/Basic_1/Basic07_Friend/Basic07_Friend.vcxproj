@@ -20,11 +20,11 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{B9154D21-DEDC-4143-A0DC-057E8C2193F5}</ProjectGuid>
+    <ProjectGuid>{561F0ED9-6B18-4491-B5BC-EAD1555CCA3A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Basic06StructureFunc</RootNamespace>
+    <RootNamespace>Basic07Friend</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
-    <ProjectName>Basic06_4.4_StructureFunc</ProjectName>
+    <ProjectName>Basic07_4.5_Friend</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -152,7 +152,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Basic06_StructureFunc.cpp" />
+    <ClCompile Include="Basic07_Friend.cpp" />
+    <ClCompile Include="BuildMyFriend.cpp" />
+    <ClCompile Include="MyArray.cpp" />
+    <ClCompile Include="Television.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BuildMyFriend.h" />
+    <ClInclude Include="MyArray.h" />
+    <ClInclude Include="Television.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
