@@ -95,6 +95,25 @@ public:
 		}
 		return b;
 	}
+
+	/* 使用a.capacity()可以获取当前vector容器的容量 */
+	void testCapacity() {
+		vector<int> a;
+		for (int i = 0; i < 10; i++)
+		{
+			a.push_back(i);
+			cout << a.capacity() << endl;
+		}
+
+	}
+	void testVectorStru() {
+		vector<int> a = { 12434,23,34,644,23,5,23 };
+		vector<int>::iterator c;
+		vector<int> b = vector<int>{ a.begin(),c };
+
+		printVector(b);
+	}
+
 };
 
 int main()
@@ -102,10 +121,19 @@ int main()
 	vector<int> a = { 0,1,2,3,4,55,666,7777 };
 
 	// 1、erase
+	cout << "-----1------" << endl;
 	VectorTest vt = VectorTest();
 	vt.testErase(a);
 
-	cout << "-----------" << endl;
 	// 2、push和pop
+	cout << "-----2------" << endl;
 	vt.testPush();
+
+	// 3、a.capacity()
+	cout << "-----3------" << endl;
+	vt.testCapacity();
+
+	cout << "-----4------" << endl;
+	vt.testVectorStru();
+
 }
