@@ -726,7 +726,8 @@ STL内建了一些函数对象，分为三种
     template<class T> T modulus<T>  //取模仿函数
     template<class T> T negate<T>   //取反仿函数
  */
-int b = plus(int a, int b);
+plus<int> p;
+int b = p(int a, int b);
 
 ```
 - 关系运算类函数对象
@@ -755,4 +756,74 @@ int b = plus(int a, int b);
 */
 
 ```
+#### 9.3.2、函数对象适配器
 
+在for_each的时候，我们需要对容器元素做一些操作。        
+比如全部加100，再进行返回。     
+
+- 1、函数适配器 
+    - bind1st
+    - bind2nd
+
+- 2、取反适配器 
+    - not1
+    - not2
+
+- 3、函数指针适配器 
+    - ptr_fun
+
+- 4、成员函数适配器
+    - mem_fun_ref 将一个类中的成员函数适配
+
+
+1、函数适配器
+```cpp
+class MyPrint{
+public:
+    void operator()(int v1,int v2){
+        cout << "v1+v2 = " << (v1+v2) << endl;
+    }
+}
+
+void test01(){
+    vector<int> v1 = {35,34,23,434,52,5,546,34};
+
+    /*  1、bind1st  将参数绑定为函数对象的第一个参数
+        2、bind2nd  将参数绑定为函数对象的第二个参数
+
+        bind1st 、 bind2nd，就是将二元函数对象转为一元函数对象
+     */
+    // 传入 MyPrint ，x，此时将 x 和MyPrint的第一个参数绑定了。
+    for_each(v1.begin(),v1.end(), bind1st(MyPrint(),x));
+
+    for_each(v1.begin(),v1.end(),bind2st(MyPrint(),x));
+}
+```
+
+2、取反适配器   not1
+```cpp
+class GreaterThenFive: public unary_function<int,bool>{
+public: 
+    bool operator()(int v)const{
+        return v > 5;
+    }
+}
+
+void test02(){
+    vector<int> v = {9,12,423,5,234,12,34,234};
+
+    vector<int>::iterator it = find_if(
+        v.begin(),
+        v.end(),
+
+        // 找到v <= 5的数，返回第一个小于5的迭代器
+        not1(GreaterThenFive())
+    );
+
+    vector<int>::iterator itg = find_if(
+        v.begin(),
+        v.end(),
+        GreaterThenFive()
+    );
+}
+```
