@@ -40,7 +40,7 @@ public:
 };
 
 // 2-3¡¢Derived_V ¼Ì³ÐBase1 Base2
-class Derived_V {
+class Derived_V:public BaseV1,public BaseV2 {
 public:
 	Derived_V();
 	void calcBaseV12();

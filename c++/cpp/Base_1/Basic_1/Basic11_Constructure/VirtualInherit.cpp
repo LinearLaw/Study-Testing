@@ -21,13 +21,13 @@ void Derived_D::calcBase12() {
 // 2、使用虚继承
 BaseV1::BaseV1() :BigBase(13) {}
 BaseV2::BaseV2() :BigBase(14) {}
-Derived_V::Derived_V() {}
+Derived_V::Derived_V() :BigBase(15){}
 
 void Derived_V::calcBaseV12() {
-	cout << "BigBase : " << sizeof(BigBase) << endl; // 4
-	cout << "BaseV1 : " << sizeof(BaseV1) << endl; // 8
+	cout << "BigBase : " << sizeof(BigBase) << endl; // 4 一个int
+	cout << "BaseV1 : " << sizeof(BaseV1) << endl; // 8  1 × 父类int，1 × vbptr
 	cout << "BaseV2 : " << sizeof(BaseV2) << endl; // 8
-	cout << "Derived_V : " << sizeof(Derived_V) << endl; // 1
+	cout << "Derived_V : " << sizeof(Derived_V) << endl; // 12  1 × 祖父int,2×vbptr
 }
 
 void testVirtualInherit() {
