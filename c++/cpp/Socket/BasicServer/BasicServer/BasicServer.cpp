@@ -49,8 +49,7 @@ int main()
 		== SOCKET_ERROR	
 	) {
 		cout << "[Fail] Socket bind error" << endl;
-	}
-	else {
+	} else {
 		cout << "[Success] Socket bind success" << endl;
 	}
 

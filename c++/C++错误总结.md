@@ -34,7 +34,7 @@ cout是可以输出string的，cout重载了string类型。
     - MFC中使用时不需要引入CString，但是其他程序需要#include \<CString>
 
 - string：标准的C++类库，也是STL中的类库，是C++标准
-    
+  
 - string.h：C语言中关于字符数组的函数定义的头文件，包含了strlen、strcmp、strcpy等。
     - \<string.h>是C语言中的，和\<string>两者没有关系。
 
@@ -67,7 +67,7 @@ cout<< "Go!" <<endl;
 ```
 ——————————————————————————————————————————      
 
-## C4996 
+## C4996 fopen 
 'fopen':    
 This function or variable may be unsafe.    
 Consider using fopen_s instead.     
@@ -82,4 +82,43 @@ See online help for details.
 
 ——————————————————————————————————————————      
 
+
+
+## C2678 没有找到接受“const _Ty”类型的左操作数的运算符(或没有可接受的转换)	
+
+二进制“<”: 没有找到接受“const _Ty”类型的左操作数的运算符(或没有可接受的转换)
+
+原因：
+
+set用来存储类数据，set需要进行数据比较，此时要设定谓词作为比较依据
+
+```
+Class Player{
+public:
+	int score;
+	Player(int s):score(s){}
+    
+}
+
+class SPlayer{
+public:
+    bool operator()(Player& a, Player& b){
+        return a.score < b.score;
+    }
+}
+
+int main(){
+    Player p1(122);
+    Player p2(133);
+    Player p3(555);
+    Player p4(222);
+    
+   	set<Player,SPlayer> s;
+   	s.insert(p1);
+   	s.insert(p2);
+   	s.insert(p3);
+   	s.insert(p4);
+    
+}
+```
 

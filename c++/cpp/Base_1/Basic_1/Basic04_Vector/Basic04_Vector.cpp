@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
+#include "v_sort.h"
+#include "v_delete.h"
 
 using namespace std;
 
@@ -108,7 +110,7 @@ public:
 	}
 	void testVectorStru() {
 		vector<int> a = { 12434,23,34,644,23,5,23 };
-		vector<int>::iterator c;
+		vector<int>::iterator c = a.end();
 		vector<int> b = vector<int>{ a.begin(),c };
 
 		printVector(b);
@@ -136,4 +138,11 @@ int main()
 	cout << "-----4------" << endl;
 	vt.testVectorStru();
 
+	cout << "-----------" << endl;
+	cout << "------vector sort-----" << endl;
+	TestVSort();
+
+	cout << endl;
+	cout << "------vector delete-----" << endl;
+	TestVDelete();
 }

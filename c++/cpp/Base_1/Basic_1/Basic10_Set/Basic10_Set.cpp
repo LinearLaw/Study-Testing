@@ -51,7 +51,38 @@ void sortClassSet() {
 	}
 }
 
-// 3、priority_queue
+// 3、使用排序谓词
+class Player { // 玩家
+public:
+	int id;
+	int score;
+	Player(int i, int s) :id(i), score(s) {}
+};
+class SPlayer { // 谓词，作为set的比较依据
+public:
+	bool operator()(const Player& a, const Player& b) {
+		return a.score > b.score;
+	}
+};
+
+void sortSetByFunctor() {
+	set<Player, SPlayer> t; // set的第二参数可以接受一个谓词，作为比较依据
+	Player a1(1, 100);
+	Player a2(2, 250);
+	Player a3(3, 400);
+	Player a4(4, 202);
+
+	t.insert(a1);
+	t.insert(a2);
+	t.insert(a3);
+	t.insert(a4);
+
+	for (const Player& temp : t) {
+		cout << "id:" << temp.id << " score:" << temp.score << endl;
+	}
+}
+
+// 4、priority_queue
 void sortClassPriorityQueue() {
 	vector<int> a = { 3,4,2,1 };
 	priority_queue<Box> q;
@@ -77,5 +108,9 @@ int main()
 	sortClassSet();
 	cout << "---------" << endl;
 
+	sortSetByFunctor();
+	cout << "---------" << endl;
+
 	sortClassPriorityQueue();
+
 }

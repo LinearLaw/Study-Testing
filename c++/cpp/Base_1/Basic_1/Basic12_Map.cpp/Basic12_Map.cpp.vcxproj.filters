@@ -15,22 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Basic04_Vector.cpp">
+    <ClCompile Include="Basic12_Map.cpp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="v_sort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="v_delete.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="v_sort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="v_delete.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

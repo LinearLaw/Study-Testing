@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{7DD89C27-26A9-4ABB-927E-B102700039AF}</ProjectGuid>
+    <ProjectGuid>{A3CD9511-21EC-4A25-B1FF-548672038DD7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Basic04Vector</RootNamespace>
+    <RootNamespace>Basic12Mapcpp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,13 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Basic04_Vector.cpp" />
-    <ClCompile Include="v_delete.cpp" />
-    <ClCompile Include="v_sort.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="v_delete.h" />
-    <ClInclude Include="v_sort.h" />
+    <ClCompile Include="Basic12_Map.cpp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
