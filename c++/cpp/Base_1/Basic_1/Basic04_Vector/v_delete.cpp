@@ -48,7 +48,6 @@ void InsertV() {
 	int temp = 534;
 	a.insert(a.begin() + 3, temp); // 在a[2]的后面插入534，注意索引规则
 	printVector(a);
-
 }
 
 
