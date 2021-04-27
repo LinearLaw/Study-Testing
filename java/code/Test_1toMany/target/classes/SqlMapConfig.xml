@@ -27,7 +27,13 @@
             <!--配置连接池
                 这里的 jdbc.xxx 对应了 properties 标签的 jdbcConfig.properties
 
-                type属性，有三种连接池方式
+                type属性，决定了mybatis有三类数据源
+                    UNPOOLED 传统方式，不适用连接池的数据源，
+                       每次都创建一个新连接，用完就关闭连接
+                    POOLED   连接池方式，使用连接池的数据源
+                    JNDI     使用JNDI实现的数据源
+
+                    不同的数据源的执行规则不同。
                     
             -->
             <dataSource type="POOLED">
