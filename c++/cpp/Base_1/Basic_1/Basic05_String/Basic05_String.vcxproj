@@ -153,6 +153,9 @@
   <ItemGroup>
     <ClCompile Include="Basic05_String.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="str_switch.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

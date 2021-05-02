@@ -232,9 +232,178 @@ void sortSetByFunctor() {
 
 ```
 
+### 删除元素
+
+注意，set中的元素一旦加入不能修改。
+
+set的iterator是一种const_iterator，不可改变。
+
+因为set是按照key值来进行排序的，元素值就是key值，改变元素会导致set的组织被破坏。
+
+```c++
+/*
+set<int> s;
+
+s.insert(123); 	// 插入一个元素
+
+s.clear(); 		// 清除所有元素
+
+s.erase(s.begin());	// 传入一个迭代器，删除迭代器指向的元素
+s.erase(s.begin() , s.begin()+3); // 删除迭代器区间内的元素，规则是左闭右开 [start,end)
+
+s.erase(123); // 传入的是一个elem，该值会被删除
+*/
+
+
+```
+
+
+
+### 查找
+
+```c++
+/*
+set<int> s;
+
+find - 返回一个迭代器，如果没找到返回s.end()
+	set<int>::iterator iter = s.find(key);
+count - 返回key在s中的数量，用来判断是否存在
+	int c = s.count(key);  
+
+注意以下两个，其实效果就只差一个等号。
+lower_bound - 返回第一个key >= keyElem元素的迭代器
+upper_bound - 返回第一个key > keyElemu元素的迭代器
+	auto iter = s.lower_bound(keyElem)
+	auto iter = s.upper_bound(keyElem)
+
+equal_range(keyElem) - 返回 key == keyElem 的上下限的两个迭代器
+*/
+class SetFind
+{
+public:
+	set<int> a;
+	SetFind() {
+		a.insert(34);
+		a.insert(54);
+		a.insert(34);
+		a.insert(45);
+		a.insert(6);
+		a.insert(89);
+		a.insert(99);
+	};
+	~SetFind() {};
+
+	// find
+	void find1() {
+		auto iter1 = a.find(6);
+		cout << *iter1 << endl; // 取值用*
+	}
+
+	// count
+	void find2() {
+		int c = a.count(6); // 返回6的数量
+		cout << c << endl;
+		// cout << *a.end() << endl; // 本句会直接报错
+	}
+
+	// *iter
+	void find3() {
+		auto iter2 = a.begin();
+		while (iter2 != a.end())
+		{
+			cout << *iter2 << endl; // 遍历时，使用*iter2进行解引用
+			iter2++;
+		}
+	}
+
+	// lower_bound
+	void find4() {
+		auto iter3 = a.lower_bound(89); // 打印 >= 89 的元素
+		while (iter3 != a.end()) {
+			cout << *iter3 << endl;
+			iter3++;
+		}
+	}
+
+	// upper_bound
+	void find5() {
+		auto iter4 = a.upper_bound(89);
+		while (iter4 != a.end()) {
+			cout << *iter4 << endl; // 打印 > 89 的元素
+			iter4++;
+		}
+	}
+};
+
+```
+
+### 插入
+
+```
+/*
+set使用了红黑树作为底层结构，所以在插入后，红黑树会自动排序，
+	默认是按照从小到大的顺序，
+	因此set不支持在指定位置的插入，因为插入本身就是得到一个有序的结果。
+
+set<int> s;
+
+s.insert(44);
+*/
+
+```
+
 
 
 ## string
+
+### 按某字符拆分
+
+```
+
+
+```
+
+
+
+### 类型转换
+
+```c++
+/*
+首先，和int的转换，其实就是ASCII码的转换
+
+1、int -> char
+*/
+int a = 3;
+string b(a + '0');
+
+// C++ 11 to_string方法
+int b = 55345;
+string c = std::to_string(b);
+
+/* 2、char -> int
+	注意这个单引号
+*/
+char a = '6';
+int ai = a - '0';
+
+/* 3、string -> int
+	用sstream来转，注意需要引包，#include<sstream>
+*/
+string ds = "23534523";
+istringstream is(ds);
+int i;
+is >> i;
+
+```
+
+
+
+### KMP算法
+
+```
+
+
+```
 
 
 
@@ -247,6 +416,14 @@ void sortSetByFunctor() {
 
 
 ## list
+
+双向链表结构
+
+### 插入
+
+
+
+### 删除
 
 
 
