@@ -8,11 +8,13 @@ import jdk.internal.org.objectweb.asm.tree.InnerClassNode;
         显然，多线程下需要保证线程安全
 
     Object 类中的方法
-    void wait()
-        - 其他的线程调用该对象的notify() or notifyAll()，使得当前等待
-    void notify()
-        - 唤醒在此对象监视器上的等待的单个线程
-        - 继续执行之前wait()后的代码
+        void wait()
+            - 其他的线程调用该对象的notify() or notifyAll()，使得当前等待
+        void notify()
+            - 唤醒在此对象监视器上的等待的单个线程
+            - 继续执行之前wait()后的代码
+
+
  */
 public class D03_Awake {
 
@@ -41,6 +43,7 @@ public class D03_Awake {
 
                     synchronized (oo){
                         System.out.println("[P]produce food");
+
                         oo.notify(); // 通知到消费者
                     }
                 }
