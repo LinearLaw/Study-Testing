@@ -1,6 +1,4 @@
-package com.linear.B17;
-
-import jdk.internal.org.objectweb.asm.tree.InnerClassNode;
+package com.linear.B17_Thread;
 
 /*
     17.3  waiting and awake

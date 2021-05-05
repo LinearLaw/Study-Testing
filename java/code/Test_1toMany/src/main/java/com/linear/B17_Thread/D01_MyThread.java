@@ -1,4 +1,4 @@
-package com.linear.B17;
+package com.linear.B17_Thread;
 
 public class D01_MyThread extends Thread {
 

@@ -1,7 +1,4 @@
-package com.linear.B17;
-
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
+package com.linear.B17_Thread;
 
 /*
     17.4、出现了多个条件的时候，

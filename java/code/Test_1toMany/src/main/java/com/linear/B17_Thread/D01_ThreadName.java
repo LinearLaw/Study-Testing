@@ -1,4 +1,4 @@
-package com.linear.B17;
+package com.linear.B17_Thread;
 
 /*
     17.1、获取线程的name

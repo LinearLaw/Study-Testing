@@ -1,4 +1,4 @@
-package com.linear.B17;
+package com.linear.B17_Thread;
 
 /*
     17.2 匿名内部类 + 线程

@@ -1,4 +1,4 @@
-package com.linear.B18;
+package com.linear.B18_PoolLambda;
 
 /*
     18.2、Lambda表达式  -  要求language level 8

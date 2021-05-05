@@ -1,4 +1,4 @@
-package com.linear.B18;
+package com.linear.B18_PoolLambda;
 
 public class RunnableImpl implements Runnable {
 

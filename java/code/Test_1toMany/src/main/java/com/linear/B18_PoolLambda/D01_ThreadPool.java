@@ -1,6 +1,5 @@
-package com.linear.B18;
+package com.linear.B18_PoolLambda;
 
-import java.io.Console;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
