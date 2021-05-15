@@ -22,7 +22,7 @@ public class D03_System {
 
     }
 
-    // currentTimeMills
+    // currentTimeMills  获取当前系统的时间戳
     private static void run01(){
         long t = System.currentTimeMillis();
         System.out.println(t);  // 返回当前的时间戳
