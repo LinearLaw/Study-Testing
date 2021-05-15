@@ -1,11 +1,11 @@
-package com.linear.B12_APIs;
+package com.linear;
 
 public class Person {
 
     String name;
     int age;
 
-    Person(String n,int a){
+    public Person(String n,int a){
         name = n;
         age = a;
     }
