@@ -1,6 +1,8 @@
 package com.linear.W25_Junit_Ref_Anno.D03_CheckAnno;
 
-import java.lang.reflect.InvocationTargetException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 /*
@@ -34,17 +36,48 @@ public class D031_TestCheck {
                 invoke的同时进行捕获异常，打印方法的异常信息，作为测试报告。
             如果没有则不操作。
         */
-        int num = 0; // 统计异常方法
-        for(Method met : methods){
-            // 判断是否存在某一注解，存在则执行。
-            if(met.isAnnotationPresent(D032_Check.class)){
-                try {
-                    met.invoke(c);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    num++;
-                }
-            }
+        BufferedWriter bw = null;
+
+        try {
+            bw = new BufferedWriter(new FileWriter("bug-rep.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        try {
+            if(bw != null){
+                int num = 0; // 统计异常方法
+                for(Method met : methods){
+                    // 判断是否存在某一注解，存在则执行。
+                    if(met.isAnnotationPresent(D032_Check.class)){
+                        try {
+                            met.invoke(c);
+                        } catch (Exception e) {
+                            num++;
+
+                            /* 当发生了错误，将其记录到txt文件中。 */
+                            bw.write("方法：" + met.getName() + " 出现异常");
+                            bw.newLine();
+
+                            //bw.write("异常名：" +  e.getCause().getClass().getSimpleName());
+                            bw.newLine();
+                            //bw.write("异常原因：" +  e.getCause().getMessage());
+                            bw.newLine();
+
+                            bw.write("---------");
+                            bw.newLine();
+
+                        }
+                    }
+                }
+
+                bw.write("本次测试出现了" + num + "次异常");
+                bw.flush();
+                bw.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
