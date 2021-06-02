@@ -1,4 +1,4 @@
-package com.linear.W29_JDBC;
+package com.linear.W29_JDBC_Pool;
 
 import java.util.Date;
 
