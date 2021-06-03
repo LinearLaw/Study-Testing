@@ -1,7 +1,11 @@
 package com.linear.W29_JDBC_Pool;
 
+import javafx.scene.chart.PieChart;
+
+import javax.sql.DataSource;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.Properties;
@@ -31,11 +35,10 @@ public class D01_JDBCUtils {
 
             // 2、类加载器，用来获取配置文件的路径
             ClassLoader clsLoader = D01_JDBCUtils.class.getClassLoader();
-            URL res = clsLoader.getResource("jdbc.properties");
-            String path = res.getPath();
+            InputStream is = clsLoader.getResourceAsStream("jdbc.properties");
 
             // 3、加载读取配置文件
-            pro.load(new FileReader(path));
+            pro.load(is);
 
             // 4、将配置文件的内容读取到变量中。
             url = pro.getProperty("url");
@@ -92,4 +95,5 @@ public class D01_JDBCUtils {
         }
         close(stmt,conn);
     }
+
 }
