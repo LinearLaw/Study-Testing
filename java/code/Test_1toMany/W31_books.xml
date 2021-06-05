@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<books>
+    <book bid="b1">
+        <name>Java编程思想</name>
+        <author>James</author>
+        <price>109</price>
+    </book>
+    <book bid="b2">
+        <name>编译原理</name>
+        <author>kobe</author>
+        <price>111</price>
+    </book>
+</books>
