@@ -54,11 +54,12 @@ public class D04_CharCode extends HttpServlet {
 
         StringBuilder ranStr = new StringBuilder();
         g.setColor(Color.RED);
+        g.setFont(new Font("Consolas", Font.PLAIN, 20));
         for (int i = 0 ; i <= 4; i++){
 
             char ch = str.charAt(ran.nextInt(str.length()));
             ranStr.append(ch);
-            g.drawString(ch+"",width/5*i,height/2);
+            g.drawString(ch+"",width/5*i+5,height/2+5);
         }
 
         // 6、设置session，用来检验

@@ -55,6 +55,7 @@
 
     <script src='./jquery-3.3.1.min.js'></script>
     <script>
+        /* 验证码图片 */
         function init(){
             let t = new Date().getTime();
             $("#charImg").attr("src","/getCharCode?"+t);
@@ -63,6 +64,7 @@
         init();
         $("#charImg").click(init);
 
+        /* 提交表单信息 */
         $("#submit").click(()=>{
             let username = $("#username").val();
             let password = $("#password").val();
