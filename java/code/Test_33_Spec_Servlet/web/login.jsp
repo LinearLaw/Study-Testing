@@ -11,39 +11,85 @@
 <head>
     <title>$Title$</title>
 
-    <style>
-        .input-line{width: 350px;margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .input-line.ibutton{padding-left: 154px;}
-        .input-line span {
-            display: inline-block;
-            width: 150px;
-            text-align: right;
-        }
-        .input-line.ibutton button{width:100px;}
-        
-    </style>
+    <link rel="stylesheet" href="./common.css">
 </head>
 
 <body>
-
-
+    <h1>登录</h1>
     <div>
-        <form action="">
-            <div class="input-line">
-                <span>用户名：</span>
-                <input type="text">
-            </div>
-            <div class="input-line">
-                <span>密码：</span>
-                <input type="password">
-            </div>
-            <div class="input-line ibutton">
-                <button>登录</button>
-            </div>
-        </form>
+        <div class="input-line">
+            <span class="input-title">用户名：</span>
+            <input type="text" id="username">
+        </div>
+        <div class="input-line">
+            <span class="input-title">输入密码：</span>
+            <input type="password" id="password">
+        </div>
+
+        <div class="input-line">
+            <span class="input-title">输入验证码：</span>
+            <input type="text" class="input-charcode" id="charcode">
+            <img src="" class="char-code" id="charImg" alt="输入验证码" />
+        </div>
+
+        <div class="input-line ibutton">
+            <button id="submit">登录</button>
+        </div>
+        <div class="input-line">
+            <span class="input-title"></span>
+            <span class="notice_s" style="display: none;" id="snotice">
+                登录成功
+            </span>
+            <span class="notice_f" style="display: none;" id="snotice_f">
+                登录失败
+            </span>
+        </div>
+
+        <div class="input-line">
+            <span class="input-title"></span>
+            <a class="input-link" href="/register.jsp">注册账号</a>
+            <a class="input-link" href="/">回到首页</a>
+        </div>
 
     </div>
+
+    <script src='./jquery-3.3.1.min.js'></script>
+    <script>
+        function init(){
+            let t = new Date().getTime();
+            $("#charImg").attr("src","/getCharCode?"+t);
+        }
+
+        init();
+        $("#charImg").click(init);
+
+        $("#submit").click(()=>{
+            let username = $("#username").val();
+            let password = $("#password").val();
+            let charcode = $("#charcode").val();
+            $("#snotice").hide();
+            $("#snotice_f").hide();
+
+            if(password){
+                $.ajax({
+                    url:"/doLogin",
+                    method:"post",
+                    data:{username,password,charcode},
+                    success:function(res){
+                        console.log(res);
+                        var resp = JSON.parse(res);
+                        if(resp.code == 1){
+                            $("#snotice").text(resp.msg);
+                            $("#snotice").show();
+                        }else{
+                            $("#snotice_f").text(resp.msg);
+                            $("#snotice_f").show();
+                        }
+                    }
+                })
+            }
+        })
+    </script>
+
 </body>
 </html>

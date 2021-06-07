@@ -1,0 +1,8 @@
+
+-- 创建user表
+CREATE TABLE USER(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	username CHAR(10),
+	PASSWORD CHAR(20),
+	create_time DATE
+);

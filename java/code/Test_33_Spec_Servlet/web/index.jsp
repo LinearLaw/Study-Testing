@@ -11,24 +11,22 @@
 <head>
     <title>$Title$</title>
 
-    <style>
-        .input-line{width: 350px;margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .input-line.ibutton{padding-left: 154px;}
-        .input-line span {
-            display: inline-block;
-            width: 150px;
-            text-align: right;
-        }
-        .input-line.ibutton button{width:100px;}
-        
-    </style>
+    <link rel="stylesheet" href="./common.css">
 </head>
 
 <body>
 
 
     <h1>Welcome</h1>
+    <div>
+        <div class="input-line">
+            <span class="input-title"></span>
+            <a class="input-link" href="/register.jsp">注册</a>
+            <a class="input-link" href="/login.jsp">登录</a>
+        </div>
+    </div>
+    
+
+    
 </body>
 </html>
