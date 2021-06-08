@@ -1,11 +1,22 @@
 package com.linear.W34_Login;
 
 
-public class User {
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
+/*
+    转成JSON时，可以通过注解来控制属性值的变化规则
+        - @JsonIgnore 排除属性
+        - @JsonFormat 属性值的格式化
+ */
+public class User {
+    @JsonIgnore
     private Integer id;
     private String username;
+
+    @JsonIgnore
     private String password;
+
     private Integer create_time;
 
     public void setId(Integer id) {
@@ -42,5 +53,15 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", create_time=" + create_time +
+                '}';
     }
 }

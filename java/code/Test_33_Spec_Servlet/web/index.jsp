@@ -24,6 +24,10 @@
             <a class="input-link" href="/register.jsp">注册</a>
             <a class="input-link" href="/login.jsp">登录</a>
         </div>
+        <div class="input-line">
+            <span class="input-title"></span>
+            <a class="input-link" href="/userinfo.jsp">用户信息</a>
+        </div>
     </div>
     
 
