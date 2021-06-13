@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 56.0、mybatis的主配置文件 -->
+<configuration>
+    <environments default="mysql">
+
+        <!--mysql环境-->
+        <environment id="mysql">
+            <!--事务类型-->
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql://localhost:3306/w56_mybatis"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="root"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--指定映射配置文件的位置-->
+    <mappers>
+        <!-- 56.4、使用XML做配置 -->
+        <mapper resource="com/linear/dao/IUserDao.xml"></mapper>
+
+        <!-- 56.5、使用注解做配置 -->
+        <mapper class="com.linear.dao.AUserDao"></mapper>
+
+        <!-- 56.6、增删改查  -->
+        <mapper resource="com/linear/dao/CUserDao.xml"></mapper>
+    </mappers>
+
+</configuration>

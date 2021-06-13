@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.linear.dao.CUserDao">
+
+    <!--56.6.1、获取所有用户信息  -->
+    <select id="findAll" resultType="com.linear.domain.User">
+        select * from user
+    </select>
+
+    <!--56.6.2、插入一条数据
+        这里需要注意，插入的id，需要根据当前表的id来确定，所以添加了一个selectKey的字段
+    -->
+    <insert id="saveUser" parameterType="com.linear.domain.User">
+        <!-- 因为id是不确定的，所以这里需要先去查id是多少 -->
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+
+        insert into user(username,address,sex,birthday) values(#{username},#{address},#{sex},#{birthday})
+    </insert>
+
+    <!--56.6.3、更新数据-->
+    <update id="updateUser" parameterType="com.linear.domain.User">
+        update user set username=#{username},address=#{address},sex=#{sex},birthday=#{birthday} where id = #{id}
+    </update>
+
+    <!--56.6.4、删除一条数据-->
+    <delete id="deleteById" parameterType="Integer">
+        delete from user where id=#{id}
+    </delete>
+
+    <!--56.6.5、根据id查找-->
+    <select id="findById" parameterType="Integer" resultType="com.linear.domain.User">
+        select * from user where id=#{id}
+    </select>
+
+    <!--56.6.6、根据username模糊查询-->
+    <select id="findByName" resultType="com.linear.domain.User">
+        select * from user where username like #{username}
+    </select>
+
+    <!--56.6.7、获取总用户数-->
+    <select id="findTotal" resultType="Integer" >
+        select count(id) from user
+    </select>
+
+</mapper>
