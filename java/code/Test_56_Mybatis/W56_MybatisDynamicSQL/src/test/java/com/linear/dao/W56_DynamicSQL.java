@@ -10,13 +10,19 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CUserDaoTest {
+
+/**
+ *  56.7  测试动态SQL
+ *
+ */
+public class W56_DynamicSQL {
 
     /**
-     * 56.6、初始化mybatis
+     * 56.7、初始化mybatis
      */
     private static InputStream in;
     private static SqlSessionFactory factory;
@@ -43,7 +49,7 @@ public class CUserDaoTest {
     }
 
     /**
-     * 56.6.1、获取所有
+     * 56.7、获取所有
      */
     @Test
     public void findAll(){
@@ -53,70 +59,47 @@ public class CUserDaoTest {
         }
     }
 
-    /**
-     * 56.6.2、插入一条数据
-     */
+    // ----------------------------------------------------------
+
+    /** 56.7.1、传入一个user，按user拥有的字段进行查找 */
     @Test
-    public void saveUser(){
+    public void testFindByUser(){
         User user = new User();
+
         user.setAddress("美国省");
-        user.setBirthday(new Date());
         user.setSex("男");
-        user.setUsername("Trump");
 
-        System.out.println("before: " + user);
-        userDao.saveUser(user);
-        System.out.println("after: " + user);
+        System.out.println(user);
+        User u = userDao.findByUser(user);
+        System.out.println(u);
     }
 
-    /**
-     * 56.6.3、更新数据
-     */
+    /** 56.7.2 传入一个user,按user拥有的字段查找一个列表 */
     @Test
-    public void updateUser(){
+    public void testFindByUser2(){
         User user = new User();
-        user.setId(50);
-        user.setUsername("Abama");
-        user.setSex("女");
-        user.setAddress("印度省");
-        user.setBirthday(new Date());
+        user.setAddress("%北京%");
+        user.setSex("男");
 
-        userDao.updateUser(user);
-    }
-
-    /**
-     * 56.6.4、删除数据
-     */
-    @Test
-    public void deleteById(){
-        userDao.deleteById(48);
-    }
-
-    /**
-     * 56.6.5、根据id查找
-     */
-    @Test
-    public void findById(){
-        User user = userDao.findById(50);
-    }
-
-    /**
-     * 56.6.6、根据username模糊查询
-     */
-    @Test
-    public void findByName(){
-        List<User> list = userDao.findByName("%Trump%");
-        for(User user : list){
-            System.out.println(user);
+        List<User> list = userDao.findListByUser(user);
+        System.out.println(list.size());
+        for (User li : list){
+            System.out.println(li);
         }
     }
 
-    /**
-     * 56.6.7、获取总用户数
-     */
+    /** 56.7.3 foreach遍历  */
     @Test
-    public void findTotal(){
-        int count = userDao.findTotal();
-        System.out.println(count);
+    public void testFindListByList(){
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(41);
+        list.add(43);
+        list.add(46);
+
+        List<User> ul = userDao.findListByIdList(list);
+        for (User u : ul){
+            System.out.println(u);
+        }
     }
+
 }

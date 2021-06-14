@@ -5,6 +5,12 @@
 
 <!-- 56.0、mybatis的主配置文件 -->
 <configuration>
+
+    <!--设置别名-->
+    <typeAliases>
+        <package name="com.linear.domain"></package>
+    </typeAliases>
+
     <environments default="mysql">
 
         <!--mysql环境-->
@@ -20,16 +26,16 @@
         </environment>
     </environments>
 
+
+
     <!--指定映射配置文件的位置-->
     <mappers>
-        <!-- 56.4、使用XML做配置 -->
-        <mapper resource="com/linear/dao/IUserDao.xml"></mapper>
+        <!--56.7 动态sql-->
+        <mapper resource="com/linear/dao/W56_DynamicSQL.xml"></mapper>
 
-        <!-- 56.5、使用注解做配置 -->
-        <mapper class="com.linear.dao.AUserDao"></mapper>
-
-        <!-- 56.6、增删改查  -->
-        <mapper resource="com/linear/dao/CUserDao.xml"></mapper>
+        <!--56.8 多表查询-->
+        <mapper resource="com/linear/dao/W56_One2Many.xml"></mapper>
+        <mapper resource="com/linear/dao/W56_Many2Many.xml"></mapper>
     </mappers>
 
 </configuration>

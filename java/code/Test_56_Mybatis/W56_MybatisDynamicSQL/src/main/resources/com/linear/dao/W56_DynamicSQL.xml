@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.linear.dao.CUserDao">
+
+    <!-- 56.7、动态SQL
+            核心在于配置文件怎么写的问题
+     -->
+
+
+    <!--56.7.4 使用sql标签, 可以将公用的sql抽取出来
+        在需要用的地方,用include标签来引用, 属性是refid
+    -->
+    <sql id="findUser">
+        select * from user
+    </sql>
+
+    <!--56.7、获取所有用户信息
+        在这里,可以对上面定义的公用的sql语句进行include,
+        定义refid只想上面的sql的id
+    -->
+    <select id="findAll" resultType="com.linear.domain.User">
+        # select * from user
+        <include refid="findUser" />
+    </select>
+
+    <!--  分割线  -->
+
+    <!--56.7.1、条件查询 if
+        因为主配置文件中指定了typeAliases,
+        所以这里的type不需要再用com.linear.domain作为前缀
+    -->
+    <select id="findByUser" resultType="user" parameterType="user">
+        select * from user where 1=1
+        <if test="username != null"> and username=#{username} </if>
+        <if test="id != null and id != 0"> and id=#{id} </if>
+        <if test="address !=null "> and address=#{address} </if>
+        <if test="sex != null"> and sex=#{sex}</if>
+    </select>
+
+    <!-- 56.7.2 where , 可以省略where 1=1 -->
+    <select id="findListByUser" resultType="user" parameterType="user">
+        select * from user
+        <where>
+            <if test="username!=null"> and username like #{username} </if>
+            <if test="address != null"> and address like #{address}</if>
+            <if test="id != null and id != 0"> and id = #{id}</if>
+            <if test="sex != null"> and sex=#{sex}</if>
+        </where>
+    </select>
+
+    <!-- 56.7.3 传入一个list 用 foreach 来进行遍历 -->
+    <select id="findListByIdList" parameterType="Integer" resultType="user">
+        #　希望实现的语句　 select * from user where id in(41,42,43,45)
+        select * from user
+        <where>
+            <foreach collection="list" open="id in (" item="uid" separator="," close=")">
+                #{uid}
+            </foreach>
+        </where>
+    </select>
+
+</mapper>

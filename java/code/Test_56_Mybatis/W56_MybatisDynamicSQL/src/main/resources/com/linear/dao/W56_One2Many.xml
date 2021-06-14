@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.linear.dao.DAccountDao">
+
+    <!-- 定义一个用于封装 account 和 user 的resultMap
+        property - 在封装对象中的 成员属性名称
+        column - 在sql查出来的表中 列名称
+
+            注意如果column有同名的情况时，应该给该列搞一个别名用来区分
+     -->
+    <resultMap id="accountUserMap" type="account">
+        <id property="id" column="aid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+
+        <!--user对象的映射-->
+        <association property="user" column="uid" javaType="user">
+            <id property="uid" column="id"></id>
+            <result property="userName" column="username"></result>
+            <result property="address" column="address"></result>
+            <result property="sex" column="sex"></result>
+            <result property="birthday" column="birthday"></result>
+        </association>
+    </resultMap>
+
+    <!--查找还是一样的查，但是结果指向了resultMap-->
+    <select id="findAll" resultMap="accountUserMap">
+        select
+             u.*, a.* , a.id as aid
+        from
+             account a,user u
+        where
+             a.uid=u.id
+    </select>
+
+
+</mapper>
+
