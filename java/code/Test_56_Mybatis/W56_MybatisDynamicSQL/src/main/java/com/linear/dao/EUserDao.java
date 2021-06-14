@@ -1,6 +1,6 @@
 package com.linear.dao;
 
-import com.linear.domain.DUser;
+import com.linear.domain.EUser;
 
 import java.util.List;
 
@@ -14,11 +14,5 @@ import java.util.List;
  *
  */
 public interface EUserDao {
-
-
-    /**
-     * 56.6.1、获取所有
-     * @return
-     */
-    List<DUser> findAll();
+    List<EUser> findAll();
 }

@@ -16,7 +16,16 @@ public class EUser implements Serializable {
     private String sex;
     private String address;
 
+    // user类中加上role集合的引用
+    private List<ERole> rlist;
 
+    public List<ERole> getRlist() {
+        return rlist;
+    }
+
+    public void setRlist(List<ERole> rlist) {
+        this.rlist = rlist;
+    }
 
     public int getUid() {
         return uid;
@@ -60,7 +69,7 @@ public class EUser implements Serializable {
 
     @Override
     public String toString() {
-        return "DUser{" +
+        return "EUser{" +
                 "uid=" + uid +
                 ", userName='" + userName + '\'' +
                 ", birthday=" + birthday +

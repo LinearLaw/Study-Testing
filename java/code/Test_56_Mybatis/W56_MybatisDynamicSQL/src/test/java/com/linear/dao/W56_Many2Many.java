@@ -1,6 +1,8 @@
 package com.linear.dao;
 
 import com.linear.domain.ERole;
+import com.linear.domain.EUser;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,6 +21,7 @@ public class W56_Many2Many {
     private SqlSessionFactory fac;
     private SqlSession sqlSession;
     private ERoleDao roleDao;
+    private EUserDao userDao;
 
     @Before
     public void init() throws Exception{
@@ -27,6 +30,7 @@ public class W56_Many2Many {
         sqlSession = fac.openSession();
 
         roleDao = sqlSession.getMapper(ERoleDao.class);
+        userDao = sqlSession.getMapper(EUserDao.class);
     }
 
     @After
@@ -47,4 +51,23 @@ public class W56_Many2Many {
             System.out.println();
         }
     }
+
+
+    /**
+     * 56.11、多对多
+     *      查找user，将与user关联的role也查出来
+     */
+    @Test
+    public void testUserFindAll(){
+        List<EUser> list = userDao.findAll();
+        for (EUser us : list){
+            System.out.println(us);
+        }
+    }
+
+    @Test
+    public void testUserFindAllWithLazy(){
+
+    }
+
 }

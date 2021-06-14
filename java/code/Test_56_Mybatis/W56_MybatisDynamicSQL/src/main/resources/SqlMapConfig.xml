@@ -40,6 +40,8 @@
 
         <!--56.10 多表查询 - 多对多-->
         <mapper resource="com/linear/dao/W56_ERMany2Many.xml"></mapper>
+        <mapper resource="com/linear/dao/W56_EUMany2Many.xml"></mapper>
+
     </mappers>
 
 </configuration>
