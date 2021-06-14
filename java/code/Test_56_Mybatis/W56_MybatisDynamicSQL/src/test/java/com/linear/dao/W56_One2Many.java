@@ -1,6 +1,8 @@
 package com.linear.dao;
 
-import com.linear.domain.Account;
+import com.linear.domain.DAccount;
+import com.linear.domain.DAccountUser;
+import com.linear.domain.DUser;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,6 +21,9 @@ import java.util.List;
  *          用户可以有多个账号，一个账号只有一个所属用户
  *
  *      - 多对多
+ *          用户和角色
+ *          一个用户可以对应多个角色，一个角色可以有多个用户
+ *
  *
  */
 public class W56_One2Many {
@@ -48,14 +53,43 @@ public class W56_One2Many {
     }
 
     /**
-     *  56.8.1 查询account表，同时将account表对应的user查出来
+     *  56.8.1 一对多
+     *      查询account表，同时将account表对应的user查出来
      *      此时可以看到，Account的user对象也被赋予了相应的值
      */
     @Test
     public void testAccountFindAll(){
-        List<Account> list = accountDao.findAll();
-        for (Account li : list){
+        List<DAccount> list = accountDao.findAll();
+        for (DAccount li : list){
             System.out.println(li);
         }
     }
+
+    /**
+     * 56.8.2 一对多
+     *      查询account表，同时将account表对应的user查出来
+     *      只取其中的部分内容。
+     */
+    @Test
+    public void testAccountFindAllSimple(){
+        List<DAccountUser> list = accountDao.findAllSimple();
+        for (DAccountUser au : list){
+            System.out.println(au);
+        }
+    }
+
+    /**
+     * 56.8.3 一对多
+     *      查询user表，同时将user旗下的所有account作为集合查出来
+     */
+    @Test
+    public void testUserFindAll(){
+        List<DUser> lu = userDao.findAll();
+        for (DUser li : lu){
+            System.out.println(li);
+            System.out.println(li.getAlist());
+            System.out.println();
+        }
+    }
+
 }

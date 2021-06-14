@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.linear.dao.DUserDao">
+
+    <resultMap id="userAccountMap" type="DUser">
+        <id property="uid" column="id"></id>
+        <result property="userName" column="username"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+
+        <collection property="alist" ofType="DAccount">
+            <id property="id" column="aid"></id>
+            <result property="uid" column="uid"></result>
+            <result property="money" column="money"></result>
+        </collection>
+    </resultMap>
+
+    <!--
+        左外连接，保存user的所有字段，
+            然后去查account的相关字段
+     -->
+    <select id="findAll" resultMap="userAccountMap">
+        select u.*, a.*, a.id as aid
+        from user u left outer join account a on u.id=a.uid
+    </select>
+
+
+</mapper>
+

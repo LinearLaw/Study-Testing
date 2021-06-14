@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.linear.dao.ERoleDao">
+
+    <resultMap id="roleMap" type="ERole">
+        <id property="roleId" column="rid"></id>
+        <result property="roleName" column="role_name"></result>
+        <result property="roleDesc" column="role_desc"></result>
+
+        <collection property="ulist" ofType="EUser">
+            <id property="uid" column="id"></id>
+            <result property="userName" column="username"></result>
+            <result property="birthday" column="birthday"></result>
+            <result property="sex" column="sex"></result>
+            <result property="address" column="address"></result>
+        </collection>
+    </resultMap>
+
+
+    <!--56.10 查找role表，将所有和role关联的user也查出来
+        先查中间表user_role，role.id = ur.rid
+        再通过中间表，查user表，令 user.id = ur.uid
+    -->
+    <select id="findAll" resultMap="roleMap">
+        select
+               u.*,
+               r.id as rid, r.role_name, r.role_desc
+        from
+             role r
+        left outer join user_role ur on r.id=ur.rid
+        left outer join user u on u.id=ur.uid
+    </select>
+
+</mapper>

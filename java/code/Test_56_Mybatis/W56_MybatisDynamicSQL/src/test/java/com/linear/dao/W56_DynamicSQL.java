@@ -27,7 +27,7 @@ public class W56_DynamicSQL {
     private static InputStream in;
     private static SqlSessionFactory factory;
     private static SqlSession session;
-    private static CUserDao userDao;
+    private static UserDao userDao;
 
     @BeforeClass
     public static void init() throws Exception{
@@ -38,7 +38,7 @@ public class W56_DynamicSQL {
 
         session = factory.openSession();
 
-        userDao = session.getMapper(CUserDao.class);
+        userDao = session.getMapper(UserDao.class);
     }
     @AfterClass
     public static void destroy() throws Exception {

@@ -33,9 +33,13 @@
         <!--56.7 动态sql-->
         <mapper resource="com/linear/dao/W56_DynamicSQL.xml"></mapper>
 
-        <!--56.8 多表查询-->
-        <mapper resource="com/linear/dao/W56_One2Many.xml"></mapper>
-        <mapper resource="com/linear/dao/W56_Many2Many.xml"></mapper>
+        <!--56.8 多表查询 - 一对多
+        -->
+        <mapper resource="com/linear/dao/W56_DAOne2Many.xml"></mapper>
+        <mapper resource="com/linear/dao/W56_DUOne2Many.xml"></mapper>
+
+        <!--56.10 多表查询 - 多对多-->
+        <mapper resource="com/linear/dao/W56_ERMany2Many.xml"></mapper>
     </mappers>
 
 </configuration>

@@ -5,17 +5,17 @@ import java.io.Serializable;
 /**
  * 56.8 用户账户信息
  */
-public class Account implements Serializable {
+public class DAccount implements Serializable {
 
     private Integer id;
     private Integer uid;
     private Double money;
 
     // 在从表中，预留一个主表的引用
-    private User user;
+    private DUser user;
 
-    public User getUser() { return user; }
-    public void setUser(User user) {
+    public DUser getUser() { return user; }
+    public void setUser(DUser user) {
         this.user = user;
     }
 
@@ -50,7 +50,7 @@ public class Account implements Serializable {
                 "id=" + id +
                 ", uid=" + uid +
                 ", money=" + money +
-                ", \n     user=" + user +
+                ", user=" + user +
                 '}';
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
         核心其实在于xml配置里面的东西
 
  */
-public interface CUserDao {
+public interface UserDao {
 
     /**
      * 56.6.1、获取所有

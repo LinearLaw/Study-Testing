@@ -11,13 +11,13 @@
 
             注意如果column有同名的情况时，应该给该列搞一个别名用来区分
      -->
-    <resultMap id="accountUserMap" type="account">
+    <resultMap id="accountUserMap" type="daccount">
         <id property="id" column="aid"></id>
         <result property="uid" column="uid"></result>
         <result property="money" column="money"></result>
 
         <!--user对象的映射-->
-        <association property="user" column="uid" javaType="user">
+        <association property="user" column="uid" javaType="duser">
             <id property="uid" column="id"></id>
             <result property="userName" column="username"></result>
             <result property="address" column="address"></result>
@@ -26,7 +26,7 @@
         </association>
     </resultMap>
 
-    <!--查找还是一样的查，但是结果指向了resultMap-->
+    <!-- 查找还是一样的查，但是结果指向了resultMap -->
     <select id="findAll" resultMap="accountUserMap">
         select
              u.*, a.* , a.id as aid
@@ -35,6 +35,17 @@
         where
              a.uid=u.id
     </select>
+
+
+    <!--Tips：如果user的信息非常多，resultMap的方式就不是很好用了，
+        此时可以用po类封装一部分我们需要的属性，以该类作为输出对象
+        直接resultType指向该类即可。-->
+    <select id="findAllSimple" resultType="DAccountUser">
+        select a.*, u.username, u.address from account as a, user as u
+        where a.uid=u.id
+    </select>
+
+
 
 
 </mapper>

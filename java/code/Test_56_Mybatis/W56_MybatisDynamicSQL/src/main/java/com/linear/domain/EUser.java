@@ -2,33 +2,36 @@ package com.linear.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
- * 56.2、用户表的数据结构
+ * 用户表
  */
 
-public class User implements Serializable {
+public class EUser implements Serializable {
 
-    private int id;
-    private String username;
+    private int uid;
+    private String userName;
     private Date birthday;
     private String sex;
     private String address;
 
-    public int getId() {
-        return id;
+
+
+    public int getUid() {
+        return uid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Date getBirthday() {
@@ -57,9 +60,9 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
+        return "DUser{" +
+                "uid=" + uid +
+                ", userName='" + userName + '\'' +
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +

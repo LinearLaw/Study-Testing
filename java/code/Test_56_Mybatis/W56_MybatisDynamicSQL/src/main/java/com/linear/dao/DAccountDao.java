@@ -1,6 +1,7 @@
 package com.linear.dao;
 
-import com.linear.domain.Account;
+import com.linear.domain.DAccount;
+import com.linear.domain.DAccountUser;
 
 import java.util.List;
 
@@ -17,9 +18,15 @@ import java.util.List;
 public interface DAccountDao {
 
     /**
-     * 查找Account表，同时把Account关联的用户也查出来
-     * @return
+     * 查找Account表，同时把Account关联的user信息也查出来
      */
-    List<Account> findAll();
+    List<DAccount> findAll();
 
+
+    /**
+     * 查找Account表，同时把Account关联的user信息也查出来
+     * 查出来之后，我们只需要其中部分的信息即可。
+     * 所以使用一个类作为输出对象
+     */
+    List<DAccountUser> findAllSimple();
 }
