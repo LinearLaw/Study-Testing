@@ -5,6 +5,8 @@
 
 <mapper namespace="com.linear.dao.EUserDao">
 
+    <cache></cache>
+
     <resultMap id="userMap" type="EUser">
         <id property="uid" column="id"></id>
         <result property="userName" column="username"></result>
@@ -12,9 +14,7 @@
         <result property="sex" column="sex"></result>
         <result property="address" column="address"></result>
 
-        <collection property="rlist" ofType="ERole"
-
-        >
+        <collection property="rlist" ofType="ERole" >
             <id property="roleId" column="rid"></id>
             <result property="roleName" column="role_name"></result>
             <result property="roleDesc" column="role_desc"></result>

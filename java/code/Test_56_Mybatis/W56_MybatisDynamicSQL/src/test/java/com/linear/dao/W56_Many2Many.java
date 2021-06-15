@@ -65,9 +65,47 @@ public class W56_Many2Many {
         }
     }
 
+    /**
+     * 56.12 一级缓存默认开启，
+     *      查询两次同样的内容，实际只查了一次数据库
+     */
     @Test
-    public void testUserFindAllWithLazy(){
+    public void testUserFindAll_1Level(){
+        List<EUser> list1 = userDao.findAll();
+        for (EUser us : list1){
+            System.out.println(us);
+        }
+        List<EUser> list2 = userDao.findAll();
 
+        // 因为有一级缓存，所以这里是true
+        System.out.println(list1 == list2);
     }
 
+    /**
+     * 56.12 二级缓存
+     *      先配置主配置文件 SqlMapConfig.xml
+     *      再配置mapper，增加一个 <cache></cache>
+     *
+     */
+    @Test
+    public void testUserFindAll_2Level(){
+        List<EUser> list1 = userDao.findAll();
+        for (EUser us : list1){
+            System.out.println(us);
+        }
+
+        sqlSession.close();
+
+        SqlSession sa = fac.openSession();
+        EUserDao d = sa.getMapper(EUserDao.class);
+
+        List<EUser> list2 = d.findAll();
+
+        /* 效果：两次调起查询，结果只出现一次数据库查询，
+                因为close，一级缓存失效，所以这里作用到了二级缓存。
+                但是list1 == list2 返回了false
+        */
+        System.out.println(list1 == list2);
+
+    }
 }

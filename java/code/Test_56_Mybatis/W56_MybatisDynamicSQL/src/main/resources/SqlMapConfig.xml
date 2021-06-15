@@ -6,6 +6,16 @@
 <!-- 56.0、mybatis的主配置文件 -->
 <configuration>
 
+    <settings>
+        <!--延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"></setting>
+        <setting name="aggressiveLazyLoading" value="false"></setting>
+
+        <!--二级缓存-->
+        <setting name="cacheEnabled" value="true"></setting>
+    </settings>
+
+
     <!--设置别名-->
     <typeAliases>
         <package name="com.linear.domain"></package>
@@ -27,7 +37,6 @@
     </environments>
 
 
-
     <!--指定映射配置文件的位置-->
     <mappers>
         <!--56.7 动态sql-->
@@ -41,6 +50,10 @@
         <!--56.10 多表查询 - 多对多-->
         <mapper resource="com/linear/dao/W56_ERMany2Many.xml"></mapper>
         <mapper resource="com/linear/dao/W56_EUMany2Many.xml"></mapper>
+
+        <!--56.13 延迟加载-->
+        <mapper resource="com/linear/dao/W56_FALazyLoading.xml"></mapper>
+        <mapper resource="com/linear/dao/W56_FULazyLoading.xml"></mapper>
 
     </mappers>
 

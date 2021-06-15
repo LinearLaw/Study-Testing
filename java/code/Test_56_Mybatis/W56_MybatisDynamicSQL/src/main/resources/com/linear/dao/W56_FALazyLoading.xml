@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.linear.dao.FAccountDao">
+
+    <!--56.13 延迟加载
+        一对一查询映射
+    -->
+    <resultMap type="faccount" id="accountMap">
+        <id property="id" column="id"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+
+        <association property="user" javaType="fuser"
+            select="com.linear.dao.FUserDao.findById"
+            column="uid"
+        ></association>
+    </resultMap>
+
+    <select id="findAll" resultMap="accountMap">
+        select * from account
+    </select>
+
+    <!-- 56.13、传入一个uid，将和该uid关联的账户查出来 -->
+    <select id="findByUid" resultType="faccount" parameterType="int">
+        select * from account where uid=#{uid}
+    </select>
+
+</mapper>
