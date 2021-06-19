@@ -11,7 +11,7 @@ public class Client {
 
     public static void main(String[] args){
         // 1、获取核心容器对象
-        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("D01_Injection.xml");
 
         System.out.println("\n1、构造函数注入");
         // 2、根据id获取bean对象

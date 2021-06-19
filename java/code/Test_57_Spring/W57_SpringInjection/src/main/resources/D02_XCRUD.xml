@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--   57.2、XML + DBUtils -> CRUD
+            1、注入accountService
+                ↓
+            2、注入accountDao
+                ↓
+            3、配置QueryRunner
+                ↓
+            4、配置数据库信息
+    -->
+    <!-- 1、注入accountService ，此时需要对成员accountDao进行初始化 -->
+    <bean id="accountService" class="com.linear.D02_CRUD.service.impl.XAccountServiceImpl">
+        <property name="accountDao" ref="accountDao"></property>
+    </bean>
+
+    <!-- 2、注入accountDao，此时需要对成员queryRunner初始化
+ 		这里的name="runner"，和成员变量同名。
+	-->
+    <bean id="accountDao" class="com.linear.D02_CRUD.dao.impl.XAccountDaoImpl">
+        <property name="runner" ref="runner"></property>
+    </bean>
+
+    <!-- 3、配置QueryRunner-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner">
+        <constructor-arg name="ds" ref="datasource"></constructor-arg>
+    </bean>
+
+    <!-- 4、数据库连接池信息-->
+    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/w57_spring"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+</beans>
