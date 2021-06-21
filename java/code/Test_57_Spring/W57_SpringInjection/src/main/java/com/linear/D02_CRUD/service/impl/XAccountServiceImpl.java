@@ -21,16 +21,17 @@ public class XAccountServiceImpl implements IAccountService {
     public Account findById(Integer id) {
         return accountDao.findById(id);
     }
-
     public void saveAccount(Account account) {
         accountDao.saveAccount(account);
     }
-
     public void updateAccount(Account account) {
         accountDao.updateAccount(account);
     }
-
     public void deleteById(Integer id) {
         accountDao.deleteById(id);
+    }
+
+    public void transfer(String sourceName, String targetName, Float money){
+        System.out.println("X transfer occur");
     }
 }

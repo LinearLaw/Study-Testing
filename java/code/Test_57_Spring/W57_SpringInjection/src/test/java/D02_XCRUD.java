@@ -75,7 +75,7 @@ public class D02_XCRUD {
     @Test
     public void testSaveAccount(){
         Account ac = new Account();
-        ac.setMoney(1000);
+        ac.setMoney(1000f);
         ac.setName("ABAMA");
 
         as.saveAccount(ac);

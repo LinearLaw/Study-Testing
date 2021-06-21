@@ -25,16 +25,17 @@ public class AAccountServiceImpl implements IAccountService {
     public Account findById(Integer id) {
         return aAccountDao.findById(id);
     }
-
     public void saveAccount(Account account) {
         aAccountDao.saveAccount(account);
     }
-
     public void updateAccount(Account account) {
         aAccountDao.updateAccount(account);
     }
-
     public void deleteById(Integer id) {
         aAccountDao.deleteById(id);
+    }
+
+    public void transfer(String sourceName, String targetName, Float money){
+        System.out.println("A transfer occur");
     }
 }

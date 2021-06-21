@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 1、QueryRunner、连接池 -->
+    <bean id="prunner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        <!--Tips：如果加入了事务控制，这里的pdatasource要注释掉-->
+        <!--<constructor-arg name="ds" ref="pdatasource"></constructor-arg>-->
+    </bean>
+
+    <bean id="pdatasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/w57_spring"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+
+    <!-- 2、accountDao、accountService -->
+    <bean id="paccountService" class="com.linear.D03_Proxy.service.impl.AccountService">
+        <property name="accountDao" ref="paccountDao"></property>
+    </bean>
+    <bean id="paccountDao" class="com.linear.D03_Proxy.dao.impl.AccountDao">
+        <property name="runner" ref="prunner"></property>
+    </bean>
+
+    <!--3、事务控制 - 连接控制工具类、事务控制工具类
+            - 连接控制：将线程和连接绑定，每次取连接，查看当前线程是否已经存在连接
+            - 事务控制，给连接 开启事务、提交事务、回滚事务、归还连接
+    -->
+    <!-- (1) 连接控制工具类，依赖注入 -->
+    <bean id="connectionUtils" class="com.linear.D03_Proxy.utils.ConnectionUtils">
+        <property name="dataSource" ref="pdatasource"></property>
+    </bean>
+    <!-- (2) 事务控制工具类，连接注入 -->
+    <bean id="transactionManager" class="com.linear.D03_Proxy.utils.TransactionManager">
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+    <!-- (3) 使用了事务控制之后的 service dao -->
+    <bean id="accountDaoTsc" class="com.linear.D03_Proxy.dao.impl.AccountDaoTransaction">
+        <property name="runner" ref="prunner"></property>
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+    <bean id="accountServiceTsc" class="com.linear.D03_Proxy.service.impl.AccountServiceTransaction">
+        <property name="accountDao" ref="accountDaoTsc"></property>
+        <property name="txManager" ref="transactionManager"></property>
+    </bean>
+
+    <!--4. 事务控制 + 动态代理
+        1. service和dao 基本不变, dao要从connectionUtils取连接
+        2. 注入工厂类
+        3. 生成代理后的service , 原本的service就不用了.
+    -->
+    <!--(1) service 和 dao-->
+    <bean id="accountDaoProxy" class="com.linear.D03_Proxy.dao.impl.AccountDaoProxy">
+        <property name="connectionUtils" ref="connectionUtils"></property>
+        <property name="runner" ref="prunner"></property>
+    </bean>
+    <bean id="accountServiceProxy" class="com.linear.D03_Proxy.service.impl.AccountServiceProxy">
+        <property name="accountDao" ref="accountDaoProxy"></property>
+    </bean>
+    <!--(2) 工厂类 需要注入service和事务管理器  -->
+    <bean name="beanFactory" class="com.linear.D03_Proxy.factory.BeanFactory">
+        <property name="accountService" ref="accountServiceProxy"></property>
+        <property name="txMangager" ref="transactionManager"></property>
+    </bean>
+    <!--(3) 生成一个代理过后的 service, 后面就用这个service 来操作了-->
+    <bean name="proxyService"
+          factory-bean="beanFactory"
+          factory-method="getAccountService"></bean>
+</beans>

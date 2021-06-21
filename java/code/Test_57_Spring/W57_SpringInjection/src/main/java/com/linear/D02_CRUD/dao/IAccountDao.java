@@ -15,4 +15,6 @@ public interface IAccountDao {
     void updateAccount(Account account);
     void deleteById(Integer id);
 
+
+
 }

@@ -6,7 +6,7 @@ package com.linear.D02_CRUD.domain;
 public class Account {
 
     private String name;
-    private Integer money;
+    private Float money;
     private Integer id;
 
     public String getName() {
@@ -17,11 +17,11 @@ public class Account {
         this.name = name;
     }
 
-    public Integer getMoney() {
+    public Float getMoney() {
         return money;
     }
 
-    public void setMoney(Integer money) {
+    public void setMoney(Float money) {
         this.money = money;
     }
 
