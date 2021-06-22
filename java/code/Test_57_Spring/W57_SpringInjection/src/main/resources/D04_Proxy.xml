@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <!-- 1、QueryRunner、连接池 -->
     <bean id="prunner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
         <!--Tips：如果加入了事务控制，这里的pdatasource要注释掉-->

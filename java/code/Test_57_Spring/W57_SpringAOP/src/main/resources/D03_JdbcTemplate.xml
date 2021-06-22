@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--1、设置注解扫描-->
+    <context:component-scan base-package="com.linear.D03_JdbcTemplate" />
+
+    <!-- 设置Dao以及jdbc的注入 -->
+    <bean id="accountDaoJdbc" class="com.linear.D03_JdbcTemplate.dao.impl.AccountDao">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <!--2、设置连接池-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/w57_spring" />
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="user" value="root" />
+        <property name="password" value="root" />
+    </bean>
+
+    <!-- 3、jdbc -->
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+
+</beans>

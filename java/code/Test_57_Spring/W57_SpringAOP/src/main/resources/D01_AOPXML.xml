@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="logger"
+          class="com.linear.D01_AOPXML.utils.Logger" />
+
+    <bean id="accountService"
+          class="com.linear.D01_AOPXML.service.impl.AccountServiceImpl" />
+
+    <bean id="accountServiceAround"
+          class="com.linear.D01_AOPXML.service.impl.AccountServiceAround" />
+
+    <!--配置AOP-->
+    <aop:config>
+        <!-- 1、切入点
+             配置了切入点之后，所有配置了的方法，会被动态代理增强
+             增强的内容，就是切面
+        -->
+        <!-- (1) 切入点一、【前置 后置 异常 最终】 通知-->
+        <aop:pointcut id="pt1"
+                      expression="execution(* com.linear.D01_AOPXML.service.impl.AccountServiceImpl.*(..))" />
+
+        <!-- (2) 切入点二、环绕通知-->
+        <aop:pointcut id="pt2"
+                      expression="execution(* com.linear.D01_AOPXML.service.impl.AccountServiceAround.*(..))" />
+
+        <!-- 2、切面
+            指定了logger作为切面的接收类
+            所有的切入点，会在切入点的执行的前后位置，增加相应的通知，
+            通知里面其实就是增强的额外方法
+
+        -->
+        <!-- (1) 前置通知、后置通知、异常通知、最终通知-->
+        <aop:aspect id="logAdvice" ref="logger">
+            <aop:before method="beforeLog" pointcut-ref="pt1" />
+            <aop:after-returning method="afterReturningLog" pointcut-ref="pt1" />
+            <aop:after-throwing method="afterThrowingLog" pointcut-ref="pt1" />
+            <aop:after method="finallyLog" pointcut-ref="pt1" />
+        </aop:aspect>
+
+        <!-- (2) 环绕通知-->
+        <aop:aspect id="logArround" ref="logger">
+            <aop:around method="aroundLog" pointcut-ref="pt2" />
+        </aop:aspect>
+    </aop:config>
+
+</beans>

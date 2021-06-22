@@ -15,10 +15,11 @@ import java.lang.reflect.Proxy;
  *
  */
 public class BeanFactory {
+    // service 业务层
     private IAccountService accountService;
-    private TransactionManager txMangager;
-
     public void setAccountService(IAccountService accountService) { this.accountService = accountService; }
+    // transaction 事务
+    private TransactionManager txMangager;
     public void setTxMangager(TransactionManager txMangager) { this.txMangager = txMangager; }
 
     /** 在获取accountService时,
