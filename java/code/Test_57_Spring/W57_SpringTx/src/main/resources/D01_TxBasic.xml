@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--业务层-->
+    <bean id="accountService"
+          class="com.linear.D01_TxBasic.AccountService">
+        <property name="accountDao" ref="accountDao" />
+    </bean>
+
+    <!-- 持久层 -->
+    <bean id="accountDao" class="com.linear.D01_TxBasic.AccountDao">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--连接池-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="password" value="root" />
+        <property name="username" value="root" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/w57_spring?serverTimezone=GMT" />
+    </bean>
+
+    <!-- 57.8、配置事务！
+        tx:advice
+        - 配置事务管理器
+        - 配置事务通知
+        - 配置AOP中切入点表达式
+        - 建立AOP和事务通知的对应关系
+        - 配置事务属性
+    -->
+    <!--1、事务管理器-->
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--2、事务通知-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--3、aop切面-->
+    <aop:config>
+        <aop:pointcut id="pt1" expression="execution(* com.linear.D01_TxBasic.*.*(..))" />
+
+        <!--4、建立事务通知 - 切面 的对应关系-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt1" />
+    </aop:config>
+</beans>
