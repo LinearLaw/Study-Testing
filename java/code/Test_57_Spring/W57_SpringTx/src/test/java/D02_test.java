@@ -1,4 +1,4 @@
-import com.linear.D01_TxBasic.AccountService;
+import com.linear.dao.IAccountDao;
 import com.linear.service.IAccountService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,17 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-/***
- * 57.8 事务管理
- */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:D01_TxBasic.xml")
-public class D01_test {
+@ContextConfiguration(locations = "classpath:D02_TxAnno.xml")
+public class D02_test {
+
     @Autowired
-    private IAccountService accountService;
+    private IAccountService caccountService;
 
     @Test
     public void testTransfer(){
-        accountService.transfer("A","B",100f);
+        caccountService.transfer("A","B",100f);
     }
 }

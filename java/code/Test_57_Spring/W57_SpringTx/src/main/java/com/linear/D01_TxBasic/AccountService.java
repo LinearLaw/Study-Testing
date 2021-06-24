@@ -35,16 +35,10 @@ public class AccountService implements IAccountService {
     public Account findAccountById(Integer id) {
         return accountDao.findAccountById(id);
     }
-
     public Account findAccountByName(String name) {
         return accountDao.findAccountByName(name);
     }
-
     public void updateAccount(Account account) {
         accountDao.updateAccount(account);
     }
-
-
-
-
 }

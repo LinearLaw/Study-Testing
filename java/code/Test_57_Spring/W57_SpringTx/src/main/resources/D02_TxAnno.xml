@@ -3,19 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--业务层-->
-    <bean id="accountService"
-          class="com.linear.D01_TxBasic.AccountService">
-        <property name="accountDao" ref="accountDao" />
-    </bean>
+    <!--指定扫描包-->
+    <context:component-scan base-package="com.linear.D02_TxAnno"></context:component-scan>
 
-    <!-- 持久层 -->
-    <bean id="accountDao" class="com.linear.D01_TxBasic.AccountDao">
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
@@ -27,7 +28,7 @@
         <property name="url" value="jdbc:mysql://localhost:3306/w57_spring?serverTimezone=GMT" />
     </bean>
 
-    <!-- 57.8、基于XML配置事务！
+    <!-- 57.8、基于注解配置事务！
         tx:advice
         - 配置事务管理器
         - 配置事务通知
@@ -41,19 +42,7 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <!--2、事务通知-->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
-        </tx:attributes>
-    </tx:advice>
+    <!--开启注解事务支持-->
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
-    <!--3、aop切面-->
-    <aop:config>
-        <aop:pointcut id="pt1" expression="execution(* com.linear.D01_TxBasic.*.*(..))" />
-
-        <!--4、建立事务通知 - 切面 的对应关系-->
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt1" />
-    </aop:config>
 </beans>
