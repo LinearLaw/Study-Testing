@@ -1,0 +1,57 @@
+
+h1{padding-left:150px;padding-right:150px;}
+
+.input-line{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+/* 输入框 */
+.input-line input{
+    width:350px;
+    padding:10px 10px;
+    border-radius: 6px;
+    border:1px solid #dcdcdc;
+    outline: none;
+    font-size:16px;
+}
+
+/* 验证码 */
+.input-line input.input-charcode{
+    width:240px;
+}
+.input-line .char-code{
+    vertical-align: middle;
+    margin-left:8px;
+}
+
+
+/* 标题 */
+.input-line span.input-title {
+    display: inline-block;
+    width: 150px;
+    min-height:21px;
+    text-align: right;
+}
+/* 按钮  */
+.input-line.ibutton{padding-left: 154px;}
+.input-line.ibutton button{
+    min-width:100px;
+    padding:10px;
+    border:0px;
+    background-color: skyblue;
+    transition: all 0.3s;
+    color:#fff;
+    font-size:16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.input-line.ibutton button:hover{
+    background-color: blue;
+}
+
+/* 提示语 */
+.input-line span.notice_s{color: green;}
+.input-line span.notice_f{color: red;}
+
+/* 链接 */
+.input-line .input-link{padding-left:10px;padding-right:10px;}
