@@ -1,9 +1,11 @@
 package com.linear.domain;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private String username;
     private String password;
-    private Double money;
+    private double money;
 
     public String getUsername() {
         return username;
@@ -21,20 +23,11 @@ public class Account {
         this.password = password;
     }
 
-    public Double getMoney() {
+    public double getMoney() {
         return money;
     }
 
-    public void setMoney(Double money) {
+    public void setMoney(double money) {
         this.money = money;
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", money=" + money +
-                '}';
     }
 }

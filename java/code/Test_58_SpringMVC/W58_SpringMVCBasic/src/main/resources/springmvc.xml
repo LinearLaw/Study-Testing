@@ -24,8 +24,11 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <!-- 开启spring mvc框架注解支持-->
+    <!-- 开启spring mvc框架注解支持
+        conversion-service是为了支持解析String -> Date
+    -->
     <mvc:annotation-driven conversion-service="conversionService" />
+
 
     <!-- 放开静态资源的拦截
          如果不放开，js和css就没法加载。

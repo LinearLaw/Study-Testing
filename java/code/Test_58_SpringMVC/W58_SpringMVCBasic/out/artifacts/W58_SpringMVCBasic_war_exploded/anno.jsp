@@ -30,21 +30,17 @@
 
         <div class="input-line ibutton"><button id="submit1">RequestParam</button></div>
         <div class="input-line ibutton"> <button id="submit2">RequestBody</button></div>
-        <div class="input-line ibutton"> <button id="submit3">PathVariable</button></div>
-        <div class="input-line ibutton"> <button id="submit4">RequestHeader</button></div>
         <script>
-
             /* @RequestParam 用来进行参数映射 */
             $("#submit1").click(()=>{
                 let username = $("#username").val();
                 let password = $("#password").val();
-    
+            
                 $.ajax({ url:"/anno/reqparam", method:"post",
                     data:{username,password},
                     success:function(res){ console.log(res); }
                 })
             })
-    
             /* @RequestBody 用来传递整个的请求体 */
             $("#submit2").click(()=>{
                 let username = $("#username").val();
@@ -55,7 +51,11 @@
                     success:function(res){ console.log(res); }
                 })
             })
-    
+        </script>
+        
+        <div class="input-line ibutton"> <button id="submit3">PathVariable</button></div>
+        <div class="input-line ibutton"> <button id="submit4">RequestHeader</button></div>
+        <script>
             /* @PathVariable 用来获取动态路由的参数 */
             $("#submit3").click(()=>{
                 let name = $("#username").val();
@@ -89,6 +89,7 @@
         </script>
 
         <div class="input-line ibutton"> <button id="submit5">CookieValue</button></div>
+        <div class="input-line ibutton"> <button id="submit6">ModleAttribute</button></div>
         <script>
             $("#submit5").click(()=>{
                 let obj = {
@@ -102,6 +103,38 @@
                 })
             })
         </script>    
+
+        <div class="input-line ibutton"> <button id="submit7">ServletAPI</button></div>
+        <script>
+            $("#submit7").click(()=>{
+                let obj = {
+                    name: $("#username").val(),
+                    age : $("#password").val(),
+                    date: $("#date").val(),
+                }
+                $.ajax({ url:"/anno/servletapi", method:"post",
+                    data:obj,
+                    success:function(res){ console.log(res); }
+                })
+            })
+        </script>
+
+        <div class="input-line ibutton"> <button id="submit8">json对象返回</button></div>
+        <script>
+            $("#submit8").click(()=>{
+                let obj = {
+                    name: $("#username").val(),
+                    age : $("#password").val(),
+                    date: $("#date").val(),
+                }
+                $.ajax({ url:"/anno/req", method:"post",
+                    // contentType:"application/json;charset=UTF-8",
+                    data:obj,
+                    // dataType:"json",
+                    success:function(res){ console.log(res); }
+                })
+            })
+        </script>
 
         <div class="input-line">
             <span class="input-title"></span>

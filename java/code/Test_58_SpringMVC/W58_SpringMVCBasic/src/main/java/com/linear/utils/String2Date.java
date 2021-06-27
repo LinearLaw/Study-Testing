@@ -14,7 +14,10 @@ import java.util.Date;
 public class String2Date implements Converter<String,Date> {
 
     public Date convert(String source){
-        if(source == null){ throw new RuntimeException("数据为空");}
+        if(source == null){
+            return null;
+            // throw new RuntimeException("数据为空");
+        }
         DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 
         System.out.println("2222");

@@ -15,6 +15,8 @@
 
     <h1>执行成功</h1>
 
+    ${sessionScope}
+
     <div class="input-line">
         <span class="input-title"></span>
         <a class="input-link" href="/">回到首页</a>
