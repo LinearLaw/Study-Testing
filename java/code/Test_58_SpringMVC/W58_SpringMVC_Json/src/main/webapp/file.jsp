@@ -29,7 +29,7 @@
         </div>
 
 
-        <div class="input-line ibutton"> <button id="submit8">json对象返回</button></div>
+        <div class="input-line ibutton"><button id="submit8">上传文件</button></div>
         <script>
             $("#submit8").click(()=>{
                 
@@ -39,6 +39,8 @@
                 $.ajax({
                     url:"/upload/local",
                     type:"post",
+                    processData:false,
+                    contentType:false,
                     // contentType:"multipart/form-data",
                     data:fda,
                     success:function(res){ console.log(res); }
@@ -49,3 +51,4 @@
 
 </body>
 </html>
+

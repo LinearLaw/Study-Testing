@@ -25,7 +25,7 @@
     </bean>
 
     <!-- 开启spring mvc框架注解支持-->
-    <mvc:annotation-driven  />
+    <mvc:annotation-driven  ></mvc:annotation-driven>
 
     <!-- 放开静态资源的拦截
          如果不放开，js和css就没法加载。

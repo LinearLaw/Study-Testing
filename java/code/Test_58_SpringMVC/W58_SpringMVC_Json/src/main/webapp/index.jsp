@@ -20,6 +20,7 @@
       <span class="input-title"></span>
       <a class="input-link" href="/param.jsp">请求参数</a>
       <a class="input-link" href="/anno.jsp">常用注解</a>
+      <a class="input-link" href="/file.jsp">文件上传测试</a>
     </div>
   </div>
 </body>
