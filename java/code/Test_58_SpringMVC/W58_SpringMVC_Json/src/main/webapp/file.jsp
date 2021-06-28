@@ -47,6 +47,25 @@
                 })
             })
         </script>
+
+        <div class="input-line ibutton"><button id="submit9">跨服务器上传</button></div>
+        <script>
+            $("#submit9").click(()=>{
+                
+                let fda = new FormData();
+                fda.append("upload",$("#ulfile")[0].files[0]);  
+
+                $.ajax({
+                    url:"/upload/server",
+                    type:"post",
+                    processData:false,
+                    contentType:false,
+                    // contentType:"multipart/form-data",
+                    data:fda,
+                    success:function(res){ console.log(res); }
+                })
+            })
+</script>
     </div>
 
 </body>

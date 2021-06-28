@@ -33,9 +33,34 @@
     <mvc:resources location="/js/" mapping="/js/**" />
     <mvc:resources location="/css/" mapping="/css/**" />
 
-    <!--文件multipart解析器-->
+    <!-- 58.5、文件multipart解析器-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="10485760" />
     </bean>
+
+
+    <!--58.6、配置异常处理器-->
+    <bean id="sysExceptionResolver" class="com.linear.exception.SysExceptionResolver" />
+
+
+    <!--58.7、配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--1、配置要拦截的具体的方法1 、不进行拦截的方法-->
+            <mvc:mapping path="/interceptor/*" />
+            <mvc:exclude-mapping path="/interceptor/exclude" />
+
+            <bean class="com.linear.interceptor.D04_Interceptor_1" />
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <!--2、配置要拦截的具体的方法2 、不进行拦截的方法-->
+            <mvc:mapping path="/interceptor/*" />
+            <mvc:exclude-mapping path="/interceptor/exclude" />
+
+            <bean class="com.linear.interceptor.D04_Interceptor_2" />
+        </mvc:interceptor>
+
+    </mvc:interceptors>
 
 </beans>
