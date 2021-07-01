@@ -7,6 +7,11 @@
   <groupId>com.linear</groupId>
   <artifactId>W60_MavenAdvance</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>ssm_service</module>
+    <module>ssm_dao</module>
+    <module>ssm_web</module>
+  </modules>
   <packaging>pom</packaging>
 
   <name>Maven</name>
@@ -33,6 +38,8 @@
     <mybatis.version>3.4.5</mybatis.version>
     <spring.security.version>5.0.1.RELEASE</spring.security.version>
   </properties>
+
+
 
 
   <build>
@@ -182,6 +189,8 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
+
+      <!--加上scope，从而传递依赖-->
       <scope>test</scope>
     </dependency>
     <dependency>

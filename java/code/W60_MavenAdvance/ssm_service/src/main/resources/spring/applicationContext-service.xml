@@ -16,22 +16,25 @@
 			    http://www.springframework.org/schema/mvc
 			    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql:///w58_ssm"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+    <context:component-scan base-package="com.linear.service" />
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
     </bean>
 
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+    <tx:advice id="advice">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
 
-        <!--扫描包，给包下所有对象起别名-->
-        <property name="typeAliasesPackage" value="com.linear.domain" />
-    </bean>
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* com.linear.service.impl.*.*(..))" />
+        <aop:advisor advice-ref="advice" pointcut-ref="pointcut" />
+    </aop:config>
 
-    <!--扫描包，生成包下所有接口的代理对象，并将其加入到spring容器中-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.linear.dao" />
-    </bean>
 </beans>

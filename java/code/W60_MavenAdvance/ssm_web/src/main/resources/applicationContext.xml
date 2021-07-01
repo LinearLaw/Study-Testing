@@ -16,22 +16,7 @@
 			    http://www.springframework.org/schema/mvc
 			    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql:///w58_ssm"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-    </bean>
+    <import resource="classpath:spring/applicationContext-dao.xml" />
+    <import resource="classpath:spring/applicationContext-service.xml" />
 
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-
-        <!--扫描包，给包下所有对象起别名-->
-        <property name="typeAliasesPackage" value="com.linear.domain" />
-    </bean>
-
-    <!--扫描包，生成包下所有接口的代理对象，并将其加入到spring容器中-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.linear.dao" />
-    </bean>
 </beans>

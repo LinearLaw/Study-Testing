@@ -3,12 +3,12 @@ package com.linear.domain;
 import java.util.Date;
 
 public class Items {
-    private Integer id;
-    private String name;
-    private Double price;
-    private String pic;
-    private Date createtime;
-    private String detail;
+    public Integer id;
+    public String name;
+    public Double price;
+    public String pic;
+    public Date createtime;
+    public String detail;
 
     public Integer getId() {
         return id;
@@ -56,5 +56,17 @@ public class Items {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    @Override
+    public String toString() {
+        return "Items{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", pic='" + pic + '\'' +
+                ", createtime=" + createtime +
+                ", detail='" + detail + '\'' +
+                '}';
     }
 }
