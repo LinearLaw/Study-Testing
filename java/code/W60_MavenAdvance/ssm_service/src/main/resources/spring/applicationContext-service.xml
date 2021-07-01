@@ -18,10 +18,14 @@
 
     <context:component-scan base-package="com.linear.service" />
 
+    <!--将事务对象加入到spring容器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
+    <!--事务控制
+        哪些方法需要控制, 事务隔离级别, 事务传播行为, 是否只读
+    -->
     <tx:advice id="advice">
         <tx:attributes>
             <tx:method name="save*" propagation="REQUIRED"/>
@@ -32,9 +36,17 @@
         </tx:attributes>
     </tx:advice>
 
+    <!--定义切面,
+        在这里,将之前定义的事务指定为一个切面,并规定切面的作用范围
+        - aop:pointcut 切点, 哪些类的方法需要被增强
+        - aop:aspect    定义切面, 此时指向的通知类只需要是一般的bean即可
+        - aop:advisor   定义通知器, 此时指向的通知类必须实现Advice接口
+    -->
     <aop:config>
+        <!--切点-->
         <aop:pointcut id="pointcut" expression="execution(* com.linear.service.impl.*.*(..))" />
         <aop:advisor advice-ref="advice" pointcut-ref="pointcut" />
+
     </aop:config>
 
 </beans>
