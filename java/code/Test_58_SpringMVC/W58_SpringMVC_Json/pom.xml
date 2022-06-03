@@ -55,7 +55,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
 
     <!--锁定spring的版本号-->
-    <spring.version>5.0.2.RELEASE</spring.version>
+    <spring.version>5.2.21.RELEASE</spring.version>
   </properties>
 
   <dependencies>
