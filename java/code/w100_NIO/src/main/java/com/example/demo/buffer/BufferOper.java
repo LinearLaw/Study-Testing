@@ -2,6 +2,7 @@ package com.example.demo.buffer;
 
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
@@ -14,7 +15,10 @@ import java.nio.channels.FileChannel;
 public class BufferOper {
     public static void main(String[] args) {
         try {
-            slice();
+//            slice();
+//            readonly();
+//            allo();
+            map();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,11 +56,80 @@ public class BufferOper {
         }
     }
 
-
+    /**
+     二、只读缓冲区
+     */
     public static void readonly()throws Exception{
+        // 初始化
         ByteBuffer buffer = ByteBuffer.allocate(10);
         for(int i = 0;i<buffer.capacity();i++){
             buffer.put((byte)i);
         }
+
+        // 从原buffer中派生出只读buffer
+        ByteBuffer rb = buffer.asReadOnlyBuffer();
+
+        // 往只读buffer中写入，会直接报错
+        try{
+            rb.put(1,(byte)123);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+        // 只读
+        rb.rewind();
+        while(rb.hasRemaining()){
+            System.out.println(rb.get());
+        }
     }
+
+    /**
+    三、直接缓冲区
+     可能的优化，会避免将缓冲区内容拷贝到一个中间缓冲区；
+        可以让两个channel直连；
+     用法和普通buffer没有区别
+     */
+    public static void allo()throws Exception{
+        RandomAccessFile f1 = new RandomAccessFile(prefix + "/001.txt", "rw");
+        RandomAccessFile f2 = new RandomAccessFile(prefix + "/003.txt", "rw");
+
+        FileChannel c1 = f1.getChannel();
+        FileChannel c2 = f2.getChannel();
+
+        ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
+
+        while(true){
+            buffer.clear();
+
+            int r = c1.read(buffer);
+            if(r == -1){
+                break;
+            }
+            buffer.flip();
+            c2.write(buffer);
+        }
+
+        f1.close();
+        f2.close();
+
+    }
+
+    /**
+    四、内存映射文件IO
+     让文件数据直接映射到内存数组中
+     */
+    public static void map()throws Exception{
+        int start = 0;
+        int size = 1024;
+
+        RandomAccessFile file = new RandomAccessFile(prefix + "/001.txt", "rw");
+        FileChannel fc = file.getChannel();
+        MappedByteBuffer buffer = fc.map(FileChannel.MapMode.READ_WRITE, start, size);
+
+        buffer.put(0, (byte) 99);
+        buffer.put(1023,(byte) 122);
+        file.close();
+    }
+
+
 }
