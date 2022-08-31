@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Base_1",
+    "\\Base_1\\Basic_1",
+    "\\Base_1\\Basic_1\\Basic03"
   ],
-  "SelectedNode": "\\Test_1_View.cpp",
+  "SelectedNode": "\\Base_1\\Basic_1\\Basic03\\Basic3.cpp",
   "PreviewInSolutionExplorer": false
 }
